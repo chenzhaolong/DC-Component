@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = map;\nfunction map(arr, fn) {\n  var res = [],\n      i;\n  for (i = 0; i < arr.length; ++i) {\n    res.push(fn(arr[i], i));\n  }\n  return res;\n}"},"hash":"08a283775d55de19701c71b23a859640"}

@@ -10,8 +10,15 @@
     "babel": "^6.23.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "lodash": "^4.17.4",
     "parcel-bundler": "^1.4.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
+  },
+  "scripts": {
+    "start": "parcel index.demo.html -p 1235"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2"
   }
 }

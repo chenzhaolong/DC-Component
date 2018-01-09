@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = uid;\nvar now = +new Date();\nvar index = 0;\n\nfunction uid() {\n  return \"rc-upload-\" + now + \"-\" + ++index;\n}"},"hash":"b431f447c2ecbf24bebac83a2155114b"}

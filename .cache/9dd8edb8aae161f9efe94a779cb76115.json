@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = contains;\nfunction contains(root, n) {\n  var node = n;\n  while (node) {\n    if (node === root) {\n      return true;\n    }\n    node = node.parentNode;\n  }\n\n  return false;\n}"},"hash":"71342a60af522c21dbdc67ce61dcf963"}

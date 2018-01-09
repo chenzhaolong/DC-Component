@@ -1,0 +1,1 @@
+{"dependencies":[{"name":"../../package.json","loc":{"line":1,"column":24}}],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _package = require(\"../../package.json\");\n\nexports.default = _package.version;"},"hash":"1021fe80d9589e91077bc1f061a2b74e"}
