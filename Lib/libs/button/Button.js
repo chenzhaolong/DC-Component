@@ -2,7 +2,8 @@
  *  Button Component
  * */
 import React, {Component} from 'react';
-import scss from './style/button.scss';
+import {factoryStyle} from "../../sass/index";
+import {btnStyle} from '../../sass/button';
 
 export class Button extends Component {
     constructor(props) {
@@ -13,15 +14,16 @@ export class Button extends Component {
                 primary: 'primary',
                 dashed: 'dashed',
                 danger: 'danger'
-            }
+            },
+            defaultBtnStyle: btnStyle
         }
     }
     render() {
-        const defaultClass = this.state.type[this.props.type] ? `dc-btn-${this.props.type}` : '';
+        const defaultStyle = factoryStyle({style: this.state.defaultBtnStyle});
         return(
-            <div className={scss.style}>
+            <div>
                 <button
-                    className={'dc-btn' + ' ' + defaultClass}
+
                 >
                     {
                         this.props.children
