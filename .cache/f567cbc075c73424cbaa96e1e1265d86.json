@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.creationData = creationData;\nfunction creationData() {\n  return {\n    input: this._i,\n    format: this._f,\n    locale: this._locale,\n    isUTC: this._isUTC,\n    strict: this._strict\n  };\n}"},"hash":"30659328efcfd5432750fb90f8495e58"}

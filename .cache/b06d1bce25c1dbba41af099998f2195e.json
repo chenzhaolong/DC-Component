@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = isNumber;\nfunction isNumber(input) {\n  return typeof input === 'number' || Object.prototype.toString.call(input) === '[object Number]';\n}"},"hash":"dbe601faab029e664eecf8a5e1f9476d"}

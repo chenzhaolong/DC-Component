@@ -1,0 +1,1 @@
+{"dependencies":[{"name":"./MediaQueryDispatch","loc":{"line":1,"column":33}}],"generated":{"js":"var MediaQueryDispatch = require('./MediaQueryDispatch');\nmodule.exports = new MediaQueryDispatch();\n"},"hash":"98d5f19feea51d1e32e7d433c23b624e"}

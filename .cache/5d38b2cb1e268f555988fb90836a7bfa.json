@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar PREFIX_CLS = exports.PREFIX_CLS = 'ant-fullcalendar';"},"hash":"023c0be9e6a12461aa713157f0229fac"}

@@ -1,0 +1,1 @@
+{"dependencies":[{"name":"./slider","loc":{"line":3,"column":25}}],"generated":{"js":"'use strict';\n\nmodule.exports = require('./slider');"},"hash":"d937faaddf5e8475a359c0f2c49959d8"}

@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = isWindow;\nfunction isWindow(obj) {\n  /* eslint no-eq-null: 0 */\n  /* eslint eqeqeq: 0 */\n  return obj != null && obj == obj.window;\n}"},"hash":"d3cfe49753ae4cb1d96cfff5fd124465"}

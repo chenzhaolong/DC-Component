@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = defaults;\n// Pick the first defined of two or three arguments.\nfunction defaults(a, b, c) {\n  if (a != null) {\n    return a;\n  }\n  if (b != null) {\n    return b;\n  }\n  return c;\n}"},"hash":"e56000fe7dd19dbd9408550627a81c95"}
