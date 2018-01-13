@@ -11,7 +11,7 @@ class Demo extends Component{
     render() {
         return (
             <div>
-                <Button type='dashed' onClick={this.handle.bind(this)}>primary</Button>
+                <Button onClick={this.handle.bind(this)} icon="loading">button</Button>
             </div>
         )
     }

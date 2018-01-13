@@ -45,3 +45,32 @@
   border-style: dashed;
 }
 
+.dc-btn-disabled{
+  color: rgba(0,0,0,.25);
+  background-color: #f7f7f7;
+  border-color: #d9d9d9;
+  cursor: not-allowed;
+}
+
+.dc-btn-loading{
+  -webkit-transform: rotate(360deg);
+  animation: rotation 1s linear infinite;
+  -moz-animation: rotation 1s linear infinite;
+  -webkit-animation: rotation 1s linear infinite;
+  -o-animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  from{
+    -webkit-transform: rotate(0deg);
+  }
+  to{
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+.dc-btn_loading{
+  width: 14px;
+  height: 14px;
+  margin-top: 3px;
+}
