@@ -8,7 +8,7 @@ export class Row extends Component {
         this.state = {
             grid: '',
             privateStyle: ['marginTop', 'marginBottom', 'marginLeft', 'marginRight', 'margin',
-                           'padding', 'paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight', ]
+                           'padding', 'paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight']
         }
     }
     componentWillMount() {

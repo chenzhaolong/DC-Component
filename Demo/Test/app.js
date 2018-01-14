@@ -16,6 +16,11 @@ class Demo extends Component{
                     <Col span={3} className="col1">COL-1</Col>
                     <Col span={3} >COL-2</Col>
                 </Row>
+                <Row marginTop="10">
+                    <Col span={2}>COL-3</Col>
+                    <Col span={4}>COL-4</Col>
+                    <Col span={5}>COL-5</Col>
+                </Row>
             </div>
         )
     }

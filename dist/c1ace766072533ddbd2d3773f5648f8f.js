@@ -18992,6 +18992,25 @@ var Demo = function (_Component) {
             { span: 3 },
             "COL-2"
           )
+        ),
+        _react2.default.createElement(
+          _index.Row,
+          { marginTop: "10" },
+          _react2.default.createElement(
+            _index.Col,
+            { span: 2 },
+            "COL-3"
+          ),
+          _react2.default.createElement(
+            _index.Col,
+            { span: 4 },
+            "COL-4"
+          ),
+          _react2.default.createElement(
+            _index.Col,
+            { span: 5 },
+            "COL-5"
+          )
         )
       );
     }
