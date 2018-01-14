@@ -1,0 +1,1 @@
+{"dependencies":[{"name":"_css_loader"}],"generated":{"css":".dc-row {\n  display: inline-block;\n  min-height: 16px;\n  max-height: 53px; }\n","js":"\n        var reloadCSS = require('_css_loader');\n        module.hot.dispose(reloadCSS);\n        module.hot.accept(reloadCSS);\n      "},"hash":"039e6592d61ad98b1af665069f3bbe48"}

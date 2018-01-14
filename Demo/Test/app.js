@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-// import {Button} from 'antd';
-import {Button} from '../../Lib/index';
+// import {Row, Col} from 'antd';
+import {Button, Row, Col} from '../../Lib/index';
 import './app.css';
 
 class Demo extends Component{
@@ -11,7 +11,11 @@ class Demo extends Component{
     render() {
         return (
             <div>
-                <Button onClick={this.handle.bind(this)} icon="loading">button</Button>
+                <Button onClick={this.handle.bind(this)} icon="loading" loading>button</Button>
+                <Row>
+                    <Col span={3}>COL-1</Col>
+                    <Col span={3}>COL-2</Col>
+                </Row>
             </div>
         )
     }

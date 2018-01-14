@@ -1,17 +1,13 @@
 /**
  *  Button Component
  * */
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import Icon from '../Icon/index';
 import './button.css';
 import '../Icon/icon.css';
+import PropTypes from 'prop-types';
 
 export class Button extends Component {
-    static propTypes:  {
-        type: PropTypes.string,
-        className: PropTypes.string,
-        onClick: PropTypes.func
-    }
     constructor(props) {
         super(props);
         this.state = {
@@ -59,7 +55,7 @@ export class Button extends Component {
                     disabled={this.props.disabled}
                 >
                     {
-                        this.props.icon && !this.props.loading?
+                        this.props.icon && !this.props.loading ?
                             <img
                             src={Icon[this.props.icon]}
                             className={this._defaultIconClass()}/> : ''
@@ -72,4 +68,10 @@ export class Button extends Component {
                 </button>
         )
     }
+}
+
+Button.propTypes = {
+    type: PropTypes.string,
+    className: PropTypes.string,
+    onClick: PropTypes.func
 }

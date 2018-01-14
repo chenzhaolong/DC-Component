@@ -77,6 +77,10 @@
   height: 12px;
   margin-right: 5px;
   vertical-align: middle; }
+.dc-row {
+  display: inline-block;
+  min-height: 16px;
+  max-height: 53px; }
 .btn{
     width: 200px;
 }
