@@ -6,7 +6,9 @@ export class Row extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            grid: ''
+            grid: '',
+            privateStyle: ['marginTop', 'marginBottom', 'marginLeft', 'marginRight', 'margin',
+                           'padding', 'paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight', ]
         }
     }
     componentWillMount() {
@@ -16,6 +18,7 @@ export class Row extends Component {
     }
     componentDidMount() {
         this._isOverCurrentScreenWidth();
+        this._receivePrivateStyle();
     }
     _computeColSize(num) {
         let span = num ? num : 1;
@@ -46,8 +49,26 @@ export class Row extends Component {
             throw new Error('the total width of component of Row is over current screen!');
         }
     }
+    _receivePrivateStyle() {
+        const parent = ReactDOM.findDOMNode(this.refs.parent);
+        let _privateStyleArr = this.state.privateStyle.map(item => {
+            return {
+                key: item,
+                value: this.props[item]
+            }
+        });
+        _privateStyleArr = _privateStyleArr.filter(item => {
+            return item.value ? true : false;
+        })
+        _privateStyleArr.forEach(item => {
+            parent.style[item.key] = item.value + 'px';
+        })
+    }
     render() {
-        return <div ref="parent">
+        return <div
+            ref="parent"
+            className={this.props.className}
+        >
             {
                 this._showCol()
             }

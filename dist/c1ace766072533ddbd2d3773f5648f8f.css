@@ -84,3 +84,13 @@
 .btn{
     width: 200px;
 }
+.col1{
+     background-color: #108ee9;
+ }
+.col2{
+    background-color: aquamarine;
+}
+.flex{
+    display: flex;
+    justify-content: space-around;
+}
