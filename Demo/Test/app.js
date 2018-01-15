@@ -11,8 +11,8 @@ class Demo extends Component{
     render() {
         return (
             <div>
-                <Button onClick={this.handle.bind(this)} icon="search">loading</Button>
-                <Row marginRight="15">
+                <Button onClick={this.handle.bind(this)} type="dashed" data-key="1">loading</Button>
+                <Row marginTop="15">
                     <Col span={3} className="col1">COL-1</Col>
                     <Col span={3} >COL-2</Col>
                 </Row>

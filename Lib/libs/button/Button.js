@@ -47,12 +47,23 @@ export class Button extends Component {
         }
     }
 
+    _outerPropertyComeComponent() {
+        let btn = this.refs.btn;
+        const whiteList = ['type', 'className', 'onClick', 'disabled', 'icon'];
+        Object.keys(this.props).forEach(key => {
+            if (whiteList.indexOf(key) == -1) {
+                btn.setAttribute(key, this.props[key]);
+            }
+        })
+    }
+
     render() {
         return(
                 <button
                     className={this._defaultClass()}
                     onClick={this._clickEventHandle.bind(this)}
                     disabled={this.props.disabled}
+                    ref="btn"
                 >
                     {
                         this.props.icon && !this.props.loading ?
@@ -67,6 +78,10 @@ export class Button extends Component {
                     </span>
                 </button>
         )
+    }
+
+    componentDidMount() {
+        this._outerPropertyComeComponent();
     }
 }
 
