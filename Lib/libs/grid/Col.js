@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 export class Col extends Component {
     render() {
         return (
-            <div className={this.props.className}>
+            <div
+                className={this.props.className}
+            >
                 {this.props.children}
             </div>
         )
