@@ -89,12 +89,15 @@ export class Row extends Component {
     }
 
     _arrangeCowOrder() {
-        if (!this.props.openOrder) return;
         const parent = this.refs.parent;
         let childNodes = [];
         for (let i of parent.childNodes) {
             childNodes.push(i);
         }
+        const result = childNodes.some(child => {
+            return child.dataset.order ? true : false;
+        })
+        if (!result) return ;
         childNodes.sort((prev, next) => {
             const _defaultOrder = (item) => {
                 return item.dataset.order ? item.dataset.order : 0;
