@@ -5,13 +5,25 @@ import {Button, Row, Col, Pop} from '../../Lib/index';
 import './app.css';
 
 class Demo extends Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            disabled: false,
+            time: 0
+        }
+    }
     handle() {
-        console.log('here')
+        let time = this.state.time + 1;
+        if (time <= 5) {
+            this.setState({time})
+        } else {
+            this.setState({time: 0, disabled: true})
+        }
     }
     render() {
         return (
             <div>
-                <Button onClick={this.handle.bind(this)} type="dashed" data-key="1">loading</Button>
+                <Button onClick={this.handle.bind(this)} type="dashed" data-key="1" title="btn" disabled={this.state.disabled}>click</Button>
                 <Row marginTop="15"  className="dcs">
                     <Col span={3} className="col1" order="4">COL-1</Col>
                     <Col span={2} className="col1" order="3">COL-2</Col>

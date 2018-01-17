@@ -18,6 +18,9 @@
   -webkit-transition: all .3s;
   transition: all .3s;
   outline: none;
+}
+
+.dc-btn-hover{
   &:hover{
     background-color: #108ee9;
     color: white

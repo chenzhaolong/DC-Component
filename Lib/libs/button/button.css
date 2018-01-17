@@ -18,9 +18,10 @@
   -webkit-transition: all .3s;
   transition: all .3s;
   outline: none; }
-  .dc-btn:hover {
-    background-color: #108ee9;
-    color: white; }
+
+.dc-btn-hover:hover {
+  background-color: #108ee9;
+  color: white; }
 
 .dc-btn-danger {
   color: #fff;
