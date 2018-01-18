@@ -8,8 +8,7 @@
   display: inline-block; }
 
 .dc-defaultPop {
-  display: inline-block;
-  position: relative; }
+  display: inline-block; }
 
 .dc-pop-open {
   position: absolute; }

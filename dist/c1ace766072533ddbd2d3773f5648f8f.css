@@ -94,8 +94,7 @@
   display: inline-block; }
 
 .dc-defaultPop {
-  display: inline-block;
-  position: relative; }
+  display: inline-block; }
 
 .dc-pop-open {
   position: absolute; }
@@ -113,5 +112,5 @@
     justify-content: space-around;
 }
 .pop{
-    margin-top: 30px;
+    margin-top: 50px;
 }

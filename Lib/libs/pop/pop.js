@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import './pop.css';
 
@@ -6,36 +6,36 @@ export class Pop extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            showContent: true,
+            showContent: false,
+            position: {
+                left: '',
+                top: ''
+            }
         }
     }
 
     _handleOnMouseEnter(e) {
         this.setState({showContent: true})
-        console.log(e.type);
     }
 
     _handleOnMouseLeave(e) {
         this.setState({showContent: false})
-        console.log(e.type);
     }
 
     _handleOnClick(e) {
-
+        this.setState({showContent: true})
     }
 
-    _showOuterComponent() {
-
-        return (
-            <div
-                className="dc-pop-open"
-            >
-                {this.props.content}
-            </div>
-        )
+    _setTouchEleOffset() {
+        const btn = this.refs.btn;
+        let position = {
+            left: btn.offsetLeft,
+            top: btn.offsetTop
+        };
+        this.setState({position});
     }
 
-    componentDidMount() {
+    _touchOuterTrigger() {
         let triggerMode = this.props.trigger ? this.props.trigger : 'hover';
         const parent =  this.refs.parent;
         if (triggerMode == 'hover') {
@@ -46,6 +46,11 @@ export class Pop extends Component{
         }
     }
 
+    componentDidMount() {
+        this._setTouchEleOffset();
+        this._touchOuterTrigger();
+    }
+
     render() {
         return (
             <div
@@ -53,12 +58,57 @@ export class Pop extends Component{
                 className={['dc-defaultPop', this.props.className].join(' ')}
             >
                 {
-                    this.state.showContent ? this._showOuterComponent() : ''
+                    this.state.showContent ? <PopContent
+                        content={this.props.content}
+                        position={this.state.position}
+                    /> : ''
                 }
-                <button className="dc-pop">
+                <button
+                    className="dc-pop"
+                    ref="btn"
+                >
                     {this.props.children}
                 </button>
             </div>
         )
     }
 }
+
+class PopContent extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
+            _position : this.props.position
+        }
+    }
+    render() {
+        return (
+            <div
+                className="dc-pop-open"
+                style={this.state._position}
+                ref="popContent"
+            >
+                {this.props.content}
+            </div>
+        )
+    }
+
+    _computeContentPosition() {
+        let popContent = this.refs.popContent;
+        const {top, left} = this.props.position;
+        let contentPosition = {
+            left,
+            top: top - popContent.offsetHeight
+        };
+        this.setState({_position: contentPosition})
+    }
+
+    componentDidMount() {
+        this._computeContentPosition();
+    }
+
+    componentWillUnmount() {
+
+    }
+}
+
