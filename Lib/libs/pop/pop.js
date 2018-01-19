@@ -7,10 +7,8 @@ export class Pop extends Component{
         super(props);
         this.state = {
             showContent: false,
-            position: {
-                left: '',
-                top: ''
-            }
+            position: {left: '', top: ''},
+            btnSize: {width:'', height: ''}
         }
     }
 
@@ -23,7 +21,8 @@ export class Pop extends Component{
     }
 
     _handleOnClick(e) {
-        this.setState({showContent: true})
+        let showContent = this.state.showContent ? false : true;
+        this.setState({showContent})
     }
 
     _setTouchEleOffset() {
@@ -32,7 +31,11 @@ export class Pop extends Component{
             left: btn.offsetLeft,
             top: btn.offsetTop
         };
-        this.setState({position});
+        let btnSize = {
+            width: btn.offsetWidth,
+            height: btn.offsetHeight
+        };
+        this.setState({position, btnSize});
     }
 
     _touchOuterTrigger() {
@@ -52,6 +55,8 @@ export class Pop extends Component{
     }
 
     render() {
+        const {content, placement = 'top'} = this.props;
+        const {position, btnSize} = this.state;
         return (
             <div
                 ref="parent"
@@ -59,8 +64,10 @@ export class Pop extends Component{
             >
                 {
                     this.state.showContent ? <PopContent
-                        content={this.props.content}
-                        position={this.state.position}
+                        content={content}
+                        position={position}
+                        placement={placement}
+                        btnSize={btnSize}
                     /> : ''
                 }
                 <button
@@ -81,6 +88,45 @@ class PopContent extends PureComponent {
             _position : this.props.position
         }
     }
+
+    _computeContentPosition() {
+        let popContent = this.refs.popContent;
+        const {top, left} = this.props.position;
+        const {width, height} = this.props.btnSize;
+        const placementAction = {
+            'top':  () => {
+                return {
+                    top: top - popContent.offsetHeight,
+                    left: left - popContent.offsetWidth/2 + width/2,
+                }
+            },
+            'bottom': () => {
+                return {
+                    top: top + height,
+                    left: left - popContent.offsetWidth/2 + width/2,
+                }
+            },
+            'left': () => {
+                return {
+                    top: top - popContent.offsetHeight/2 + height/2,
+                    left: left - popContent.offsetWidth
+                }
+            },
+            'right': () => {
+                return {
+                    top: top - popContent.offsetHeight/2 + height/2,
+                    left: left + width
+                }
+            }
+        };
+        let contentPosition = placementAction[this.props.placement]();
+        this.setState({_position: contentPosition})
+    }
+
+    componentDidMount() {
+        this._computeContentPosition();
+    }
+
     render() {
         return (
             <div
@@ -91,24 +137,6 @@ class PopContent extends PureComponent {
                 {this.props.content}
             </div>
         )
-    }
-
-    _computeContentPosition() {
-        let popContent = this.refs.popContent;
-        const {top, left} = this.props.position;
-        let contentPosition = {
-            left,
-            top: top - popContent.offsetHeight
-        };
-        this.setState({_position: contentPosition})
-    }
-
-    componentDidMount() {
-        this._computeContentPosition();
-    }
-
-    componentWillUnmount() {
-
     }
 }
 

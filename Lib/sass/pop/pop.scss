@@ -14,4 +14,19 @@
 
 .dc-pop-open{
   position: absolute;
+  z-index: 1030;
+  cursor: auto;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  white-space: normal;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: left;
+  min-width: 180px;
+  min-height: 90px;
+  border: 1px #e5e5e5 solid;
+  border-radius: 5px;
 }

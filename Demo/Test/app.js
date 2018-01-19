@@ -37,9 +37,10 @@ class Demo extends Component{
                     <Col span={5}>COL-5</Col>
                 </Row>
                 <Pop
-                    trigger="click"
+                    // trigger="click"
                     content="你好"
                     className="pop"
+                    placement="bottom"
                 >冒泡</Pop>
             </div>
         )

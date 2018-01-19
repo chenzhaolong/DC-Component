@@ -12,5 +12,8 @@
     justify-content: space-around;
 }
 .pop{
+    width: 30px;
+    height: 60px;
     margin-top: 50px;
+    margin-left: 100px;
 }
