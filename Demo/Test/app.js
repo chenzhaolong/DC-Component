@@ -37,12 +37,32 @@ class Demo extends Component{
                     <Col span={5}>COL-5</Col>
                 </Row>
                 <Pop
-                    // trigger="click"
-                    content="你好"
+                    trigger="hover"
+                    content={
+                        <div className="size">hesadf</div>
+                    }
+                    placement="right"
+                    title="标题"
+                >
+                    <Button onClick={this.handle.bind(this)} type="dashed" data-key="1" title="btn" disabled={this.state.disabled}>click</Button>
+                </Pop>
+                <Pop
+                    trigger="click"
+                    content="hellow"
                     className="pop"
                     placement="bottom"
-                >冒泡</Pop>
+                >bottom</Pop>
+                <Pop
+                    trigger="click"
+                    content="hellow"
+                    className="pop"
+                    placement="left"
+                >left</Pop>
+                <Pop
+                    content="hellow"
+                >right</Pop>
             </div>
+
         )
     }
 }

@@ -22,7 +22,8 @@ export class Pop extends Component{
 
     _handleOnClick(e) {
         let showContent = this.state.showContent ? false : true;
-        this.setState({showContent})
+        this.setState({showContent});
+        e.stopPropagation();
     }
 
     _setTouchEleOffset() {
@@ -52,10 +53,13 @@ export class Pop extends Component{
     componentDidMount() {
         this._setTouchEleOffset();
         this._touchOuterTrigger();
+        window.addEventListener('click', function() {
+            if (this.state.showContent) this.setState({showContent: false})
+        }.bind(this), false);
     }
 
     render() {
-        const {content, placement = 'top'} = this.props;
+        const {content, placement = 'top', title} = this.props;
         const {position, btnSize} = this.state;
         return (
             <div
@@ -68,14 +72,15 @@ export class Pop extends Component{
                         position={position}
                         placement={placement}
                         btnSize={btnSize}
+                        title={title}
                     /> : ''
                 }
-                <button
+                <div
                     className="dc-pop"
                     ref="btn"
                 >
                     {this.props.children}
-                </button>
+                </div>
             </div>
         )
     }
@@ -85,7 +90,13 @@ class PopContent extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            _position : this.props.position
+            _position : this.props.position,
+            _arrowToward: {
+                'top': 'dc-pop-top',
+                'bottom': 'dc-pop-bottom',
+                'right': 'dc-pop-right',
+                'left': 'dc-pop-left'
+            }
         }
     }
 
@@ -98,24 +109,28 @@ class PopContent extends PureComponent {
                 return {
                     top: top - popContent.offsetHeight,
                     left: left - popContent.offsetWidth/2 + width/2,
+                    marginTop: '-8px'
                 }
             },
             'bottom': () => {
                 return {
                     top: top + height,
                     left: left - popContent.offsetWidth/2 + width/2,
+                    marginTop: "8px"
                 }
             },
             'left': () => {
                 return {
                     top: top - popContent.offsetHeight/2 + height/2,
-                    left: left - popContent.offsetWidth
+                    left: left - popContent.offsetWidth,
+                    marginLeft: '-8px'
                 }
             },
             'right': () => {
                 return {
                     top: top - popContent.offsetHeight/2 + height/2,
-                    left: left + width
+                    left: left + width,
+                    marginLeft: '8px'
                 }
             }
         };
@@ -128,13 +143,23 @@ class PopContent extends PureComponent {
     }
 
     render() {
+        const {_arrowToward} = this.state;
+        const {placement, title} = this.props;
         return (
             <div
                 className="dc-pop-open"
                 style={this.state._position}
                 ref="popContent"
             >
-                {this.props.content}
+               <div className={_arrowToward[placement]}></div>
+                <div className="dc-pop-content">
+                    {
+                        title ? <div className="dc-content-title">{title}</div> : ''
+                    }
+                    <div className="dc-content-txt">
+                        {this.props.content}
+                    </div>
+                </div>
             </div>
         )
     }

@@ -12,8 +12,13 @@
     justify-content: space-around;
 }
 .pop{
-    width: 30px;
+    width: 60px;
     height: 60px;
     margin-top: 50px;
     margin-left: 100px;
+    border: 1px solid;
+}
+.size{
+    width:200px;
+    height: 100px;
 }

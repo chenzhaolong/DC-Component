@@ -85,12 +85,8 @@
   flex-direction: row;
   justify-content: space-between; }
 .dc-pop {
-  min-width: 80px;
-  min-height: 30px;
   width: 100%;
   height: 100%;
-  border-radius: 2px;
-  outline: none;
   display: inline-block; }
 
 .dc-defaultPop {
@@ -109,10 +105,69 @@
   line-height: 1.5;
   font-weight: 400;
   text-align: left;
-  min-width: 180px;
-  min-height: 90px;
   border: 1px #e5e5e5 solid;
-  border-radius: 5px; }
+  border-radius: 5px;
+  background-color: white; }
+
+.dc-pop-top {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  margin-left: -5px;
+  transform: rotate(45deg);
+  border-bottom: 1px #e5e5e5 solid;
+  border-right: 1px #e5e5e5 solid; }
+
+.dc-pop-bottom {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  margin-left: -5px;
+  transform: rotate(45deg);
+  border-top: 1px #e5e5e5 solid;
+  border-left: 1px #e5e5e5 solid; }
+
+.dc-pop-right {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  margin-top: -5px;
+  transform: rotate(45deg);
+  border-bottom: 1px #e5e5e5 solid;
+  border-left: 1px #e5e5e5 solid; }
+
+.dc-pop-left {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  margin-top: -5px;
+  transform: rotate(45deg);
+  border-top: 1px #e5e5e5 solid;
+  border-right: 1px #e5e5e5 solid; }
+
+.dc-pop-content {
+  min-width: 90px;
+  min-height: 90px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2); }
+  .dc-pop-content .dc-content-title {
+    padding: 0 16px;
+    height: 32px;
+    line-height: 32px;
+    border-bottom: 1px #e5e5e5 solid; }
+  .dc-pop-content .dc-content-txt {
+    padding: 8px 16px; }
 .btn{
     width: 200px;
 }
@@ -127,8 +182,13 @@
     justify-content: space-around;
 }
 .pop{
-    width: 30px;
+    width: 60px;
     height: 60px;
     margin-top: 50px;
     margin-left: 100px;
+    border: 1px solid;
+}
+.size{
+    width:200px;
+    height: 100px;
 }
