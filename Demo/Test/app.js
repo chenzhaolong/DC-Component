@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Popover} from 'antd';
-import {Button, Row, Col, Pop} from '../../Lib/index';
+import {Button, Row, Col, Pop, Modal} from '../../Lib/index';
 import './app.css';
 
 class Demo extends Component{
@@ -23,7 +23,7 @@ class Demo extends Component{
     render() {
         return (
             <div>
-                <Button onClick={this.handle.bind(this)} type="dashed" data-key="1" title="btn" disabled={this.state.disabled}>click</Button>
+                <Button onClick={this.handle.bind(this)} type="dashed" data-key="1" icon="house" disabled={this.state.disabled}>click</Button>
                 <Row marginTop="15"  className="dcs">
                     <Col span={3} className="col1" order="4">COL-1</Col>
                     <Col span={2} className="col1" order="3">COL-2</Col>
@@ -61,6 +61,13 @@ class Demo extends Component{
                 <Pop
                     content="hellow"
                 >right</Pop>
+                <Modal
+                    visible={true}
+                    content="nisadf"
+                    title="标题"
+                >
+
+                </Modal>
             </div>
 
         )

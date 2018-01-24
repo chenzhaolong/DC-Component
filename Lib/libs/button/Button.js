@@ -2,7 +2,7 @@
  *  Button Component
  * */
 import React, {Component} from 'react';
-import Icon from '../Icon/index';
+import {IconLib} from '../Icon/index';
 import './button.css';
 import '../Icon/icon.css';
 import PropTypes from 'prop-types';
@@ -43,7 +43,7 @@ export class Button extends Component {
             return this.props.children;
         } else if (this.props.loading) {
             return <img
-                src={Icon['loading']}
+                src={IconLib['loading']}
                 className="dc-btn-loading dc-btn_loading"/>
         } else {
             return ;
@@ -97,7 +97,7 @@ export class Button extends Component {
                     {
                         this.props.icon && !this.props.loading ?
                             <img
-                            src={Icon[this.props.icon]}
+                            src={IconLib[this.props.icon]}
                             className={this._defaultIconClass()}/> : ''
                     }
                     <span>

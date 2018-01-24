@@ -1,4 +1,6 @@
-export default {
+import React, {Component, PureComponent} from 'react';
+
+export const IconLib = {
     'search': require('./images/search.png'),
     'position': require('./images/position.png'),
     'house': require('./images/house.png'),
@@ -11,4 +13,16 @@ export default {
     'refresh': require('./images/refresh.png'),
     'tool': require('./images/tool.png'),
     'loading': require('./images/loading.png'),
+    "close": require('./images/close.png')
+}
+
+export class Icon extends Component {
+    render() {
+        const {type, width, height} = this.props;
+        return (
+            <div className="dc-icon-img">
+                <img src={IconLib[type]}/>
+            </div>
+        )
+    }
 }
