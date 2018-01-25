@@ -38,11 +38,12 @@ export class Modal extends Component{
                     {
                         title ? this._renderHeader(title): ''
                     }
-                    <article>
+                    <article className="dc-modal-body">
                         {modalContent}
                     </article>
-                    <footer>
-
+                    <footer className="dc-modal-footer">
+                        <span className="dc-modal-btn">关闭</span>
+                        <span className="dc-modal-btn dc-modal-sure">确定</span>
                     </footer>
                 </div>
             </div>

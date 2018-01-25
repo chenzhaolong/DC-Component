@@ -114634,10 +114634,23 @@ var Modal = exports.Modal = function (_Component) {
           title ? this._renderHeader(title) : '',
           _react2.default.createElement(
             "article",
-            null,
+            { className: "dc-modal-body" },
             modalContent
           ),
-          _react2.default.createElement("footer", null)
+          _react2.default.createElement(
+            "footer",
+            { className: "dc-modal-footer" },
+            _react2.default.createElement(
+              "span",
+              { className: "dc-modal-btn" },
+              "\u5173\u95ED"
+            ),
+            _react2.default.createElement(
+              "span",
+              { className: "dc-modal-btn dc-modal-sure" },
+              "\u786E\u5B9A"
+            )
+          )
         )
       );
     }
