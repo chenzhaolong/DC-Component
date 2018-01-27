@@ -20,7 +20,7 @@ export class Icon extends Component {
     render() {
         const {type, width, height} = this.props;
         return (
-            <div className="dc-icon-img">
+            <div className="dc-icon-img" style={{width, height}}>
                 <img src={IconLib[type]}/>
             </div>
         )

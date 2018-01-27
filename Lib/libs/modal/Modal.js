@@ -28,6 +28,16 @@ export class Modal extends Component{
         )
     }
 
+    _clickHandle(e) {
+        const target = e.target;
+        if (target.title = 'sure') {
+            if (this.props.onClose) this.props.onClose();
+            this._closeModal();
+        } else {
+            if (this.props.onSure) this.props.onSure();
+        }
+    }
+
     _renderModal() {
         const {content, title, children} = this.props;
         const modalContent = children || content;
@@ -41,9 +51,9 @@ export class Modal extends Component{
                     <article className="dc-modal-body">
                         {modalContent}
                     </article>
-                    <footer className="dc-modal-footer">
-                        <span className="dc-modal-btn">关闭</span>
-                        <span className="dc-modal-btn dc-modal-sure">确定</span>
+                    <footer className="dc-modal-footer" onClick={this._clickHandle.bind(this)}>
+                        <span className="dc-modal-btn" title="cancel">关闭</span>
+                        <span className="dc-modal-btn dc-modal-sure" title="sure">确定</span>
                     </footer>
                 </div>
             </div>
