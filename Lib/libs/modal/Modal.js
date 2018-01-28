@@ -1,18 +1,30 @@
 import React, {Component, PureComponent} from 'react';
+import {render} from 'react-dom';
 import PropTypes from 'prop-types';
 import "./modal.css";
 import {Icon} from '../../libs/Icon/index';
+import {Confirm} from './confirm';
+import {_renderComponent} from './tool';
 
 export class Modal extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            visible: this.props.visible
+            _visible: false
         }
     }
 
     _closeModal(e) {
-        this.setState({visible: false})
+        this.setState({_visible: false})
+    }
+
+    _clickHandle(e) {
+        const target = e.target;
+        if (target.title == 'cancel') {
+             this.props.onCancel();
+        } else {
+             this.props.onSure();
+        }
     }
 
     _renderHeader(title) {
@@ -28,22 +40,23 @@ export class Modal extends Component{
         )
     }
 
-    _clickHandle(e) {
-        const target = e.target;
-        if (target.title = 'sure') {
-            if (this.props.onClose) this.props.onClose();
-            this._closeModal();
-        } else {
-            if (this.props.onSure) this.props.onSure();
-        }
+    _renderLoading() {
+        return (
+           <div>
+                <span className="dc-modal-loading">
+                <Icon type="circle-loading" circle width="14px" height="14px"/>
+            </span>
+               请等待
+           </div>
+        )
     }
 
     _renderModal() {
-        const {content, title, children} = this.props;
+        const {content, title, children, text, musk = true} = this.props;
         const modalContent = children || content;
         return (
             <div>
-                <div className="dc-modal-musk"></div>
+                {musk ? <div className="dc-modal-musk"></div> : ''}
                 <div className="dc-modal-content">
                     {
                         title ? this._renderHeader(title): ''
@@ -52,26 +65,47 @@ export class Modal extends Component{
                         {modalContent}
                     </article>
                     <footer className="dc-modal-footer" onClick={this._clickHandle.bind(this)}>
-                        <span className="dc-modal-btn" title="cancel">关闭</span>
-                        <span className="dc-modal-btn dc-modal-sure" title="sure">确定</span>
+                        <span className="dc-modal-btn" title="cancel">
+                            {text && text.cancel ? text.cancel : '关闭'}
+                            </span>
+                        <span className="dc-modal-btn dc-modal-sure" title="sure">
+                            {this.props.confirmLoading ? this._renderLoading() : (text && text.sure ? text.sure : '确定')}
+                        </span>
                     </footer>
                 </div>
             </div>
         )
     }
 
+    componentWillReceiveProps(newProps) {
+        this.setState({_visible: newProps.visible});
+    }
+
     render() {
-        const {visible} = this.state;
+        const {_visible} = this.state;
         return (
             <div>
                 {
-                    visible ? this._renderModal() : ''
+                    _visible ? this._renderModal() : ''
                 }
             </div>
         )
     }
+
+    static confirm(spec) {
+        _renderComponent("div", "confirm")(Confirm, spec);
+    }
 }
 
 Modal.propTypes = {
-    visible: PropTypes.bool.isRequired
+    visible: PropTypes.bool.isRequired,
+    content: function(props, propName, componentName) {
+        if (!props[propName]) {
+            throw new Error(
+                `content is require in ${componentName}`
+            );
+        }
+    },
+    onCancel: PropTypes.func.isRequired,
+    onSure: PropTypes.func.isRequired,
 }

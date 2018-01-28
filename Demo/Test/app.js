@@ -4,28 +4,49 @@ import {Popover} from 'antd';
 import {Button, Row, Col, Pop, Modal, Icon} from '../../Lib/index';
 import './app.css';
 
+
+const {confirm} = Modal;
 class Demo extends Component{
     constructor(props) {
         super(props);
         this.state = {
             disabled: false,
             time: 0,
-            show: false
+            show: false,
+            confirmShow: false,
         }
     }
     handle() {
-        if (this.state.show) {
-            this.setState({show: false});
-        } else {
-            this.setState({show: true});
-        }
-
         let time = this.state.time + 1;
         if (time <= 5) {
-            this.setState({time})
+            this.setState({time, show: true})
         } else {
-            this.setState({time: 0, disabled: true})
+            this.setState({time: 0, disabled: true, show: true})
         }
+    }
+    cancel() {
+        this.setState({show: false});
+    }
+    sure() {
+        this.setState({confirmShow: true}, () => {
+            setTimeout(function () {
+                this.setState({show: false, confirmShow: false});
+            }.bind(this), 5000)
+        })
+    }
+    showConfirm() {
+        confirm({
+            type: 'success',
+            title: 'Want to delete these items?',
+            content: 'some descriptions',
+            musk: false,
+            onSure() {
+                console.log('OK');
+            },
+            onCancel() {
+                console.log('Cancel');
+            },
+        });
     }
     render() {
         return (
@@ -77,16 +98,28 @@ class Demo extends Component{
                 </Pop>
                 <Modal
                     visible={this.state.show}
-                    content="nisadf"
+                    content={<Text/>}
                     title="标题"
+                    onCancel={this.cancel.bind(this)}
+                    onSure={this.sure.bind(this)}
+                    confirmLoading={this.state.confirmShow}
+                    text={{cancel: '去取消', sure: '请购物'}}
                 >
                 </Modal>
-                {
-                    React.Children.map(['k','l'], k=> <span>{k}</span>)
-                }
+                <Button
+                    onClick={this.showConfirm.bind(this)}
+                    type="dashed"
+                >confirm</Button>
             </div>
-
         )
+    }
+}
+
+class Text extends Component {
+    render() {
+        return <div>
+            <p>hello baidu ！</p>
+        </div>
     }
 }
 

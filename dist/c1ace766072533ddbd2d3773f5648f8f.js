@@ -113681,6 +113681,18 @@ module.exports="/dist/6f45b679d67a7fd94e801178f66490d4.png";
 module.exports="/dist/0c9a2be799347ec44d65bc3851e29bd7.png";
 },{}],30:[function(require,module,exports) {
 module.exports="/dist/33e1739cce621362003e3a37f07c6224.png";
+},{}],946:[function(require,module,exports) {
+module.exports="/dist/bbac9d94e919c20e81add8cbd949a7ab.png";
+},{}],949:[function(require,module,exports) {
+module.exports="/dist/d02d3a2b4e5543ccbc93233a0d9e8216.png";
+},{}],952:[function(require,module,exports) {
+module.exports="/dist/93b24f7c14f975904e206fe950db3949.png";
+},{}],951:[function(require,module,exports) {
+module.exports="/dist/13cf694db5b2a548b925d973bf89d3de.png";
+},{}],950:[function(require,module,exports) {
+module.exports="/dist/20d8e684403cc5dcb4d59241aa4cc9da.png";
+},{}],953:[function(require,module,exports) {
+module.exports="/dist/392c272b4376770bda9891c8fbee3a05.png";
 },{}],10:[function(require,module,exports) {
 "use strict";
 
@@ -113716,7 +113728,13 @@ var IconLib = exports.IconLib = {
   'refresh': require('./images/refresh.png'),
   'tool': require('./images/tool.png'),
   'loading': require('./images/loading.png'),
-  "close": require('./images/close.png')
+  "close": require('./images/close.png'),
+  "circle-loading": require('./images/circle-loading.png'),
+  "warning": require('./images/warning.png'),
+  "error": require('./images/error.png'),
+  "question": require('./images/question.png'),
+  "success": require('./images/success.png'),
+  "info": require('./images/info.png')
 };
 
 var Icon = exports.Icon = function (_Component) {
@@ -113729,6 +113747,13 @@ var Icon = exports.Icon = function (_Component) {
   }
 
   _createClass(Icon, [{
+    key: "defaultClass",
+    value: function defaultClass() {
+      var defalutClass = ['dc-icon-img'];
+      if (this.props.type == 'circle-loading' && this.props.circle) defalutClass.push('dc-icon-loading');
+      return defalutClass.join(" ");
+    }
+  }, {
     key: "render",
     value: function render() {
       var _props = this.props,
@@ -113738,7 +113763,7 @@ var Icon = exports.Icon = function (_Component) {
 
       return _react2.default.createElement(
         "div",
-        { className: "dc-icon-img", style: { width: width, height: height } },
+        { className: this.defaultClass(), style: { width: width, height: height } },
         _react2.default.createElement("img", { src: IconLib[type] })
       );
     }
@@ -113746,7 +113771,7 @@ var Icon = exports.Icon = function (_Component) {
 
   return Icon;
 }(_react.Component);
-},{"react":31,"./images/search.png":18,"./images/position.png":19,"./images/house.png":20,"./images/arrow-down.png":21,"./images/download.png":22,"./images/favorite.png":24,"./images/good.png":23,"./images/iconfont-phone.png":25,"./images/iconfont-xingxing.png":26,"./images/refresh.png":27,"./images/tool.png":28,"./images/loading.png":29,"./images/close.png":30}],12:[function(require,module,exports) {
+},{"react":31,"./images/search.png":18,"./images/position.png":19,"./images/house.png":20,"./images/arrow-down.png":21,"./images/download.png":22,"./images/favorite.png":24,"./images/good.png":23,"./images/iconfont-phone.png":25,"./images/iconfont-xingxing.png":26,"./images/refresh.png":27,"./images/tool.png":28,"./images/loading.png":29,"./images/close.png":30,"./images/circle-loading.png":946,"./images/warning.png":949,"./images/error.png":952,"./images/question.png":951,"./images/success.png":950,"./images/info.png":953}],12:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -114546,7 +114571,201 @@ var PopContent = function (_PureComponent) {
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":5}],9:[function(require,module,exports) {
+},{"_css_loader":5}],947:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Confirm = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _index = require("../../libs/Icon/index");
+
+require("./modal.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Confirm = exports.Confirm = function (_Component) {
+  _inherits(Confirm, _Component);
+
+  function Confirm(props) {
+    _classCallCheck(this, Confirm);
+
+    var _this = _possibleConstructorReturn(this, (Confirm.__proto__ || Object.getPrototypeOf(Confirm)).call(this, props));
+
+    _this.state = {
+      _show: false
+    };
+    return _this;
+  }
+
+  _createClass(Confirm, [{
+    key: "_renderHead",
+    value: function _renderHead(title, type) {
+      return _react2.default.createElement(
+        "header",
+        null,
+        _react2.default.createElement(_index.Icon, { type: type, width: "26px", height: "26px" }),
+        _react2.default.createElement(
+          "span",
+          { style: { verticalAlign: 'top', marginLeft: '14px' } },
+          title
+        )
+      );
+    }
+  }, {
+    key: "_clickHandle",
+    value: function _clickHandle(e) {
+      var target = e.target;
+      if (target.title == 'cancel') {
+        this.props.onCancel();
+      } else {
+        this.props.onSure();
+      }
+      this.props.removeRootElement('confirm');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _props = this.props,
+          title = _props.title,
+          content = _props.content,
+          _props$type = _props.type,
+          type = _props$type === undefined ? 'question' : _props$type,
+          _props$musk = _props.musk,
+          musk = _props$musk === undefined ? true : _props$musk;
+
+      return _react2.default.createElement(
+        "div",
+        null,
+        musk ? _react2.default.createElement("div", { className: "dc-modal-musk" }) : '',
+        _react2.default.createElement(
+          "article",
+          { className: "dc-modal-content dc-confirm-content" },
+          title ? this._renderHead(title, type) : '',
+          _react2.default.createElement(
+            "div",
+            { className: "dc-confirm-text" },
+            content
+          ),
+          _react2.default.createElement(
+            "footer",
+            { className: "dc-modal-footer", onClick: this._clickHandle.bind(this) },
+            type == "question" ? _react2.default.createElement(
+              "span",
+              { className: "dc-modal-btn", title: "cancel" },
+              "\u5173\u95ED"
+            ) : '',
+            _react2.default.createElement(
+              "span",
+              { className: "dc-modal-btn dc-modal-sure", title: "sure" },
+              "\u786E\u5B9A"
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Confirm;
+}(_react.Component);
+},{"react":31,"../../libs/Icon/index":10,"./modal.css":16}],948:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+exports._renderComponent = _renderComponent;
+
+var _reactDom = require("react-dom");
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ *  create a element of root in body
+ *  @param: tag is a tag of a element of html
+ *  @param: id is a attribute of this element
+ * */
+function createRootElement(tag, id) {
+  var ele = document.createElement(tag);
+  ele.id = id;
+  document.body.appendChild(ele);
+}
+
+/**
+ *  remove a element of id
+ * */
+function removeRootElement(id) {
+  var ele = document.getElementById(id);
+  document.body.removeChild(ele);
+}
+
+/**
+ *  create HOC
+ * */
+function createHoc(Com, spec) {
+  return function (_Component) {
+    _inherits(_class, _Component);
+
+    function _class() {
+      _classCallCheck(this, _class);
+
+      return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
+    }
+
+    _createClass(_class, [{
+      key: "render",
+      value: function render() {
+        var option = Object.assign({}, spec, { removeRootElement: removeRootElement });
+        return _react2.default.createElement(
+          "div",
+          null,
+          _react2.default.createElement(Com, option)
+        );
+      }
+    }]);
+
+    return _class;
+  }(_react.Component);
+}
+
+/**
+ *  render the component of Confirm in the body
+ *  @param: Com is a component
+ * */
+function _renderComponent(tag, id) {
+  createRootElement(tag, id);
+  return function (Com, spec) {
+    var RenderCom = createHoc(Com, spec);
+    (0, _reactDom.render)(_react2.default.createElement(RenderCom, null), document.getElementById(id));
+  };
+}
+},{"react-dom":32,"react":31}],9:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -114560,6 +114779,8 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = require("react-dom");
+
 var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
@@ -114567,6 +114788,10 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 require("./modal.css");
 
 var _index = require("../../libs/Icon/index");
+
+var _confirm = require("./confirm");
+
+var _tool = require("./tool");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -114585,7 +114810,7 @@ var Modal = exports.Modal = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Modal.__proto__ || Object.getPrototypeOf(Modal)).call(this, props));
 
     _this.state = {
-      visible: _this.props.visible
+      _visible: false
     };
     return _this;
   }
@@ -114593,7 +114818,17 @@ var Modal = exports.Modal = function (_Component) {
   _createClass(Modal, [{
     key: "_closeModal",
     value: function _closeModal(e) {
-      this.setState({ visible: false });
+      this.setState({ _visible: false });
+    }
+  }, {
+    key: "_clickHandle",
+    value: function _clickHandle(e) {
+      var target = e.target;
+      if (target.title == 'cancel') {
+        this.props.onCancel();
+      } else {
+        this.props.onSure();
+      }
     }
   }, {
     key: "_renderHeader",
@@ -114616,15 +114851,18 @@ var Modal = exports.Modal = function (_Component) {
       );
     }
   }, {
-    key: "_clickHandle",
-    value: function _clickHandle(e) {
-      var target = e.target;
-      if (target.title = 'sure') {
-        if (this.props.onClose) this.props.onClose();
-        this._closeModal();
-      } else {
-        if (this.props.onSure) this.props.onSure();
-      }
+    key: "_renderLoading",
+    value: function _renderLoading() {
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "span",
+          { className: "dc-modal-loading" },
+          _react2.default.createElement(_index.Icon, { type: "circle-loading", circle: true, width: "14px", height: "14px" })
+        ),
+        "\u8BF7\u7B49\u5F85"
+      );
     }
   }, {
     key: "_renderModal",
@@ -114632,13 +114870,16 @@ var Modal = exports.Modal = function (_Component) {
       var _props = this.props,
           content = _props.content,
           title = _props.title,
-          children = _props.children;
+          children = _props.children,
+          text = _props.text,
+          _props$musk = _props.musk,
+          musk = _props$musk === undefined ? true : _props$musk;
 
       var modalContent = children || content;
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement("div", { className: "dc-modal-musk" }),
+        musk ? _react2.default.createElement("div", { className: "dc-modal-musk" }) : '',
         _react2.default.createElement(
           "div",
           { className: "dc-modal-content" },
@@ -114654,27 +114895,37 @@ var Modal = exports.Modal = function (_Component) {
             _react2.default.createElement(
               "span",
               { className: "dc-modal-btn", title: "cancel" },
-              "\u5173\u95ED"
+              text && text.cancel ? text.cancel : '关闭'
             ),
             _react2.default.createElement(
               "span",
               { className: "dc-modal-btn dc-modal-sure", title: "sure" },
-              "\u786E\u5B9A"
+              this.props.confirmLoading ? this._renderLoading() : text && text.sure ? text.sure : '确定'
             )
           )
         )
       );
     }
   }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(newProps) {
+      this.setState({ _visible: newProps.visible });
+    }
+  }, {
     key: "render",
     value: function render() {
-      var visible = this.state.visible;
+      var _visible = this.state._visible;
 
       return _react2.default.createElement(
         "div",
         null,
-        visible ? this._renderModal() : ''
+        _visible ? this._renderModal() : ''
       );
+    }
+  }], [{
+    key: "confirm",
+    value: function confirm(spec) {
+      (0, _tool._renderComponent)("div", "confirm")(_confirm.Confirm, spec);
     }
   }]);
 
@@ -114682,9 +114933,16 @@ var Modal = exports.Modal = function (_Component) {
 }(_react.Component);
 
 Modal.propTypes = {
-  visible: _propTypes2.default.bool.isRequired
+  visible: _propTypes2.default.bool.isRequired,
+  content: function content(props, propName, componentName) {
+    if (!props[propName]) {
+      throw new Error("content is require in " + componentName);
+    }
+  },
+  onCancel: _propTypes2.default.func.isRequired,
+  onSure: _propTypes2.default.func.isRequired
 };
-},{"react":31,"prop-types":174,"./modal.css":16,"../../libs/Icon/index":10}],4:[function(require,module,exports) {
+},{"react":31,"react-dom":32,"prop-types":174,"./modal.css":16,"../../libs/Icon/index":10,"./confirm":947,"./tool":948}],4:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -114744,6 +115002,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var confirm = _index.Modal.confirm;
+
 var Demo = function (_Component) {
   _inherits(Demo, _Component);
 
@@ -114755,7 +115015,8 @@ var Demo = function (_Component) {
     _this.state = {
       disabled: false,
       time: 0,
-      show: false
+      show: false,
+      confirmShow: false
     };
     return _this;
   }
@@ -114763,18 +115024,44 @@ var Demo = function (_Component) {
   _createClass(Demo, [{
     key: "handle",
     value: function handle() {
-      if (this.state.show) {
-        this.setState({ show: false });
-      } else {
-        this.setState({ show: true });
-      }
-
       var time = this.state.time + 1;
       if (time <= 5) {
-        this.setState({ time: time });
+        this.setState({ time: time, show: true });
       } else {
-        this.setState({ time: 0, disabled: true });
+        this.setState({ time: 0, disabled: true, show: true });
       }
+    }
+  }, {
+    key: "cancel",
+    value: function cancel() {
+      this.setState({ show: false });
+    }
+  }, {
+    key: "sure",
+    value: function sure() {
+      var _this2 = this;
+
+      this.setState({ confirmShow: true }, function () {
+        setTimeout(function () {
+          this.setState({ show: false, confirmShow: false });
+        }.bind(_this2), 5000);
+      });
+    }
+  }, {
+    key: "showConfirm",
+    value: function showConfirm() {
+      confirm({
+        type: 'success',
+        title: 'Want to delete these items?',
+        content: 'some descriptions',
+        musk: false,
+        onSure: function onSure() {
+          console.log('OK');
+        },
+        onCancel: function onCancel() {
+          console.log('Cancel');
+        }
+      });
     }
   }, {
     key: "render",
@@ -114887,21 +115174,53 @@ var Demo = function (_Component) {
         ),
         _react2.default.createElement(_index.Modal, {
           visible: this.state.show,
-          content: "nisadf",
-          title: "\u6807\u9898"
+          content: _react2.default.createElement(Text, null),
+          title: "\u6807\u9898",
+          onCancel: this.cancel.bind(this),
+          onSure: this.sure.bind(this),
+          confirmLoading: this.state.confirmShow,
+          text: { cancel: '去取消', sure: '请购物' }
         }),
-        _react2.default.Children.map(['k', 'l'], function (k) {
-          return _react2.default.createElement(
-            "span",
-            null,
-            k
-          );
-        })
+        _react2.default.createElement(
+          _index.Button,
+          {
+            onClick: this.showConfirm.bind(this),
+            type: "dashed"
+          },
+          "confirm"
+        )
       );
     }
   }]);
 
   return Demo;
+}(_react.Component);
+
+var Text = function (_Component2) {
+  _inherits(Text, _Component2);
+
+  function Text() {
+    _classCallCheck(this, Text);
+
+    return _possibleConstructorReturn(this, (Text.__proto__ || Object.getPrototypeOf(Text)).apply(this, arguments));
+  }
+
+  _createClass(Text, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "p",
+          null,
+          "hello baidu \uFF01"
+        )
+      );
+    }
+  }]);
+
+  return Text;
 }(_react.Component);
 
 (0, _reactDom.render)(_react2.default.createElement(Demo, null), document.getElementById('app'));

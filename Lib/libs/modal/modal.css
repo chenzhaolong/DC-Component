@@ -79,3 +79,14 @@
   border-color: #108ee9;
   color: #fff;
   margin-left: 5px; }
+  .dc-modal-sure .dc-modal-loading {
+    margin-right: 5px; }
+
+.dc-confirm-content {
+  padding: 30px 40px;
+  background-color: #fff; }
+
+.dc-confirm-text {
+  margin-left: 42px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.65); }

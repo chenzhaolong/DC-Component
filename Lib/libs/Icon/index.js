@@ -13,14 +13,25 @@ export const IconLib = {
     'refresh': require('./images/refresh.png'),
     'tool': require('./images/tool.png'),
     'loading': require('./images/loading.png'),
-    "close": require('./images/close.png')
+    "close": require('./images/close.png'),
+    "circle-loading": require('./images/circle-loading.png'),
+    "warning": require('./images/warning.png'),
+    "error": require('./images/error.png'),
+    "question": require('./images/question.png'),
+    "success": require('./images/success.png'),
+    "info": require('./images/info.png'),
 }
 
 export class Icon extends Component {
+    defaultClass() {
+        let defalutClass = ['dc-icon-img'];
+        if (this.props.type == 'circle-loading' && this.props.circle) defalutClass.push('dc-icon-loading');
+        return defalutClass.join(" ");
+    }
     render() {
         const {type, width, height} = this.props;
         return (
-            <div className="dc-icon-img" style={{width, height}}>
+            <div className={this.defaultClass()} style={{width, height}}>
                 <img src={IconLib[type]}/>
             </div>
         )

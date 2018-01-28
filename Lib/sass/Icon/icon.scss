@@ -14,10 +14,29 @@
 }
 
 .dc-icon-img{
-  width: 100%;
-  height: 100%;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
   img{
     width: 100%;
     height: 100%;
+  }
+}
+
+.dc-icon-loading{
+  -webkit-transform: rotate(360deg);
+  animation: rotation 1s linear infinite;
+  -moz-animation: rotation 1s linear infinite;
+  -webkit-animation: rotation 1s linear infinite;
+  -o-animation: rotation 1s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes rotation {
+  from{
+    -webkit-transform: rotate(0deg);
+  }
+  to{
+    -webkit-transform: rotate(360deg);
   }
 }
