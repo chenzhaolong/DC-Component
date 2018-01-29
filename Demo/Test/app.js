@@ -98,6 +98,7 @@ class Demo extends Component{
                 </Pop>
                 <Modal
                     visible={this.state.show}
+                    musk={false}
                     content={<Text/>}
                     title="标题"
                     onCancel={this.cancel.bind(this)}
