@@ -7,6 +7,7 @@ import {Col} from './libs/grid/Col';
 import {Pop} from './libs/pop/pop';
 import {Modal} from './libs/modal/Modal';
 import {Icon} from './libs/Icon/index';
+import {Switch} from './libs/switch/Switch';
 
 export {
     Button,
@@ -14,5 +15,6 @@ export {
     Col,
     Pop,
     Modal,
-    Icon
+    Icon,
+    Switch
 }

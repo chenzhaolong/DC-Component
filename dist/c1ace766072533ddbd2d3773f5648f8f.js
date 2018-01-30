@@ -114942,13 +114942,109 @@ Modal.propTypes = {
   onCancel: _propTypes2.default.func.isRequired,
   onSure: _propTypes2.default.func.isRequired
 };
-},{"react":39,"react-dom":41,"prop-types":182,"./modal.css":16,"../../libs/Icon/index":11,"./confirm":18,"./tool":19}],3:[function(require,module,exports) {
+},{"react":39,"react-dom":41,"prop-types":182,"./modal.css":16,"../../libs/Icon/index":11,"./confirm":18,"./tool":19}],955:[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":5}],954:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Icon = exports.Modal = exports.Pop = exports.Col = exports.Row = exports.Button = undefined;
+exports.Switch = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+require("./switch.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Switch = exports.Switch = function (_Component) {
+  _inherits(Switch, _Component);
+
+  function Switch(props) {
+    _classCallCheck(this, Switch);
+
+    var _this = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
+
+    var defaultChecked = _this.props.defaultChecked;
+
+    _this.state = {
+      defaultClass: ['dc-switch-circle'],
+      status: { Right: defaultChecked, Left: !defaultChecked }
+    };
+    return _this;
+  }
+
+  _createClass(Switch, [{
+    key: "_switchBetween",
+    value: function _switchBetween(e) {
+      var _state = this.state,
+          defaultClass = _state.defaultClass,
+          status = _state.status;
+
+      if (status.Left) {
+        status = { Right: true, Left: false };
+        if (defaultClass.indexOf('dc-switch-false')) defaultClass.splice(1, 1);
+        defaultClass.push('dc-switch-true');
+      } else {
+        status = { Right: false, Left: true };
+        if (defaultClass.indexOf('dc-switch-true')) defaultClass.splice(1, 1);
+        defaultClass.push('dc-switch-false');
+      }
+      this.setState({ defaultClass: defaultClass, status: status });
+    }
+  }, {
+    key: "_switchBg",
+    value: function _switchBg(status) {
+      var classes = ['dc-switch'];
+      if (status.Right) {
+        classes.push('dc-switch-checked');
+      } else {
+        classes.splice(1, 1);
+      }
+      return classes.join(' ');
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _state2 = this.state,
+          defaultClass = _state2.defaultClass,
+          status = _state2.status;
+
+      var _classes = this._switchBg(status);
+      return _react2.default.createElement(
+        "div",
+        { className: _classes, onClick: this._switchBetween.bind(this) },
+        _react2.default.createElement("span", {
+          className: defaultClass.join(' ')
+        })
+      );
+    }
+  }]);
+
+  return Switch;
+}(_react.Component);
+},{"react":39,"./switch.css":955}],3:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Switch = exports.Icon = exports.Modal = exports.Pop = exports.Col = exports.Row = exports.Button = undefined;
 
 var _Button = require("./libs/button/Button");
 
@@ -114962,16 +115058,18 @@ var _Modal = require("./libs/modal/Modal");
 
 var _index = require("./libs/Icon/index");
 
-/**
- * Created by zh on 2018/1/8.
- */
+var _Switch = require("./libs/switch/Switch");
+
 exports.Button = _Button.Button;
 exports.Row = _Row.Row;
 exports.Col = _Col.Col;
 exports.Pop = _pop.Pop;
 exports.Modal = _Modal.Modal;
 exports.Icon = _index.Icon;
-},{"./libs/button/Button":6,"./libs/grid/Row":7,"./libs/grid/Col":8,"./libs/pop/pop":10,"./libs/modal/Modal":9,"./libs/Icon/index":11}],4:[function(require,module,exports) {
+exports.Switch = _Switch.Switch; /**
+                                  * Created by zh on 2018/1/8.
+                                  */
+},{"./libs/button/Button":6,"./libs/grid/Row":7,"./libs/grid/Col":8,"./libs/pop/pop":10,"./libs/modal/Modal":9,"./libs/Icon/index":11,"./libs/switch/Switch":954}],4:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -115189,7 +115287,8 @@ var Demo = function (_Component) {
             type: "dashed"
           },
           "confirm"
-        )
+        ),
+        _react2.default.createElement(_index.Switch, null)
       );
     }
   }]);

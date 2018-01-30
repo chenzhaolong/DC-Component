@@ -1,0 +1,44 @@
+.dc-switch {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 22px;
+  min-width: 44px;
+  vertical-align: middle;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: rgba(0, 0, 0, 0.25); }
+  .dc-switch .dc-switch-circle {
+    background-color: #fff;
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 2px;
+    top: 0; }
+
+.dc-switch-true {
+  animation: towardRight 0.5s;
+  left: 21px; }
+
+.dc-switch-false {
+  animation: towardLeft 0.5s;
+  left: 0; }
+
+.dc-switch-checked {
+  border-color: #108ee9;
+  background-color: #108ee9; }
+
+@keyframes towardRight {
+  0% {
+    left: 0; }
+  100% {
+    left: 21px; } }
+
+@keyframes towardLeft {
+  0% {
+    left: 21px; }
+  100% {
+    left: 0; } }

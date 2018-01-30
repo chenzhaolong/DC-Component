@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Popover} from 'antd';
-import {Button, Row, Col, Pop, Modal, Icon} from '../../Lib/index';
+import {Button, Row, Col, Pop, Modal, Icon, Switch} from '../../Lib/index';
 import './app.css';
 
 
@@ -111,6 +111,7 @@ class Demo extends Component{
                     onClick={this.showConfirm.bind(this)}
                     type="dashed"
                 >confirm</Button>
+                <Switch></Switch>
             </div>
         )
     }
