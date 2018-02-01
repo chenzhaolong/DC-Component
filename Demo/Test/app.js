@@ -48,6 +48,9 @@ class Demo extends Component{
             },
         });
     }
+    SwitchHandle(value) {
+        console.log(`this is ${value}`);
+    }
     render() {
         return (
             <div>
@@ -98,7 +101,7 @@ class Demo extends Component{
                 </Pop>
                 <Modal
                     visible={this.state.show}
-                    musk={false}
+                    musk={true}
                     content={<Text/>}
                     title="标题"
                     onCancel={this.cancel.bind(this)}
@@ -111,7 +114,12 @@ class Demo extends Component{
                     onClick={this.showConfirm.bind(this)}
                     type="dashed"
                 >confirm</Button>
-                <Switch></Switch>
+                <Switch
+                    defaultChecked={false}
+                    onChange={this.SwitchHandle.bind(this)}
+                    checkTxt="开"
+                    unCheckTxt="关"
+                />
             </div>
         )
     }

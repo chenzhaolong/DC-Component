@@ -20,16 +20,29 @@
     top: 0; }
 
 .dc-switch-true {
-  animation: towardRight 0.5s;
-  left: 21px; }
+  animation: towardRight 0.3s; }
 
 .dc-switch-false {
-  animation: towardLeft 0.5s;
-  left: 0; }
+  animation: towardLeft 0.3s; }
 
 .dc-switch-checked {
   border-color: #108ee9;
   background-color: #108ee9; }
+
+.dc-switch-checktxt {
+  color: #fff;
+  font-size: 12px;
+  margin-left: 4px;
+  /* margin-right: 6px; */
+  display: block;
+  line-height: 22px; }
+
+.dc-switch-unchecktxt {
+  color: #fff;
+  font-size: 12px;
+  margin-left: 24px;
+  display: block;
+  line-height: 22px; }
 
 @keyframes towardRight {
   0% {

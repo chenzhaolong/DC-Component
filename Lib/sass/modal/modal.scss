@@ -7,6 +7,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 500;
 }
 
 .dc-modal-content{
@@ -20,7 +21,8 @@
   background-color: white;
   border-radius: 4px;
   background-clip: padding-box;
-  box-shadow: 0 2px 8px rgba(0,0,0,.2)
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  z-index: 999;
 }
 
 .dc-modal-header{
