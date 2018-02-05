@@ -1,0 +1,37 @@
+.dc-tabs{
+  border-bottom: 1px #e5e5e5 solid;
+  margin-top: 10px;
+}
+
+.dc-tabpanel{
+  display: inline-block;
+  padding: 8px 20px;
+  //margin-right: 24px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dc-tabpanel-default{
+  background-color: #f8f8f8;
+  border-top: 1px #e5e5e5 solid;
+  border-right: 1px #e5e5e5 solid;
+  border-left: 1px #e5e5e5 solid;
+  margin-right: 5px
+}
+
+.dc-tabpanel-underline{
+
+}
+
+.dc-tabpanel-actived{
+  background-color: #fff;
+}
+
+.dc-tabpanel-disabled{
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+.dc-tabcontent{
+  margin-top: 16px;
+}

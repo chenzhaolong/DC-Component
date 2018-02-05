@@ -8,6 +8,7 @@ import {Pop} from './libs/pop/pop';
 import {Modal} from './libs/modal/Modal';
 import {Icon} from './libs/Icon/index';
 import {Switch} from './libs/switch/Switch';
+import {Tabs} from './libs/tab/Tabs';
 
 export {
     Button,
@@ -16,5 +17,6 @@ export {
     Pop,
     Modal,
     Icon,
-    Switch
+    Switch,
+    Tabs,
 }

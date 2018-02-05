@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Popover} from 'antd';
-import {Button, Row, Col, Pop, Modal, Icon, Switch} from '../../Lib/index';
+import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs} from '../../Lib/index';
 import './app.css';
 
 
 const {confirm} = Modal;
+const TabPanel = Tabs.createTabPanel();
 class Demo extends Component{
     constructor(props) {
         super(props);
@@ -120,6 +121,17 @@ class Demo extends Component{
                     checkTxt="开"
                     unCheckTxt="关"
                 />
+                <Tabs
+                    effectType="background"
+                    activeId="2"
+                    onChange={this.SwitchHandle.bind(this)}
+                >
+                    <TabPanel name="tab 1" order="1" disabled>tab1</TabPanel>
+                    <TabPanel name="tab 2" order="2">士大夫</TabPanel>
+                    <TabPanel name="tab 3" order="3">士大夫2</TabPanel>
+                    <TabPanel name="tab 4" order="4">士大夫3</TabPanel>
+                    <TabPanel name="tab 5" order="5">士大夫4</TabPanel>
+                </Tabs>
             </div>
         )
     }
