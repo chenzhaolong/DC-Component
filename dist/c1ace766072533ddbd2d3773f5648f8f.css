@@ -343,7 +343,8 @@
     left: 0; } }
 .dc-tabs {
   border-bottom: 1px #e5e5e5 solid;
-  margin-top: 10px; }
+  margin-top: 10px;
+  position: relative; }
 
 .dc-tabpanel {
   display: inline-block;
@@ -357,6 +358,12 @@
   border-right: 1px #e5e5e5 solid;
   border-left: 1px #e5e5e5 solid;
   margin-right: 5px; }
+
+.dc-panel-slider {
+  width: 70px;
+  height: 2px;
+  background-color: #108ee9;
+  position: absolute; }
 
 .dc-tabpanel-actived {
   background-color: #fff; }

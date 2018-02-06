@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {findDOMNode} from 'react-dom'
 import {TabPanel, PanelTitle, PanelContent} from './TabPanel';
 
 export class Tabs extends Component {
@@ -6,6 +7,7 @@ export class Tabs extends Component {
         super(props);
         this.state = {
             _activeId: this.props.activeId,
+            childNodes: this.props.children,
         }
     }
 
@@ -33,27 +35,55 @@ export class Tabs extends Component {
     }
 
     _changeTabTitle(e) {
-        if (e.target.className.indexOf('dc-tabpanel-disabled') !== -1) return false;
+        if (this._isDisabled(e.target)) return false;
         const _activeId = e.target.dataset.key;
+        if (this.props.effectType == 'slider') this._computeSliderMove(_activeId);
         this.props.onChange(_activeId);
         this.setState({_activeId});
     }
 
+    _computeSliderMove(key) {
+        const slider = this.refs.slider;
+        const paneltitle = this.refs.paneltitle;
+        const count = key - 1;
+        const child = paneltitle.childNodes[count];
+        for (let i = 0; i < paneltitle.childNodes.length - 1; i++) {
+            if (i !== count && !this._isDisabled(paneltitle.childNodes[i])) {
+                paneltitle.childNodes[i].style.color = '#000';
+            }
+        }
+        child.style.color = '#108ee9';
+        slider.style.left = child.offsetLeft + 'px';
+    }
+
+    _isDisabled(ele) {
+        return ele.className.indexOf('dc-tabpanel-disabled') !== -1;
+    }
+
     render() {
-        const {children} = this.props;
+        const {effectType} = this.props;
         return (
             <div>
-                <section className="dc-tabs" onClick={this._changeTabTitle.bind(this)}>
-                    { this._renderTabsTitle(children) }
+                <section
+                    className="dc-tabs"
+                    onClick={this._changeTabTitle.bind(this)}
+                    ref="paneltitle"
+                >
+                    { this._renderTabsTitle(this.state.childNodes) }
+                    {
+                        effectType == 'slider' && <div className="dc-panel-slider" ref="slider"></div>
+                    }
                 </section>
                 <section className="">
-                    { this._renderTabsContent(children) }
+                    { this._renderTabsContent(this.state.childNodes) }
                 </section>
             </div>
         )
     }
 
     componentDidMount() {
+        if (this.props.effectType == 'slider') this._computeSliderMove(this.props.activeId);
+
     }
 }
 
