@@ -49,11 +49,21 @@ export class Tabs extends Component {
         const child = paneltitle.childNodes[count];
         for (let i = 0; i < paneltitle.childNodes.length - 1; i++) {
             if (i !== count && !this._isDisabled(paneltitle.childNodes[i])) {
-                paneltitle.childNodes[i].style.color = '#000';
+                this._computedStyle(paneltitle.childNodes[i], {color: '#000'});
             }
         }
-        child.style.color = '#108ee9';
-        slider.style.left = child.offsetLeft + 'px';
+        this._computedStyle(child, {'color': '#108ee9'});
+        this._computedStyle(slider, {
+            'transition': 'left 0.5s',
+            'left': `${child.offsetLeft}px`
+        });
+    }
+
+    _computedStyle(node, style) {
+        if (!style) return false;
+        for (let key of Object.keys(style)) {
+            node.style[key] = style[key];
+        }
     }
 
     _isDisabled(ele) {
