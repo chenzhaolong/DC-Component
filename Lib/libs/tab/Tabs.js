@@ -38,7 +38,7 @@ export class Tabs extends Component {
         if (this._isDisabled(e.target)) return false;
         const _activeId = e.target.dataset.key;
         if (this.props.effectType == 'slider') this._computeSliderMove(_activeId);
-        this.props.onChange(_activeId);
+        if (this.props.onChange) this.props.onChange(_activeId);
         this.setState({_activeId});
     }
 
@@ -53,10 +53,22 @@ export class Tabs extends Component {
             }
         }
         this._computedStyle(child, {'color': '#108ee9'});
+        const length = this._computedSliderLenght(child);
         this._computedStyle(slider, {
             'transition': 'left 0.5s',
-            'left': `${child.offsetLeft}px`
+            'left': `${length}px`
         });
+    }
+
+    _computedSliderLenght(child) {
+        const _width = child.offsetWidth;
+        const _left = child.offsetLeft;
+        const _length = this.refs.slider.offsetWidth;
+        if (_width <= _length) {
+            return _left;
+        } else {
+            return _left + (_width - _length)/2;
+        }
     }
 
     _computedStyle(node, style) {

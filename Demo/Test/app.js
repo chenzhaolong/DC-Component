@@ -8,6 +8,19 @@ import classNames from 'classnames';
 
 const {confirm} = Modal;
 const TabPanel = Tabs.createTabPanel();
+const listData = {
+    id: 2,
+    list: [
+        {first: '百度', second: "百度金融"},
+        {first: '腾讯', second: "微众银行"},
+        {first: '阿里巴巴', second: "蚂蚁金服"}
+    ]
+};
+const mapper = [
+    {source: "first", target: "name"},
+    {source: "second", target: "content"},
+]
+
 class Demo extends Component{
     constructor(props) {
         super(props);
@@ -54,6 +67,9 @@ class Demo extends Component{
         console.log(`this is ${value}`);
     }
     render() {
+        const database = DeptShop.changeData(listData.list, mapper);
+        const a = {id: listData.id, list: database};
+        console.log('database:',database);
         return (
             <div>
                 <Button
@@ -134,6 +150,7 @@ class Demo extends Component{
                     <TabPanel name="tab 4" order="4">士大夫3</TabPanel>
                     <TabPanel name="tab 5" order="5">士大夫4</TabPanel>
                 </Tabs>
+                <DeptShop data={a}/>
             </div>
         )
     }
@@ -144,6 +161,75 @@ class Text extends Component {
         return <div>
             <p>hello baidu ！</p>
         </div>
+    }
+}
+
+class DeptShop extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            shopData: this.props.data,
+            show: false,
+        }
+    }
+    // 该组件的数据字段转换器
+    static changeData(data, mapperArr) {
+        if (data instanceof Array) {
+            const objArr = [];
+            data.forEach(li => {
+                const obj = {};
+                mapperArr.forEach(item => {
+                    obj[item.target] = li[item.source];
+                });
+                objArr.push(obj);
+            });
+            return objArr;
+        }
+        if (typeof data == 'object') {
+            const obj = {};
+            mapperArr.forEach(item => {
+                obj[item.target] = data[item.source];
+            });
+            return obj;
+        }
+    }
+
+    showTab() {
+        const { show } = this.state;
+        this.setState({show: !show});
+    }
+
+    showContent(list) {
+        let i = 0;
+        return list.map(item => {
+            i = i + 1;
+            return <TabPanel name={item.name} order={i}>{item.content}</TabPanel>
+        })
+    }
+
+    renderTab(shopData) {
+        const { id, list } = shopData;
+        return (
+            <Tabs
+                effectType="slider"
+                activeId={id}
+                mode="add"
+            >
+                {this.showContent(list)}
+            </Tabs>
+        )
+    }
+
+    render() {
+        const { show, shopData } = this.state;
+        return (
+            <div>
+                <Button onClick={this.showTab.bind(this)} type="primary">Tabs</Button>
+                {
+                    show ? this.renderTab(shopData) : null
+                }
+            </div>
+        )
     }
 }
 
