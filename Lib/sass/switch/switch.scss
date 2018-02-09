@@ -8,7 +8,7 @@
   border-radius: 20px;
   border: 1px solid #ccc;
   background-color: rgba(0,0,0,.25);
-  .dc-switch-circle{
+  .dc-switch_circle{
     background-color: #fff;
     width: 18px;
     height: 18px;
@@ -21,22 +21,22 @@
   }
 }
 
-.dc-switch-true{
+.dc-switch_true{
   animation: towardRight 0.3s;
   //left: 21px;
 }
 
-.dc-switch-false{
+.dc-switch_false{
   animation: towardLeft 0.3s;
   //left: 0;
 }
 
-.dc-switch-checked{
+.dc-switch_checked{
   border-color: #108ee9;
   background-color: #108ee9;
 }
 
-.dc-switch-checktxt{
+.dc-switch_checktxt{
   color: #fff;
   font-size: 12px;
   margin-left: 4px;
@@ -45,7 +45,7 @@
   line-height: 22px;
 }
 
-.dc-switch-unchecktxt{
+.dc-switch_unchecktxt{
   color: #fff;
   font-size: 12px;
   margin-left: 24px;

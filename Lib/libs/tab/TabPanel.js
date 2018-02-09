@@ -19,7 +19,7 @@ export class PanelTitle extends Component{
         const { effectType = "background" } = this.props;
         const panelClassList = this.state._defaultClass;
         if (effectType == "background") {
-            panelClassList.push('dc-tabpanel-default');
+            panelClassList.push('dc-tabpanel_default');
         } else {
             panelClassList.push('dc-tabpanel-underline');
         }
@@ -28,16 +28,16 @@ export class PanelTitle extends Component{
 
     _PanelTitleStyleForActiveOfBg(panelClassList, _activeId) {
         if (this.props.order == _activeId) {
-            panelClassList.push('dc-tabpanel-actived');
-        } else if (panelClassList.indexOf('dc-tabpanel-actived') !== -1) {
-            const index = panelClassList.indexOf('dc-tabpanel-actived');
+            panelClassList.push('dc-tabpanel_actived');
+        } else if (panelClassList.indexOf('dc-tabpanel_actived') !== -1) {
+            const index = panelClassList.indexOf('dc-tabpanel_actived');
             panelClassList.splice(index, 1);
         }
         this.setState({_defaultClass: panelClassList});
     }
 
     _PanelTitleStyleForDisabled(panelClassList) {
-        panelClassList.push('dc-tabpanel-disabled');
+        panelClassList.push('dc-tabpanel_disabled');
         this.setState({_defaultClass: panelClassList});
     }
 

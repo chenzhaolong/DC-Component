@@ -24,8 +24,8 @@ export const IconLib = {
 
 export class Icon extends Component {
     defaultClass() {
-        let defalutClass = ['dc-icon-img'];
-        if (this.props.type == 'circle-loading' && this.props.circle) defalutClass.push('dc-icon-loading');
+        let defalutClass = ['dc-icon__img'];
+        if (this.props.type == 'circle-loading' && this.props.circle) defalutClass.push('dc-icon_loading');
         return defalutClass.join(" ");
     }
     render() {

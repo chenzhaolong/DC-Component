@@ -30,10 +30,10 @@ export class Modal extends Component{
     _renderHeader(title) {
         return (
             <header
-                className="dc-modal-header"
+                className="dc-modal__header"
             >
                 <div>{title}</div>
-                <div className="dc-modal-icon" onClick={this._closeModal.bind(this)}>
+                <div className="dc-modal__icon" onClick={this._closeModal.bind(this)}>
                     <Icon type="close"/>
                 </div>
             </header>
@@ -43,7 +43,7 @@ export class Modal extends Component{
     _renderLoading() {
         return (
            <div>
-                <span className="dc-modal-loading">
+                <span className="dc-modal_loading">
                 <Icon type="circle-loading" circle width="14px" height="14px"/>
             </span>
                请等待
@@ -56,19 +56,19 @@ export class Modal extends Component{
         const modalContent = children || content;
         return (
             <div>
-                {musk ? <div className="dc-modal-musk"></div> : ''}
-                <div className="dc-modal-content">
+                {musk ? <div className="dc-modal_musk"></div> : ''}
+                <div className="dc-modal__content">
                     {
                         title ? this._renderHeader(title): ''
                     }
-                    <article className="dc-modal-body">
+                    <article className="dc-modal__body">
                         {modalContent}
                     </article>
-                    <footer className="dc-modal-footer" onClick={this._clickHandle.bind(this)}>
+                    <footer className="dc-modal__footer" onClick={this._clickHandle.bind(this)}>
                         <span className="dc-modal-btn" title="cancel">
                             {text && text.cancel ? text.cancel : '关闭'}
                             </span>
-                        <span className="dc-modal-btn dc-modal-sure" title="sure">
+                        <span className="dc-modal-btn dc-modal_sure" title="sure">
                             {this.props.confirmLoading ? this._renderLoading() : (text && text.sure ? text.sure : '确定')}
                         </span>
                     </footer>

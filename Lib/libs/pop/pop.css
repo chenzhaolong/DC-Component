@@ -3,10 +3,10 @@
   height: 100%;
   display: inline-block; }
 
-.dc-defaultPop {
+.dc_defaultPop {
   display: inline-block; }
 
-.dc-pop-open {
+.dc-pop_open {
   position: absolute;
   z-index: 1030;
   cursor: auto;
@@ -23,7 +23,7 @@
   border-radius: 5px;
   background-color: white; }
 
-.dc-pop-top {
+.dc-pop_top {
   width: 10px;
   height: 10px;
   background-color: white;
@@ -35,7 +35,7 @@
   border-bottom: 1px #e5e5e5 solid;
   border-right: 1px #e5e5e5 solid; }
 
-.dc-pop-bottom {
+.dc-pop_bottom {
   width: 10px;
   height: 10px;
   background-color: white;
@@ -47,7 +47,7 @@
   border-top: 1px #e5e5e5 solid;
   border-left: 1px #e5e5e5 solid; }
 
-.dc-pop-right {
+.dc-pop_right {
   width: 10px;
   height: 10px;
   background-color: white;
@@ -59,7 +59,7 @@
   border-bottom: 1px #e5e5e5 solid;
   border-left: 1px #e5e5e5 solid; }
 
-.dc-pop-left {
+.dc-pop_left {
   width: 10px;
   height: 10px;
   background-color: white;
@@ -71,14 +71,14 @@
   border-top: 1px #e5e5e5 solid;
   border-right: 1px #e5e5e5 solid; }
 
-.dc-pop-content {
+.dc-pop_content {
   min-width: 90px;
   min-height: 90px;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2); }
-  .dc-pop-content .dc-content-title {
+  .dc-pop_content .dc-content__title {
     padding: 0 16px;
     height: 32px;
     line-height: 32px;
     border-bottom: 1px #e5e5e5 solid; }
-  .dc-pop-content .dc-content-txt {
+  .dc-pop_content .dc-content__txt {
     padding: 8px 16px; }

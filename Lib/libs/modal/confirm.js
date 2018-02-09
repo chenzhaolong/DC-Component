@@ -30,15 +30,15 @@ export class Confirm extends Component {
         const {title, content, type = 'question', musk = true} = this.props;
         return (
             <div>
-                {musk ? <div className="dc-modal-musk"></div> : ''}
-                <article className="dc-modal-content dc-confirm-content">
+                {musk ? <div className="dc-modal_musk"></div> : ''}
+                <article className="dc-modal__content dc-confirm_content">
                     {title ? this._renderHead(title, type) : ''}
-                    <div className="dc-confirm-text">
+                    <div className="dc-confirm__text">
                         {content}
                     </div>
-                    <footer className="dc-modal-footer" onClick={this._clickHandle.bind(this)}>
+                    <footer className="dc-modal__footer" onClick={this._clickHandle.bind(this)}>
                         {type == "question" ? <span className="dc-modal-btn" title="cancel">关闭</span> : ''}
-                        <span className="dc-modal-btn dc-modal-sure" title="sure">确定</span>
+                        <span className="dc-modal-btn dc-modal_sure" title="sure">确定</span>
                     </footer>
                 </article>
             </div>

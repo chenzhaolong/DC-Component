@@ -7,7 +7,7 @@ export class Switch extends Component{
         super(props);
         const {defaultChecked} = this.props;
         this.state = {
-            defaultClass: ['dc-switch-circle'],
+            defaultClass: ['dc-switch_circle'],
             checkValue: defaultChecked,
             first: true,
         }
@@ -17,13 +17,13 @@ export class Switch extends Component{
         let {defaultClass, checkValue} = this.state;
         if (checkValue) {
             checkValue = false;
-            if (defaultClass.indexOf('dc-switch-true')) defaultClass.splice(1, 1);
-            defaultClass.push('dc-switch-false');
+            if (defaultClass.indexOf('dc-switch_true')) defaultClass.splice(1, 1);
+            defaultClass.push('dc-switch_false');
             this.refs.span.style.left = '0px';
         } else {
             checkValue = true;
-            if (defaultClass.indexOf('dc-switch-false')) defaultClass.splice(1, 1);
-            defaultClass.push('dc-switch-true');
+            if (defaultClass.indexOf('dc-switch_false')) defaultClass.splice(1, 1);
+            defaultClass.push('dc-switch_true');
             this.refs.span.style.left = '21px';
         }
         this.setState({defaultClass, checkValue}, () => {
@@ -34,7 +34,7 @@ export class Switch extends Component{
     _switchBg(checkValue) {
         let classes = ['dc-switch'];
         if (checkValue) {
-            classes.push('dc-switch-checked');
+            classes.push('dc-switch_checked');
         } else {
             classes.splice(1,1);
         }
@@ -59,7 +59,7 @@ export class Switch extends Component{
         return (
             <div className={_classes} onClick={this._swimBetween.bind(this)}>
                 {
-                    checkValue && checkTxt && <span className="dc-switch-checktxt">
+                    checkValue && checkTxt && <span className="dc-switch_checktxt">
                         {checkTxt}
                     </span>
                 }
@@ -69,7 +69,7 @@ export class Switch extends Component{
                     title="right"
                 />
                 {
-                    !checkValue && unCheckTxt && <span className="dc-switch-unchecktxt">
+                    !checkValue && unCheckTxt && <span className="dc-switch_unchecktxt">
                         {unCheckTxt}
                     </span>
                 }

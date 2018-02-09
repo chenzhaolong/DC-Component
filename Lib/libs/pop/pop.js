@@ -64,7 +64,7 @@ export class Pop extends Component{
         return (
             <div
                 ref="parent"
-                className={['dc-defaultPop', this.props.className].join(' ')}
+                className={['dc_defaultPop', this.props.className].join(' ')}
             >
                 {
                     this.state.showContent ? <PopContent
@@ -92,10 +92,10 @@ class PopContent extends PureComponent {
         this.state = {
             _position : this.props.position,
             _arrowToward: {
-                'top': 'dc-pop-top',
-                'bottom': 'dc-pop-bottom',
-                'right': 'dc-pop-right',
-                'left': 'dc-pop-left'
+                'top': 'dc-pop_top',
+                'bottom': 'dc-pop_bottom',
+                'right': 'dc-pop_right',
+                'left': 'dc-pop_left'
             }
         }
     }
@@ -147,16 +147,16 @@ class PopContent extends PureComponent {
         const {placement, title} = this.props;
         return (
             <div
-                className="dc-pop-open"
+                className="dc-pop_open"
                 style={this.state._position}
                 ref="popContent"
             >
                <div className={_arrowToward[placement]}></div>
-                <div className="dc-pop-content">
+                <div className="dc-pop_content">
                     {
-                        title ? <div className="dc-content-title">{title}</div> : ''
+                        title ? <div className="dc-content__title">{title}</div> : ''
                     }
-                    <div className="dc-content-txt">
+                    <div className="dc-content__txt">
                         {this.props.content}
                     </div>
                 </div>

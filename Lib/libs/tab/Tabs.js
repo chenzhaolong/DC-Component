@@ -67,7 +67,7 @@ export class Tabs extends Component {
     }
 
     _isDisabled(ele) {
-        return ele.className.indexOf('dc-tabpanel-disabled') !== -1;
+        return ele.className.indexOf('dc-tabpanel_disabled') !== -1;
     }
 
     render() {
@@ -75,13 +75,13 @@ export class Tabs extends Component {
         return (
             <div>
                 <section
-                    className="dc-tabs"
+                    className="dc-tabs__section_default"
                     onClick={this._changeTabTitle.bind(this)}
                     ref="paneltitle"
                 >
                     { this._renderTabsTitle(this.state.childNodes) }
                     {
-                        effectType == 'slider' && <div className="dc-panel-slider" ref="slider"></div>
+                        effectType == 'slider' && <div className="dc-panel_slider" ref="slider"></div>
                     }
                 </section>
                 <section className="">

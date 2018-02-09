@@ -13,7 +13,7 @@
   vertical-align: middle;
 }
 
-.dc-icon-img{
+.dc-icon__img{
   width: 12px;
   height: 12px;
   display: inline-block;
@@ -23,7 +23,7 @@
   }
 }
 
-.dc-icon-loading{
+.dc-icon_loading{
   -webkit-transform: rotate(360deg);
   animation: rotation 1s linear infinite;
   -moz-animation: rotation 1s linear infinite;
