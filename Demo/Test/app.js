@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Popover} from 'antd';
-import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs} from '../../Lib/index';
+import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter} from '../../Lib/index';
 import './app.css';
 import classNames from 'classnames';
 
@@ -150,7 +150,9 @@ class Demo extends Component{
                     <TabPanel name="tab 4" order="4">士大夫3</TabPanel>
                     <TabPanel name="tab 5" order="5">士大夫4</TabPanel>
                 </Tabs>
-                <DeptShop data={a}/>
+                {/*<DeptShop data={a}/>*/}
+                <Transverter inputSource={listData.list} mapper={mapper} outerSource="data" Puppet={DeptShop}>
+                </Transverter>
             </div>
         )
     }

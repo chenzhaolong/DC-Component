@@ -9,6 +9,7 @@ import {Modal} from './libs/modal/Modal';
 import {Icon} from './libs/Icon/index';
 import {Switch} from './libs/switch/Switch';
 import {Tabs} from './libs/tab/Tabs';
+import {Transverter} from "./libs/transverter/Transverter";
 
 export {
     Button,
@@ -19,4 +20,5 @@ export {
     Icon,
     Switch,
     Tabs,
+    Transverter,
 }
