@@ -115431,8 +115431,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Transverter = undefined;
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -115447,7 +115445,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  Transverter组件最多只支持数据结构为两层的数据转换
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
 
 var Transverter = exports.Transverter = function (_Component) {
   _inherits(Transverter, _Component);
@@ -115459,91 +115459,131 @@ var Transverter = exports.Transverter = function (_Component) {
 
     var _this$props = _this.props,
         inputSource = _this$props.inputSource,
-        mapper = _this$props.mapper;
+        mapper = _this$props.mapper,
+        puppetothersource = _this$props.puppetothersource;
 
     _this.state = {
-      _inputSource: inputSource,
-      _mapper: mapper
+      _inputSource: inputSource, // 数据输入来源
+      _mapper: mapper, // 数据转换映射表
+      _secondProps: puppetothersource // 木偶组件其他数据来源
     };
     return _this;
   }
 
+  /**
+   *  数据转换器
+   *  对于一层数据结构，直接做数据分流；
+   *  对于二层数据结构，在mainSource中选择对应的数据进行
+   *  数据分流处理；
+   * */
+
+
   _createClass(Transverter, [{
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(newProps) {
-      this.setState({
-        _inputSource: newProps.inputSource,
-        _mapper: newProps.mapper
-      });
-    }
-  }, {
     key: "_transformData",
     value: function _transformData() {
+      var puppetmainsource = this.props.puppetmainsource;
       var _state = this.state,
           _inputSource = _state._inputSource,
           _mapper = _state._mapper;
 
-      if (_inputSource instanceof Array) {
-        var objArr = [];
-        _inputSource.forEach(function (li) {
-          var obj = {};
-          _mapper.forEach(function (item) {
-            obj[item.target] = li[item.source];
-          });
-          objArr.push(obj);
-        });
-        return objArr;
-      }
-      if ((typeof _inputSource === "undefined" ? "undefined" : _typeof(_inputSource)) == 'object') {
-        var obj = {};
-        _mapper.forEach(function (item) {
-          obj[item.target] = _inputSource[item.source];
-        });
-        return obj;
+      if (puppetmainsource) {
+        return this._dataShunt(_inputSource[puppetmainsource], _mapper);
+      } else {
+        return this._dataShunt(_inputSource, _mapper);
       }
     }
+
+    // 数据类型分流器
+
   }, {
-    key: "_newComponent",
-    value: function _newComponent() {
-      var Puppet = this.props.Puppet;
+    key: "_dataShunt",
+    value: function _dataShunt(data, mapper) {
+      if (data instanceof Array) {
+        return this._transformArray(data, mapper);
+      }
+      if ((typeof data === "undefined" ? "undefined" : _typeof(data)) == "object") {
+        return this._transformObject(data, mapper);
+      }
+      return data;
+    }
 
-      return function (_Puppet) {
-        _inherits(_class, _Puppet);
+    // 对象类型转换器
 
-        function _class() {
-          _classCallCheck(this, _class);
+  }, {
+    key: "_transformObject",
+    value: function _transformObject(data, mapper) {
+      var obj = {};
+      mapper.forEach(function (_map) {
+        obj[_map.target] = data[_map.source];
+      });
+      return obj;
+    }
 
-          return _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).apply(this, arguments));
-        }
+    // 数组类型转换器
 
-        _createClass(_class, [{
-          key: "render",
-          value: function render() {
-            return _get(_class.prototype.__proto__ || Object.getPrototypeOf(_class.prototype), "render", this).call(this);
-          }
-        }]);
+  }, {
+    key: "_transformArray",
+    value: function _transformArray(data, mapper) {
+      var _this2 = this;
 
-        return _class;
-      }(Puppet);
+      var objArr = [];
+      data.forEach(function (_list) {
+        var listObj = _this2._transformObject(_list, mapper);
+        objArr.push(listObj);
+      });
+      return objArr;
     }
   }, {
     key: "_puppetProps",
     value: function _puppetProps(data) {
-      var a1 = this.props.outerSource;
-      var obj = {};
-      obj[a1] = { id: 2, list: data };
-      return obj;
+      var mainProps = this._puppetMainProps(data);
+      var _secondProps = this.state._secondProps;
+
+      return Object.assign({}, mainProps, _secondProps);
+      //
+    }
+
+    // 木偶组件主要属性
+
+  }, {
+    key: "_puppetMainProps",
+    value: function _puppetMainProps(data) {
+      var _inputSource = this.state._inputSource;
+      var _props = this.props,
+          puppetmainsource = _props.puppetmainsource,
+          puppetmainprops = _props.puppetmainprops;
+
+      var prop1 = {};
+      if (puppetmainsource) {
+        prop1[puppetmainsource] = data;
+      } else {
+        prop1 = data;
+      }
+      prop1 = Object.assign({}, _inputSource, prop1);
+      var prop2 = {};
+      prop2[puppetmainprops] = prop1;
+      return prop2;
+    }
+  }, {
+    key: "componentWillReceiveProps",
+    value: function componentWillReceiveProps(newProps) {
+      this.setState({
+        _inputSource: newProps.inputSource,
+        _mapper: newProps.mapper,
+        secondProps: newProps.puppetothersource
+      });
     }
   }, {
     key: "render",
     value: function render() {
-      var PuppetComponent = this._newComponent();
+      var Puppet = this.props.Puppet;
+
       var _innerData = this._transformData();
       var puppetData = this._puppetProps(_innerData);
       return _react2.default.createElement(
         "div",
         null,
-        _react2.default.createElement(PuppetComponent, puppetData)
+        _react2.default.createElement(Puppet, puppetData)
       );
     }
   }]);
@@ -115700,9 +115740,9 @@ var Demo = function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var database = DeptShop.changeData(listData.list, mapper);
-      var a = { id: listData.id, list: database };
-      console.log('database:', database);
+      // const database = DeptShop.changeData(listData.list, mapper);
+      // const a = {id: listData.id, list: database};
+      // console.log('database:',database);
       return _react2.default.createElement(
         "div",
         null,
@@ -115867,7 +115907,14 @@ var Demo = function (_Component) {
             "\u58EB\u5927\u592B4"
           )
         ),
-        _react2.default.createElement(_index.Transverter, { inputSource: listData.list, mapper: mapper, outerSource: "data", Puppet: DeptShop })
+        _react2.default.createElement(_index.Transverter, {
+          inputSource: listData // 数据来源
+          , mapper: mapper // 映射表
+          , puppetmainsource: "list" // 组件数据主来源
+          , puppetmainprops: "data" // 木偶组件主要属性
+          , puppetothersource: { a1: 1, a2: 2 } // 木偶组件数据其他属性
+          , Puppet: DeptShop // 木偶组件
+        })
       );
     }
   }]);

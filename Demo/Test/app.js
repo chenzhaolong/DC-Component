@@ -67,9 +67,9 @@ class Demo extends Component{
         console.log(`this is ${value}`);
     }
     render() {
-        const database = DeptShop.changeData(listData.list, mapper);
-        const a = {id: listData.id, list: database};
-        console.log('database:',database);
+        // const database = DeptShop.changeData(listData.list, mapper);
+        // const a = {id: listData.id, list: database};
+        // console.log('database:',database);
         return (
             <div>
                 <Button
@@ -151,8 +151,14 @@ class Demo extends Component{
                     <TabPanel name="tab 5" order="5">士大夫4</TabPanel>
                 </Tabs>
                 {/*<DeptShop data={a}/>*/}
-                <Transverter inputSource={listData.list} mapper={mapper} outerSource="data" Puppet={DeptShop}>
-                </Transverter>
+                <Transverter
+                    inputSource={listData}          // 数据来源
+                    mapper={mapper}                 // 映射表
+                    puppetmainsource="list"              // 组件数据主来源
+                    puppetmainprops="data"                // 木偶组件主要属性
+                    puppetothersource={{a1: 1, a2: 2}}         // 木偶组件数据其他属性
+                    Puppet={DeptShop}                    // 木偶组件
+                />
             </div>
         )
     }
