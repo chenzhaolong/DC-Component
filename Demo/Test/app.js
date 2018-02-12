@@ -13,13 +13,32 @@ const listData = {
     list: [
         {first: '百度', second: "百度金融"},
         {first: '腾讯', second: "微众银行"},
-        {first: '阿里巴巴', second: "蚂蚁金服"}
+        {first: '阿里巴巴', second: "蚂蚁金服"},
+        {first: '其他', second: "陆金所"},
     ]
 };
+
+const personData = {
+    personName:'dragon',
+    personage:"13",
+    persondata: '2017.02.09',
+    persontel: '2193213213',
+    school: 'jnu',
+    id: 1,
+};
+
+const personMap = [
+    {source: 'personName', target: 'name'},
+    {source: 'personage', target: 'age'},
+    {source: 'persondata', target: 'date'},
+    {source: 'persontel', target: 'tel'},
+    // {source: 'school', target: 'school'},
+]
+
 const mapper = [
     {source: "first", target: "name"},
     {source: "second", target: "content"},
-]
+];
 
 class Demo extends Component{
     constructor(props) {
@@ -159,6 +178,12 @@ class Demo extends Component{
                     puppetothersource={{a1: 1, a2: 2}}         // 木偶组件数据其他属性
                     Puppet={DeptShop}                    // 木偶组件
                 />
+                <Transverter
+                    inputSource={personData}
+                    mapper={personMap}
+                    puppetmainprops="obj"
+                    Puppet={Test}
+                />
             </div>
         )
     }
@@ -169,6 +194,21 @@ class Text extends Component {
         return <div>
             <p>hello baidu ！</p>
         </div>
+    }
+}
+
+class Test extends Component{
+    render() {
+        const {obj} = this.props;
+        return (
+            <div>
+                <p>名字{obj.name}</p>
+                <p>年龄{obj.age}</p>
+                <p>出生{obj.date}</p>
+                <p>电话{obj.tel}</p>
+                <p>学历{obj.school}</p>
+            </div>
+        )
     }
 }
 

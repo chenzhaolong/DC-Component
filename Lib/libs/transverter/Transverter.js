@@ -66,7 +66,6 @@ export class Transverter extends Component{
         const mainProps = this._puppetMainProps(data);
         const { _secondProps } = this.state;
         return Object.assign({}, mainProps, _secondProps);
-        //
     }
 
     // 木偶组件主要属性
@@ -89,7 +88,7 @@ export class Transverter extends Component{
         this.setState({
             _inputSource: newProps.inputSource,
             _mapper: newProps.mapper,
-            secondProps: newProps.puppetothersource
+            secondProps: newProps.puppetothersource,
         })
     }
 

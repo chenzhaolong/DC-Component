@@ -115544,7 +115544,6 @@ var Transverter = exports.Transverter = function (_Component) {
       var _secondProps = this.state._secondProps;
 
       return Object.assign({}, mainProps, _secondProps);
-      //
     }
 
     // 木偶组件主要属性
@@ -115684,8 +115683,20 @@ var confirm = _index.Modal.confirm;
 var TabPanel = _index.Tabs.createTabPanel();
 var listData = {
   id: 2,
-  list: [{ first: '百度', second: "百度金融" }, { first: '腾讯', second: "微众银行" }, { first: '阿里巴巴', second: "蚂蚁金服" }]
+  list: [{ first: '百度', second: "百度金融" }, { first: '腾讯', second: "微众银行" }, { first: '阿里巴巴', second: "蚂蚁金服" }, { first: '其他', second: "陆金所" }]
 };
+
+var personData = {
+  personName: 'dragon',
+  personage: "13",
+  persondata: '2017.02.09',
+  persontel: '2193213213',
+  school: 'jnu',
+  id: 1
+};
+
+var personMap = [{ source: 'personName', target: 'name' }, { source: 'personage', target: 'age' }, { source: 'persondata', target: 'date' }, { source: 'persontel', target: 'tel' }];
+
 var mapper = [{ source: "first", target: "name" }, { source: "second", target: "content" }];
 
 var Demo = function (_Component) {
@@ -115929,6 +115940,12 @@ var Demo = function (_Component) {
           , puppetmainprops: "data" // 木偶组件主要属性
           , puppetothersource: { a1: 1, a2: 2 } // 木偶组件数据其他属性
           , Puppet: DeptShop // 木偶组件
+        }),
+        _react2.default.createElement(_index.Transverter, {
+          inputSource: personData,
+          mapper: personMap,
+          puppetmainprops: "obj",
+          Puppet: Test
         })
       );
     }
@@ -115964,19 +115981,73 @@ var Text = function (_Component2) {
   return Text;
 }(_react.Component);
 
-var DeptShop = function (_Component3) {
-  _inherits(DeptShop, _Component3);
+var Test = function (_Component3) {
+  _inherits(Test, _Component3);
+
+  function Test() {
+    _classCallCheck(this, Test);
+
+    return _possibleConstructorReturn(this, (Test.__proto__ || Object.getPrototypeOf(Test)).apply(this, arguments));
+  }
+
+  _createClass(Test, [{
+    key: "render",
+    value: function render() {
+      var obj = this.props.obj;
+
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "p",
+          null,
+          "\u540D\u5B57",
+          obj.name
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "\u5E74\u9F84",
+          obj.age
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "\u51FA\u751F",
+          obj.date
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "\u7535\u8BDD",
+          obj.tel
+        ),
+        _react2.default.createElement(
+          "p",
+          null,
+          "\u5B66\u5386",
+          obj.school
+        )
+      );
+    }
+  }]);
+
+  return Test;
+}(_react.Component);
+
+var DeptShop = function (_Component4) {
+  _inherits(DeptShop, _Component4);
 
   function DeptShop(props) {
     _classCallCheck(this, DeptShop);
 
-    var _this4 = _possibleConstructorReturn(this, (DeptShop.__proto__ || Object.getPrototypeOf(DeptShop)).call(this, props));
+    var _this5 = _possibleConstructorReturn(this, (DeptShop.__proto__ || Object.getPrototypeOf(DeptShop)).call(this, props));
 
-    _this4.state = {
-      shopData: _this4.props.data,
+    _this5.state = {
+      shopData: _this5.props.data,
       show: false
     };
-    return _this4;
+    return _this5;
   }
   // 该组件的数据字段转换器
 
