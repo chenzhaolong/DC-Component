@@ -115439,6 +115439,10 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require("prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -115590,7 +115594,18 @@ var Transverter = exports.Transverter = function (_Component) {
 
   return Transverter;
 }(_react.Component);
-},{"react":45}],3:[function(require,module,exports) {
+
+Transverter.propTypes = {
+  inputSource: _propTypes2.default.object.isRequired,
+  mapper: _propTypes2.default.array.isRequired,
+  puppetmainprops: _propTypes2.default.string.isRequired,
+  Puppet: function Puppet(props, propName, componentName) {
+    if (!props[propName]) {
+      throw new Error(propName + " is required in " + componentName);
+    }
+  }
+};
+},{"react":45,"prop-types":188}],3:[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

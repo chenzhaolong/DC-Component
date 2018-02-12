@@ -3,6 +3,7 @@
  * */
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 export class Transverter extends Component{
     constructor(props) {
@@ -103,5 +104,18 @@ export class Transverter extends Component{
                 }
             </div>
         )
+    }
+}
+
+Transverter.propTypes = {
+    inputSource: PropTypes.object.isRequired,
+    mapper: PropTypes.array.isRequired,
+    puppetmainprops: PropTypes.string.isRequired,
+    Puppet: function(props, propName, componentName) {
+        if (!props[propName]) {
+            throw new Error(
+                `${propName} is required in ${componentName}`
+            )
+        }
     }
 }
