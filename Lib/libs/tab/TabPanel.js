@@ -28,7 +28,9 @@ export class PanelTitle extends Component{
 
     _PanelTitleStyleForActiveOfBg(panelClassList, _activeId) {
         if (this.props.order == _activeId) {
-            panelClassList.push('dc-tabpanel_actived');
+            if (panelClassList.indexOf('dc-tabpanel_actived') == -1) {
+                panelClassList.push('dc-tabpanel_actived');
+            }
         } else if (panelClassList.indexOf('dc-tabpanel_actived') !== -1) {
             const index = panelClassList.indexOf('dc-tabpanel_actived');
             panelClassList.splice(index, 1);
