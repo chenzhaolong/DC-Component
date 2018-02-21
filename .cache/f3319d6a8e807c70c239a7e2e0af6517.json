@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = isDate;\nfunction isDate(input) {\n  return input instanceof Date || Object.prototype.toString.call(input) === '[object Date]';\n}"},"hash":"b80783eb5f17b814d9781b226adc348b"}

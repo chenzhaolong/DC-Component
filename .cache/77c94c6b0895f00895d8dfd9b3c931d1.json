@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"var camel2hyphen = function (str) {\n  return str\n          .replace(/[A-Z]/g, function (match) {\n            return '-' + match.toLowerCase();\n          })\n          .toLowerCase();\n};\n\nmodule.exports = camel2hyphen;"},"hash":"bf7f9e7fa9639da4f191a42544e0e3da"}

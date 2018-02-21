@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar locale = {\n  placeholder: 'Select time'\n};\nexports.default = locale;"},"hash":"f05612b1f3722bfd84f3a1f8fdc031a7"}

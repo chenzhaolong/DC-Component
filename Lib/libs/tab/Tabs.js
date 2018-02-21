@@ -36,10 +36,19 @@ export class Tabs extends Component {
 
     _changeTabTitle(e) {
         if (this._isDisabled(e.target)) return false;
-        const _activeId = e.target.dataset.key;
+        // const _activeId = e.target.dataset.key;
+        const _activeId = this._getActiveElementKey(e.target);
         if (this.props.effectType == 'slider') this._computeSliderMove(_activeId);
         if (this.props.onChange) this.props.onChange(_activeId);
         this.setState({_activeId});
+    }
+
+    _getActiveElementKey(ele) {
+        let parent = ele;
+        while (!parent.dataset.hasOwnProperty("key")) {
+            parent = parent.parentNode;
+        }
+        return parent.dataset.key;
     }
 
     _computeSliderMove(key) {

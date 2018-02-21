@@ -1,0 +1,1 @@
+{"dependencies":[],"generated":{"js":"var canUseDOM = !!(\n  typeof window !== 'undefined' &&\n  window.document &&\n  window.document.createElement\n);\n\nmodule.exports = canUseDOM;"},"hash":"a3ec528e1c4124b9e74d2885cfe06d43"}

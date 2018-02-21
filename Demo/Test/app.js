@@ -158,12 +158,12 @@ class Demo extends Component{
                     unCheckTxt="关"
                 />
                 <Tabs
-                    effectType="slider"
+                    effectType="background"
                     activeId="2"
                     onChange={this.SwitchHandle.bind(this)}
                     mode="add"
                 >
-                    <TabPanel name="tab 1" order="1">tab1</TabPanel>
+                    <TabPanel name={<Text/>} order="1">tab1</TabPanel>
                     <TabPanel name="tab 2" order="2">士大夫</TabPanel>
                     <TabPanel name="tab 3" order="3" disabled>士大夫2</TabPanel>
                     <TabPanel name="tab 4" order="4">士大夫3</TabPanel>
@@ -182,6 +182,7 @@ class Demo extends Component{
                     inputSource={personData}
                     mapper={personMap}
                     puppetmainprops="obj"
+                    puppetothersource={{className:"test-demo"}}
                     Puppet={Test}
                 />
             </div>
@@ -192,7 +193,7 @@ class Demo extends Component{
 class Text extends Component {
     render() {
         return <div>
-            <p>hello baidu ！</p>
+            <p style={{margin: 0}}>hello baidu ！</p>
         </div>
     }
 }
@@ -201,7 +202,7 @@ class Test extends Component{
     render() {
         const {obj} = this.props;
         return (
-            <div>
+            <div className={this.props.className}>
                 <p>名字{obj.name}</p>
                 <p>年龄{obj.age}</p>
                 <p>出生{obj.date}</p>
