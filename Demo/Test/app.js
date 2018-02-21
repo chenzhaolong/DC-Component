@@ -161,13 +161,14 @@ class Demo extends Component{
                     effectType="background"
                     activeId="2"
                     onChange={this.SwitchHandle.bind(this)}
-                    mode="add"
+                    activedColor="green"
                 >
                     <TabPanel name={<Text/>} order="1">tab1</TabPanel>
                     <TabPanel name="tab 2" order="2">士大夫</TabPanel>
                     <TabPanel name="tab 3" order="3" disabled>士大夫2</TabPanel>
                     <TabPanel name="tab 4" order="4">士大夫3</TabPanel>
                     <TabPanel name="tab 5" order="5">士大夫4</TabPanel>
+                    <TabPanel name="tab 6" order="6">士大夫5</TabPanel>
                 </Tabs>
                 {/*<DeptShop data={a}/>*/}
                 <Transverter
@@ -262,7 +263,6 @@ class DeptShop extends Component {
             <Tabs
                 effectType="slider"
                 activeId={id}
-                mode="add"
             >
                 {this.showContent(list)}
             </Tabs>

@@ -36,9 +36,12 @@ export class Tabs extends Component {
 
     _changeTabTitle(e) {
         if (this._isDisabled(e.target)) return false;
-        // const _activeId = e.target.dataset.key;
         const _activeId = this._getActiveElementKey(e.target);
-        if (this.props.effectType == 'slider') this._computeSliderMove(_activeId);
+        if (this.props.effectType == 'slider') {
+            this._computeSliderMove(_activeId);
+        } else {
+            this._panelTitleColor(_activeId);
+        }
         if (this.props.onChange) this.props.onChange(_activeId);
         this.setState({_activeId});
     }
@@ -53,20 +56,27 @@ export class Tabs extends Component {
 
     _computeSliderMove(key) {
         const slider = this.refs.slider;
-        const paneltitle = this.refs.paneltitle;
-        const count = key - 1;
-        const child = paneltitle.childNodes[count];
-        for (let i = 0; i < paneltitle.childNodes.length - 1; i++) {
-            if (i !== count && !this._isDisabled(paneltitle.childNodes[i])) {
-                this._computedStyle(paneltitle.childNodes[i], {color: '#000'});
-            }
-        }
-        this._computedStyle(child, {'color': '#108ee9'});
+        const child = this._panelTitleColor(key);
         const length = this._computedSliderLenght(child);
         this._computedStyle(slider, {
             'transition': 'left 0.5s',
             'left': `${length}px`
         });
+    }
+
+    _panelTitleColor(key) {
+        const paneltitle = this.refs.paneltitle;
+        const count = key - 1;
+        const child = paneltitle.childNodes[count];
+        for (let i = 0; i <= paneltitle.childNodes.length - 1; i++) {
+            if (i !== count && !this._isDisabled(paneltitle.childNodes[i])) {
+
+                this._computedStyle(paneltitle.childNodes[i], {color: '#000'});
+            }
+        }
+        const activedColor = this.props.activedColor || '#108ee9';
+        this._computedStyle(child, {'color': activedColor});
+        return child;
     }
 
     _computedSliderLenght(child) {
