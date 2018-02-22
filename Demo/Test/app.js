@@ -10,21 +10,32 @@ const {confirm} = Modal;
 const TabPanel = Tabs.createTabPanel();
 const listData = {
     id: 2,
+    usrId: 10232334,
+    code: 100,
     list: [
-        {first: '百度', second: "百度金融"},
-        {first: '腾讯', second: "微众银行"},
-        {first: '阿里巴巴', second: "蚂蚁金服"},
-        {first: '其他', second: "陆金所"},
+        {first: '百度', second: "百度金融", workyear: 2},
+        {first: '腾讯', second: "微众银行", workyear: 0},
+        {first: '阿里巴巴', second: "蚂蚁金服", workyear: 2},
+        {first: '其他', second: "陆金所", workyear: 0},
     ]
 };
 
+const mapper = [
+    {source: "first", target: "name"},
+    {source: "second", target: "content"},
+];
+
 const personData = {
-    personName:'dragon',
-    personage:"13",
-    persondata: '2017.02.09',
-    persontel: '2193213213',
-    school: 'jnu',
-    id: 1,
+    code: 100,
+    msg: 'success',
+    show: {
+        personName:'dragon',
+        personage:"23",
+        persondata: '2017.02.12',
+        persontel: '2193213213',
+        school: 'jnu',
+        id: 1,
+    }
 };
 
 const personMap = [
@@ -35,10 +46,7 @@ const personMap = [
     // {source: 'school', target: 'school'},
 ]
 
-const mapper = [
-    {source: "first", target: "name"},
-    {source: "second", target: "content"},
-];
+
 
 class Demo extends Component{
     constructor(props) {
@@ -93,7 +101,7 @@ class Demo extends Component{
             <div>
                 <Button
                     onClick={this.handle.bind(this)}
-                    type="dashed" data-key="1"
+                    type="primary" data-key="1"
                     icon="house"
                     disabled={this.state.disabled}
                 >click</Button>
@@ -134,7 +142,7 @@ class Demo extends Component{
                 <Pop
                     content="hellow"
                 >
-                    <Icon type="house" width="20px" height="20px"/>
+                    <Icon type="phone" width="20px" height="20px"/>
                 </Pop>
                 <Modal
                     visible={this.state.show}
@@ -161,12 +169,11 @@ class Demo extends Component{
                     effectType="background"
                     activeId="2"
                     onChange={this.SwitchHandle.bind(this)}
-                    activedColor="green"
                 >
                     <TabPanel name={<Text/>} order="1">tab1</TabPanel>
                     <TabPanel name="tab 2" order="2">士大夫</TabPanel>
                     <TabPanel name="tab 3" order="3" disabled>士大夫2</TabPanel>
-                    <TabPanel name="tab 4" order="4">士大夫3</TabPanel>
+                    <TabPanel name="tab 4" order="4" disabled>士大夫3</TabPanel>
                     <TabPanel name="tab 5" order="5">士大夫4</TabPanel>
                     <TabPanel name="tab 6" order="6">士大夫5</TabPanel>
                 </Tabs>
@@ -182,6 +189,7 @@ class Demo extends Component{
                 <Transverter
                     inputSource={personData}
                     mapper={personMap}
+                    puppetmainsource="show"
                     puppetmainprops="obj"
                     puppetothersource={{className:"test-demo"}}
                     Puppet={Test}
@@ -204,11 +212,11 @@ class Test extends Component{
         const {obj} = this.props;
         return (
             <div className={this.props.className}>
-                <p>名字{obj.name}</p>
-                <p>年龄{obj.age}</p>
-                <p>出生{obj.date}</p>
-                <p>电话{obj.tel}</p>
-                <p>学历{obj.school}</p>
+                <p>名字{obj.show.name}</p>
+                <p>年龄{obj.show.age}</p>
+                <p>出生{obj.show.date}</p>
+                <p>电话{obj.show.tel}</p>
+                <p>学历{obj.show.school}</p>
             </div>
         )
     }

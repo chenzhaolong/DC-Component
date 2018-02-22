@@ -70,7 +70,6 @@ export class Tabs extends Component {
         const child = paneltitle.childNodes[count];
         for (let i = 0; i <= paneltitle.childNodes.length - 1; i++) {
             if (i !== count && !this._isDisabled(paneltitle.childNodes[i])) {
-
                 this._computedStyle(paneltitle.childNodes[i], {color: '#000'});
             }
         }

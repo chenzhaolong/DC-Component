@@ -45,11 +45,19 @@ export class Transverter extends Component{
 
     // 对象类型转换器
     _transformObject(data, mapper) {
-        const obj = {};
+        const mainObj = {};
         mapper.forEach(_map => {
-            obj[_map.target] = data[_map.source]
+            mainObj[_map.target] = data[_map.source]
         });
-        return obj;
+        const otherObj = {};
+        const dataKeys = Object.keys(data);
+        const mapperKeys = mapper.map(_map => {
+            return _map.source;
+        });
+        dataKeys.forEach(_key => {
+            if(mapperKeys.indexOf(_key) == -1) otherObj[_key] = data[_key];
+        });
+        return Object.assign({}, mainObj, otherObj);
     }
 
     // 数组类型转换器
