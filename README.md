@@ -9,9 +9,13 @@
 
 2，固定属性： 
            type：              组件类型（'default', 'primary', 'dashed', 'danger'）
+
            icon：              图标
+           
            disabled：          是否禁用
+           
            className：         外部类选择器
+           
            onClick：           点击事件
 ````
 
@@ -23,13 +27,18 @@
 
 Row组件固定属性：
            className：         外部类名
+           
            margin：            外边距（marginTop，marginBottom，marginLeft，marginRight）
+           
            padding：           内边距（paddingTop，paddingBottom，paddingLeft，paddingRight）
+           
            mode：              布局模式，已有的是flex弹性布局
            
 Col组件固定属性：
            className:          外部类名
+           
            span：              占几格
+           
            order：             该行第几个          
 ````
 
@@ -41,7 +50,9 @@ Col组件固定属性：
 
 2，固定属性：
           type：               图标类型
+          
           width：              宽度
+          
           height：             高度
 ````
 
@@ -114,14 +125,20 @@ Col组件固定属性：
 
 Tabs组件固定属性：
                effectType：              tab组件的类型，background和slider两种类型
+               
                activeId：                默认选中ID
+               
                onChange：                切换tab时触发事件
+               
                createTabPanel：          获取TabPanel组件
+               
                activedColor：            选中tab的文字颜色
                
 TabPanel组件固定属性：
                name：                    tab的内容
+               
                order：                   tab的序号
+               
                disabled：                tab是否禁止
 ````
 
@@ -131,10 +148,15 @@ TabPanel组件固定属性：
 
 2，固定属性：
            inputSource：           要转换的数据来源
+           
            mapper：                转换的数据映射表，是一个数组，source表示要转换的字段名，targe表示目标字段名
+           
            puppetmainsource：      如果该数据结构是二层数据结构，则需要将该数据中药转换的属性名赋予给太属性
+           
            Puppet：                指定组件的构造器
+           
            puppetmainprops：       指定组件接受外界数据的唯一接口
+           
            puppetothersource：     指定组件其他与外界交互的属性
            
 注意：该组件是适用于最多两层的数据结构，
