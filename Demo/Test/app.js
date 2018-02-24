@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Popover} from 'antd';
-import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter} from '../../Lib/index';
+import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter, Breadcrumb} from '../../Lib/index';
 import './app.css';
 import classNames from 'classnames';
 
@@ -44,9 +44,13 @@ const personMap = [
     {source: 'persondata', target: 'date'},
     {source: 'persontel', target: 'tel'},
     // {source: 'school', target: 'school'},
+];
+
+const BreadRotes = [
+    {name: "一级路由", href: 'baidu.com'},
+    {name: "二级路由", href: 'souhu.com'},
+    {name: "三级路由"}
 ]
-
-
 
 class Demo extends Component{
     constructor(props) {
@@ -186,13 +190,17 @@ class Demo extends Component{
                     puppetothersource={{a1: 1, a2: 2}}         // 木偶组件数据其他属性
                     Puppet={DeptShop}                    // 木偶组件
                 />
-                <Transverter
-                    inputSource={personData}
-                    mapper={personMap}
-                    puppetmainsource="show"
-                    puppetmainprops="obj"
-                    puppetothersource={{className:"test-demo"}}
-                    Puppet={Test}
+                {/*<Transverter*/}
+                    {/*inputSource={personData}*/}
+                    {/*mapper={personMap}*/}
+                    {/*puppetmainsource="show"*/}
+                    {/*puppetmainprops="obj"*/}
+                    {/*puppetothersource={{className:"test-demo"}}*/}
+                    {/*Puppet={Test}*/}
+                {/*/>*/}
+                <Breadcrumb
+                    mode="concentrate"
+                    routes={BreadRotes}
                 />
             </div>
         )

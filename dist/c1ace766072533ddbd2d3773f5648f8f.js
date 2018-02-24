@@ -2517,7 +2517,7 @@ if ("development" !== "production") {
      * It always throws.
      */
 
-    !React ? invariant(false, 'ReactDOM was loaded before React. Make sure you load the React package before loading ReactDOM.') : void 0;
+    !React ? invariant(false, 'ReactDOM was loaded before React. Make sure you load the React package before breadcrumb ReactDOM.') : void 0;
 
     // These attributes should be all lowercase to allow for
     // case insensitive checks
@@ -31730,7 +31730,7 @@ var Button = function (_React$Component) {
           break;
       }
       var ComponentProp = others.href ? 'a' : 'button';
-      var classes = (0, _classnames2.default)(prefixCls, className, (_classNames = {}, (0, _defineProperty3.default)(_classNames, prefixCls + '-' + type, type), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + shape, shape), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + sizeCls, sizeCls), (0, _defineProperty3.default)(_classNames, prefixCls + '-icon-only', !children && icon), (0, _defineProperty3.default)(_classNames, prefixCls + '-loading', loading), (0, _defineProperty3.default)(_classNames, prefixCls + '-clicked', clicked), (0, _defineProperty3.default)(_classNames, prefixCls + '-background-ghost', ghost), (0, _defineProperty3.default)(_classNames, prefixCls + '-two-chinese-chars', hasTwoCNChar), _classNames));
+      var classes = (0, _classnames2.default)(prefixCls, className, (_classNames = {}, (0, _defineProperty3.default)(_classNames, prefixCls + '-' + type, type), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + shape, shape), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + sizeCls, sizeCls), (0, _defineProperty3.default)(_classNames, prefixCls + '-icon-only', !children && icon), (0, _defineProperty3.default)(_classNames, prefixCls + '-breadcrumb', loading), (0, _defineProperty3.default)(_classNames, prefixCls + '-clicked', clicked), (0, _defineProperty3.default)(_classNames, prefixCls + '-background-ghost', ghost), (0, _defineProperty3.default)(_classNames, prefixCls + '-two-chinese-chars', hasTwoCNChar), _classNames));
       var iconType = loading ? 'loading' : icon;
       var iconNode = iconType ? React.createElement(_icon2.default, { type: iconType }) : null;
       var kids = children ? React.Children.map(children, function (child) {
@@ -33546,7 +33546,7 @@ var Breadcrumb = function (_React$Component) {
           if (!element) {
             return element;
           }
-          (0, _warning2.default)(element.type && element.type.__ANT_BREADCRUMB_ITEM, 'Breadcrumb only accepts Breadcrumb.Item as it\'s children');
+          (0, _warning2.default)(element.type && element.type.__ANT_BREADCRUMB_ITEM, 'breadcrumb only accepts breadcrumb.Item as it\'s children');
           return (0, _react.cloneElement)(element, {
             separator: separator,
             key: index
@@ -33582,7 +33582,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _Breadcrumb = require("./Breadcrumb");
+var _Breadcrumb = require("./breadcrumb");
 
 var _Breadcrumb2 = _interopRequireDefault(_Breadcrumb);
 
@@ -45234,8 +45234,8 @@ var Card = function (_React$Component) {
           tabList = _a.tabList,
           children = _a.children,
           others = __rest(_a, ["prefixCls", "className", "extra", "bodyStyle", "noHovering", "hoverable", "title", "loading", "bordered", "type", "cover", "actions", "tabList", "children"]);
-      var classString = (0, _classnames2.default)(prefixCls, className, (_classNames = {}, (0, _defineProperty3.default)(_classNames, prefixCls + "-loading", loading), (0, _defineProperty3.default)(_classNames, prefixCls + "-bordered", bordered), (0, _defineProperty3.default)(_classNames, prefixCls + "-hoverable", this.getCompatibleHoverable()), (0, _defineProperty3.default)(_classNames, prefixCls + "-wider-padding", this.state.widerPadding), (0, _defineProperty3.default)(_classNames, prefixCls + "-padding-transition", this.updateWiderPaddingCalled), (0, _defineProperty3.default)(_classNames, prefixCls + "-contain-grid", this.isContainGrid()), (0, _defineProperty3.default)(_classNames, prefixCls + "-contain-tabs", tabList && tabList.length), (0, _defineProperty3.default)(_classNames, prefixCls + "-type-" + type, !!type), _classNames));
-      var loadingBlock = React.createElement("div", { className: prefixCls + "-loading-content" }, React.createElement("p", { className: prefixCls + "-loading-block", style: { width: '94%' } }), React.createElement("p", null, React.createElement("span", { className: prefixCls + "-loading-block", style: { width: '28%' } }), React.createElement("span", { className: prefixCls + "-loading-block", style: { width: '62%' } })), React.createElement("p", null, React.createElement("span", { className: prefixCls + "-loading-block", style: { width: '22%' } }), React.createElement("span", { className: prefixCls + "-loading-block", style: { width: '66%' } })), React.createElement("p", null, React.createElement("span", { className: prefixCls + "-loading-block", style: { width: '56%' } }), React.createElement("span", { className: prefixCls + "-loading-block", style: { width: '39%' } })), React.createElement("p", null, React.createElement("span", { className: prefixCls + "-loading-block", style: { width: '21%' } }), React.createElement("span", { className: prefixCls + "-loading-block", style: { width: '15%' } }), React.createElement("span", { className: prefixCls + "-loading-block", style: { width: '40%' } })));
+      var classString = (0, _classnames2.default)(prefixCls, className, (_classNames = {}, (0, _defineProperty3.default)(_classNames, prefixCls + "-breadcrumb", loading), (0, _defineProperty3.default)(_classNames, prefixCls + "-bordered", bordered), (0, _defineProperty3.default)(_classNames, prefixCls + "-hoverable", this.getCompatibleHoverable()), (0, _defineProperty3.default)(_classNames, prefixCls + "-wider-padding", this.state.widerPadding), (0, _defineProperty3.default)(_classNames, prefixCls + "-padding-transition", this.updateWiderPaddingCalled), (0, _defineProperty3.default)(_classNames, prefixCls + "-contain-grid", this.isContainGrid()), (0, _defineProperty3.default)(_classNames, prefixCls + "-contain-tabs", tabList && tabList.length), (0, _defineProperty3.default)(_classNames, prefixCls + "-type-" + type, !!type), _classNames));
+      var loadingBlock = React.createElement("div", { className: prefixCls + "-breadcrumb-content" }, React.createElement("p", { className: prefixCls + "-breadcrumb-block", style: { width: '94%' } }), React.createElement("p", null, React.createElement("span", { className: prefixCls + "-breadcrumb-block", style: { width: '28%' } }), React.createElement("span", { className: prefixCls + "-breadcrumb-block", style: { width: '62%' } })), React.createElement("p", null, React.createElement("span", { className: prefixCls + "-breadcrumb-block", style: { width: '22%' } }), React.createElement("span", { className: prefixCls + "-breadcrumb-block", style: { width: '66%' } })), React.createElement("p", null, React.createElement("span", { className: prefixCls + "-breadcrumb-block", style: { width: '56%' } }), React.createElement("span", { className: prefixCls + "-breadcrumb-block", style: { width: '39%' } })), React.createElement("p", null, React.createElement("span", { className: prefixCls + "-breadcrumb-block", style: { width: '21%' } }), React.createElement("span", { className: prefixCls + "-breadcrumb-block", style: { width: '15%' } }), React.createElement("span", { className: prefixCls + "-breadcrumb-block", style: { width: '40%' } })));
       var head = void 0;
       var tabs = tabList && tabList.length ? React.createElement(_tabs2.default, { className: prefixCls + "-head-tabs", size: "large", onChange: this.onTabChange }, tabList.map(function (item) {
         return React.createElement(_tabs2.default.TabPane, { tab: item.tab, key: item.key });
@@ -48559,7 +48559,7 @@ var Menus = function (_React$Component) {
       menuItemCls += ' ' + prefixCls + '-menu-item-disabled';
     }
     if (option.loading) {
-      menuItemCls += ' ' + prefixCls + '-menu-item-loading';
+      menuItemCls += ' ' + prefixCls + '-menu-item-breadcrumb';
     }
     var title = '';
     if (option.title) {
@@ -62661,7 +62661,7 @@ var Spin = function (_React$Component) {
       if (this.isNestedPattern()) {
         var _classNames2;
 
-        var animateClassName = prefixCls + '-nested-loading';
+        var animateClassName = prefixCls + '-nested-breadcrumb';
         if (wrapperClassName) {
           animateClassName += ' ' + wrapperClassName;
         }
@@ -64023,7 +64023,7 @@ var List = function (_React$Component) {
         default:
           break;
       }
-      var classString = (0, _classnames2.default)(prefixCls, className, (_classNames = {}, (0, _defineProperty3.default)(_classNames, prefixCls + '-vertical', itemLayout === 'vertical'), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + sizeCls, sizeCls), (0, _defineProperty3.default)(_classNames, prefixCls + '-split', split), (0, _defineProperty3.default)(_classNames, prefixCls + '-bordered', bordered), (0, _defineProperty3.default)(_classNames, prefixCls + '-loading', isLoading), (0, _defineProperty3.default)(_classNames, prefixCls + '-grid', grid), (0, _defineProperty3.default)(_classNames, prefixCls + '-something-after-last-item', this.isSomethingAfterLastTtem()), _classNames));
+      var classString = (0, _classnames2.default)(prefixCls, className, (_classNames = {}, (0, _defineProperty3.default)(_classNames, prefixCls + '-vertical', itemLayout === 'vertical'), (0, _defineProperty3.default)(_classNames, prefixCls + '-' + sizeCls, sizeCls), (0, _defineProperty3.default)(_classNames, prefixCls + '-split', split), (0, _defineProperty3.default)(_classNames, prefixCls + '-bordered', bordered), (0, _defineProperty3.default)(_classNames, prefixCls + '-breadcrumb', isLoading), (0, _defineProperty3.default)(_classNames, prefixCls + '-grid', grid), (0, _defineProperty3.default)(_classNames, prefixCls + '-something-after-last-item', this.isSomethingAfterLastTtem()), _classNames));
       var paginationContent = React.createElement('div', { className: prefixCls + '-pagination' }, React.createElement(_pagination2.default, pagination));
       var childrenContent = void 0;
       childrenContent = isLoading && React.createElement('div', { style: { minHeight: 53 } });
@@ -66438,8 +66438,8 @@ var ActionButton = function (_React$Component) {
         if (ret && ret.then) {
           _this.setState({ loading: true });
           ret.then(function () {
-            // It's unnecessary to set loading=false, for the Modal will be unmounted after close.
-            // this.setState({ loading: false });
+            // It's unnecessary to set breadcrumb=false, for the Modal will be unmounted after close.
+            // this.setState({ breadcrumb: false });
             closeModal.apply(undefined, arguments);
           }, function () {
             // See: https://github.com/ant-design/ant-design/issues/6183
@@ -70627,7 +70627,7 @@ var Switch = function (_React$Component) {
           _props$className = _props.className,
           className = _props$className === undefined ? '' : _props$className;
 
-      var classes = (0, _classnames2.default)(className, (_classNames = {}, (0, _defineProperty3.default)(_classNames, prefixCls + '-small', size === 'small'), (0, _defineProperty3.default)(_classNames, prefixCls + '-loading', loading), _classNames));
+      var classes = (0, _classnames2.default)(className, (_classNames = {}, (0, _defineProperty3.default)(_classNames, prefixCls + '-small', size === 'small'), (0, _defineProperty3.default)(_classNames, prefixCls + '-breadcrumb', loading), _classNames));
       return React.createElement(_rcSwitch2.default, (0, _extends3.default)({}, (0, _omit2.default)(this.props, ['loading']), { className: classes, ref: this.saveSwitch }));
     }
   }]);
@@ -112432,7 +112432,7 @@ var UploadList = function (_React$Component) {
           }
         }
         if (file.status === 'uploading') {
-          // show loading icon if upload progress listener is disabled
+          // show breadcrumb icon if upload progress listener is disabled
           var loadingProgress = 'percent' in file ? React.createElement(_progress2.default, (0, _extends3.default)({ type: 'line' }, _this3.props.progressAttr, { percent: file.percent })) : null;
           progress = React.createElement('div', { className: prefixCls + '-list-item-progress', key: 'progress' }, loadingProgress);
         }
@@ -113727,9 +113727,9 @@ var IconLib = exports.IconLib = {
   'star': require('./images/iconfont-xingxing.png'),
   'refresh': require('./images/refresh.png'),
   'tool': require('./images/tool.png'),
-  'loading': require('./images/loading.png'),
+  'loading': require('./images/breadcrumb.png'),
   "close": require('./images/close.png'),
-  "circle-loading": require('./images/circle-loading.png'),
+  "circle-loading": require('./images/circle-breadcrumb.png'),
   "warning": require('./images/warning.png'),
   "error": require('./images/error.png'),
   "question": require('./images/question.png'),
@@ -113917,7 +113917,7 @@ var Button = exports.Button = function (_Component) {
     value: function _defaultIconClass() {
       var defaultIconClassList = ['dc-icon'];
       if (this.props.icon == 'loading') {
-        defaultIconClassList.push('dc-btn-loading');
+        defaultIconClassList.push('dc-btn-breadcrumb');
       }
       return defaultIconClassList.join(" ");
     }
@@ -113929,7 +113929,7 @@ var Button = exports.Button = function (_Component) {
       } else if (this.props.loading) {
         return _react2.default.createElement("img", {
           src: _index.IconLib['loading'],
-          className: "dc-btn-loading dc-btn_loading" });
+          className: "dc-btn-breadcrumb dc-btn_loading" });
       } else {
         return;
       }

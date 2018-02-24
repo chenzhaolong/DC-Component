@@ -374,6 +374,13 @@
 
 .dc-tabcontent {
   margin-top: 16px; }
+.dc-breadcrumb__item {
+  display: inline-block; }
+
+.dc-breadcrumb__a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #333; }
 .btn{
     width: 200px;
 }

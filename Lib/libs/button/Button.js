@@ -33,7 +33,7 @@ export class Button extends Component {
     _defaultIconClass() {
         const defaultIconClassList = ['dc-icon'];
         if (this.props.icon == 'loading') {
-            defaultIconClassList.push('dc-btn-loading');
+            defaultIconClassList.push('dc-btn-breadcrumb');
         }
         return defaultIconClassList.join(" ");
     }
