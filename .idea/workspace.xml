@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00f00ec0-84f1-460f-9aa4-c385534ee4c1" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Lib/sass/index.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.cache/90967733a330f46a7fecb11952913d28.json" afterPath="$PROJECT_DIR$/.cache/90967733a330f46a7fecb11952913d28.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.cache/a3d43c5cf5527e5ed2ed05ad33d713d5.json" afterPath="$PROJECT_DIR$/.cache/a3d43c5cf5527e5ed2ed05ad33d713d5.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.cache/cf04a433a84c4fbb0918a9b70765f186.json" afterPath="$PROJECT_DIR$/.cache/cf04a433a84c4fbb0918a9b70765f186.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Demo/Test/app.js" afterPath="$PROJECT_DIR$/Demo/Test/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lib/index.js" afterPath="$PROJECT_DIR$/Lib/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lib/libs/button/Button.js" afterPath="$PROJECT_DIR$/Lib/libs/button/Button.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/c1ace766072533ddbd2d3773f5648f8f.js" afterPath="$PROJECT_DIR$/dist/c1ace766072533ddbd2d3773f5648f8f.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/f1225245e7c0688137f922dda2712d94.css" afterPath="$PROJECT_DIR$/dist/f1225245e7c0688137f922dda2712d94.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/f1225245e7c0688137f922dda2712d94.js" afterPath="$PROJECT_DIR$/dist/f1225245e7c0688137f922dda2712d94.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <list id="6fcf954d-3ab4-451e-beb6-8850cce92436" name="New changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Breadcrumb.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Breadcrumb.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lib/libs/breadcrumb/Breadcrumb.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-143">
@@ -74,6 +64,19 @@
                 <element signature="e#39#78#0" expanded="true" />
                 <element signature="n#!!block;n#_renderBreadCrumbForDis#0;n#Breadcrumb#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-441">
+                <caret line="137" column="34" lean-forward="false" selection-start-line="137" selection-start-column="34" selection-end-line="137" selection-end-column="34" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -116,12 +119,12 @@
         <option value="$PROJECT_DIR$/Lib/libs/tab/TabPanel.js" />
         <option value="$PROJECT_DIR$/Lib/libs/tab/Tabs.js" />
         <option value="$PROJECT_DIR$/Lib/libs/transverter/Transverter.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Lib/libs/loading/Loading.js" />
         <option value="$PROJECT_DIR$/Lib/index.js" />
         <option value="$PROJECT_DIR$/DEMO/Test/app.js" />
         <option value="$PROJECT_DIR$/Lib/sass/breadcrumb/breadcrumb.scss" />
         <option value="$PROJECT_DIR$/Lib/libs/breadcrumb/Breadcrumb.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -190,46 +193,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DC-Ant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DC-Ant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DC-Ant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DC-Ant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="breadcrumb" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -238,7 +201,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/package.json" />
+    <property name="add_unversioned_files" value="true" />
     <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="JavaScriptPreferStrict" value="false" />
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
@@ -340,12 +303,12 @@
       <workItem from="1519036245306" duration="628000" />
       <workItem from="1519094674703" duration="26059000" />
       <workItem from="1519298600111" duration="594000" />
-      <workItem from="1519460377282" duration="10263000" />
+      <workItem from="1519460377282" duration="10697000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44345000" />
+    <option name="totallyTimeSpent" value="44779000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -684,13 +647,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.demo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -772,16 +728,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="24" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1157">
-            <caret line="188" column="48" lean-forward="false" selection-start-line="188" selection-start-column="48" selection-end-line="188" selection-end-column="48" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -889,6 +835,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="12" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Lib/libs/breadcrumb/Breadcrumb.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-143">
@@ -897,6 +851,17 @@
             <element signature="e#39#78#0" expanded="true" />
             <element signature="n#!!block;n#_renderBreadCrumbForDis#0;n#Breadcrumb#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-441">
+            <caret line="137" column="34" lean-forward="false" selection-start-line="137" selection-start-column="34" selection-end-line="137" selection-end-column="34" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
