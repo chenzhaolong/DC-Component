@@ -4,10 +4,17 @@
 .dc-breadcrumb__item {
   display: inline-block; }
 
+.dc-breadcrumb__span {
+  text-decoration: none;
+  font-size: 13px;
+  color: #888; }
+
 .dc-breadcrumb__a {
   text-decoration: none;
   font-size: 13px;
   color: #333; }
+  .dc-breadcrumb__a:hover {
+    color: #38f; }
 
 .dc-breadcrumb__separator {
   margin-left: 5px;

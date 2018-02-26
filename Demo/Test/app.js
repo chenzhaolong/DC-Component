@@ -49,7 +49,8 @@ const personMap = [
 const BreadRotes = [
     {name: "一级路由", href: 'http://127.0.0.1:8089/one'},
     {name: "二级路由", href: 'http://127.0.0.1:8089/one/two'},
-    {name: "三级路由", href: 'http://127.0.0.1:8089/one/two/three'}
+    // {name: "三级路由", href: 'http://127.0.0.1:8089/one/two/three'}
+    {name: "三级路由", path: "/one/two/three", query: {a1:1, a2: 2}, hash: "123"}
 ]
 
 class Demo extends Component{

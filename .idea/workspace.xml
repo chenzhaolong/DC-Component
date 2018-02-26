@@ -27,8 +27,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DEMO/Test/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+            <state relative-caret-position="238">
+              <caret line="52" column="62" lean-forward="false" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="62" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
                 <element signature="e#352#629#0" expanded="false" />
@@ -40,18 +40,18 @@
                 <element signature="n#!!block;n#cancel#0;n#Demo#0" expanded="false" />
                 <element signature="n#!!block;n#sure#0;n#Demo#0" expanded="false" />
                 <element signature="n#!!block;n#showConfirm#0;n#Demo#0" expanded="false" />
-                <element signature="e#2803#3027#0" expanded="false" />
-                <element signature="e#3044#3398#0" expanded="false" />
-                <element signature="e#3415#3596#0" expanded="false" />
-                <element signature="e#3613#4020#0" expanded="false" />
-                <element signature="e#4037#4219#0" expanded="false" />
-                <element signature="e#4236#4414#0" expanded="false" />
-                <element signature="e#4431#4581#0" expanded="false" />
-                <element signature="e#4598#5014#0" expanded="false" />
-                <element signature="e#5031#5164#0" expanded="false" />
-                <element signature="e#5181#5378#0" expanded="false" />
-                <element signature="e#5395#6012#0" expanded="false" />
-                <element signature="e#6072#6502#0" expanded="false" />
+                <element signature="e#2884#3108#0" expanded="false" />
+                <element signature="e#3125#3479#0" expanded="false" />
+                <element signature="e#3496#3677#0" expanded="false" />
+                <element signature="e#3694#4101#0" expanded="false" />
+                <element signature="e#4118#4300#0" expanded="false" />
+                <element signature="e#4317#4495#0" expanded="false" />
+                <element signature="e#4512#4662#0" expanded="false" />
+                <element signature="e#4679#5095#0" expanded="false" />
+                <element signature="e#5112#5245#0" expanded="false" />
+                <element signature="e#5262#5459#0" expanded="false" />
+                <element signature="e#5476#6093#0" expanded="false" />
+                <element signature="e#6153#6583#0" expanded="false" />
                 <element signature="n#Text#0" expanded="false" />
                 <element signature="n#Test#0" expanded="false" />
                 <element signature="n#DeptShop#0" expanded="false" />
@@ -67,8 +67,8 @@
       <file leaf-file-name="breadcrumb.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Lib/sass/breadcrumb/breadcrumb.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+            <state relative-caret-position="374">
+              <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -77,11 +77,13 @@
       <file leaf-file-name="Breadcrumb.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Lib/libs/breadcrumb/Breadcrumb.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+            <state relative-caret-position="401">
+              <caret line="28" column="49" lean-forward="true" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
               <folding>
                 <element signature="e#39#78#0" expanded="true" />
                 <element signature="n#!!block;n#_renderBreadCrumbForDis#0;n#Breadcrumb#0" expanded="false" />
+                <element signature="e#1295#1508#0" expanded="false" />
+                <element signature="n#!!block;n#_isLastItem#0;n#Breadcrumb#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -119,8 +121,8 @@
         <option value="$PROJECT_DIR$/Lib/index.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Lib/sass/breadcrumb/breadcrumb.scss" />
-        <option value="$PROJECT_DIR$/Lib/libs/breadcrumb/Breadcrumb.js" />
         <option value="$PROJECT_DIR$/DEMO/Test/app.js" />
+        <option value="$PROJECT_DIR$/Lib/libs/breadcrumb/Breadcrumb.js" />
       </list>
     </option>
   </component>
@@ -186,6 +188,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DC-Ant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DC-Ant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DC-Ant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DC-Ant" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="grid" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -300,12 +342,13 @@
       <workItem from="1519094674703" duration="26059000" />
       <workItem from="1519298600111" duration="594000" />
       <workItem from="1519460377282" duration="11632000" />
-      <workItem from="1519569129853" duration="9582000" />
+      <workItem from="1519569129853" duration="12487000" />
+      <workItem from="1519659180650" duration="6515000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55296000" />
+    <option name="totallyTimeSpent" value="64716000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
@@ -357,6 +400,8 @@
           <folding>
             <element signature="e#39#78#0" expanded="true" />
             <element signature="n#!!block;n#_renderBreadCrumbForDis#0;n#Breadcrumb#0" expanded="false" />
+            <element signature="e#1295#1508#0" expanded="false" />
+            <element signature="n#!!block;n#_isLastItem#0;n#Breadcrumb#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -376,18 +421,18 @@
             <element signature="n#!!block;n#cancel#0;n#Demo#0" expanded="false" />
             <element signature="n#!!block;n#sure#0;n#Demo#0" expanded="false" />
             <element signature="n#!!block;n#showConfirm#0;n#Demo#0" expanded="false" />
-            <element signature="e#2803#3027#0" expanded="false" />
-            <element signature="e#3044#3398#0" expanded="false" />
-            <element signature="e#3415#3596#0" expanded="false" />
-            <element signature="e#3613#4020#0" expanded="false" />
-            <element signature="e#4037#4219#0" expanded="false" />
-            <element signature="e#4236#4414#0" expanded="false" />
-            <element signature="e#4431#4581#0" expanded="false" />
-            <element signature="e#4598#5014#0" expanded="false" />
-            <element signature="e#5031#5164#0" expanded="false" />
-            <element signature="e#5181#5378#0" expanded="false" />
-            <element signature="e#5395#6012#0" expanded="false" />
-            <element signature="e#6072#6502#0" expanded="false" />
+            <element signature="e#2884#3108#0" expanded="false" />
+            <element signature="e#3125#3479#0" expanded="false" />
+            <element signature="e#3496#3677#0" expanded="false" />
+            <element signature="e#3694#4101#0" expanded="false" />
+            <element signature="e#4118#4300#0" expanded="false" />
+            <element signature="e#4317#4495#0" expanded="false" />
+            <element signature="e#4512#4662#0" expanded="false" />
+            <element signature="e#4679#5095#0" expanded="false" />
+            <element signature="e#5112#5245#0" expanded="false" />
+            <element signature="e#5262#5459#0" expanded="false" />
+            <element signature="e#5476#6093#0" expanded="false" />
+            <element signature="e#6153#6583#0" expanded="false" />
             <element signature="n#Text#0" expanded="false" />
             <element signature="n#Test#0" expanded="false" />
             <element signature="n#DeptShop#0" expanded="false" />
@@ -414,6 +459,8 @@
           <folding>
             <element signature="e#39#78#0" expanded="true" />
             <element signature="n#!!block;n#_renderBreadCrumbForDis#0;n#Breadcrumb#0" expanded="false" />
+            <element signature="e#1295#1508#0" expanded="false" />
+            <element signature="n#!!block;n#_isLastItem#0;n#Breadcrumb#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -433,18 +480,18 @@
             <element signature="n#!!block;n#cancel#0;n#Demo#0" expanded="false" />
             <element signature="n#!!block;n#sure#0;n#Demo#0" expanded="false" />
             <element signature="n#!!block;n#showConfirm#0;n#Demo#0" expanded="false" />
-            <element signature="e#2803#3027#0" expanded="false" />
-            <element signature="e#3044#3398#0" expanded="false" />
-            <element signature="e#3415#3596#0" expanded="false" />
-            <element signature="e#3613#4020#0" expanded="false" />
-            <element signature="e#4037#4219#0" expanded="false" />
-            <element signature="e#4236#4414#0" expanded="false" />
-            <element signature="e#4431#4581#0" expanded="false" />
-            <element signature="e#4598#5014#0" expanded="false" />
-            <element signature="e#5031#5164#0" expanded="false" />
-            <element signature="e#5181#5378#0" expanded="false" />
-            <element signature="e#5395#6012#0" expanded="false" />
-            <element signature="e#6072#6502#0" expanded="false" />
+            <element signature="e#2884#3108#0" expanded="false" />
+            <element signature="e#3125#3479#0" expanded="false" />
+            <element signature="e#3496#3677#0" expanded="false" />
+            <element signature="e#3694#4101#0" expanded="false" />
+            <element signature="e#4118#4300#0" expanded="false" />
+            <element signature="e#4317#4495#0" expanded="false" />
+            <element signature="e#4512#4662#0" expanded="false" />
+            <element signature="e#4679#5095#0" expanded="false" />
+            <element signature="e#5112#5245#0" expanded="false" />
+            <element signature="e#5262#5459#0" expanded="false" />
+            <element signature="e#5476#6093#0" expanded="false" />
+            <element signature="e#6153#6583#0" expanded="false" />
             <element signature="n#Text#0" expanded="false" />
             <element signature="n#Test#0" expanded="false" />
             <element signature="n#DeptShop#0" expanded="false" />
@@ -471,6 +518,8 @@
           <folding>
             <element signature="e#39#78#0" expanded="true" />
             <element signature="n#!!block;n#_renderBreadCrumbForDis#0;n#Breadcrumb#0" expanded="false" />
+            <element signature="e#1295#1508#0" expanded="false" />
+            <element signature="n#!!block;n#_isLastItem#0;n#Breadcrumb#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -490,18 +539,18 @@
             <element signature="n#!!block;n#cancel#0;n#Demo#0" expanded="false" />
             <element signature="n#!!block;n#sure#0;n#Demo#0" expanded="false" />
             <element signature="n#!!block;n#showConfirm#0;n#Demo#0" expanded="false" />
-            <element signature="e#2803#3027#0" expanded="false" />
-            <element signature="e#3044#3398#0" expanded="false" />
-            <element signature="e#3415#3596#0" expanded="false" />
-            <element signature="e#3613#4020#0" expanded="false" />
-            <element signature="e#4037#4219#0" expanded="false" />
-            <element signature="e#4236#4414#0" expanded="false" />
-            <element signature="e#4431#4581#0" expanded="false" />
-            <element signature="e#4598#5014#0" expanded="false" />
-            <element signature="e#5031#5164#0" expanded="false" />
-            <element signature="e#5181#5378#0" expanded="false" />
-            <element signature="e#5395#6012#0" expanded="false" />
-            <element signature="e#6072#6502#0" expanded="false" />
+            <element signature="e#2884#3108#0" expanded="false" />
+            <element signature="e#3125#3479#0" expanded="false" />
+            <element signature="e#3496#3677#0" expanded="false" />
+            <element signature="e#3694#4101#0" expanded="false" />
+            <element signature="e#4118#4300#0" expanded="false" />
+            <element signature="e#4317#4495#0" expanded="false" />
+            <element signature="e#4512#4662#0" expanded="false" />
+            <element signature="e#4679#5095#0" expanded="false" />
+            <element signature="e#5112#5245#0" expanded="false" />
+            <element signature="e#5262#5459#0" expanded="false" />
+            <element signature="e#5476#6093#0" expanded="false" />
+            <element signature="e#6153#6583#0" expanded="false" />
             <element signature="n#Text#0" expanded="false" />
             <element signature="n#Test#0" expanded="false" />
             <element signature="n#DeptShop#0" expanded="false" />
@@ -556,18 +605,18 @@
             <element signature="n#!!block;n#cancel#0;n#Demo#0" expanded="false" />
             <element signature="n#!!block;n#sure#0;n#Demo#0" expanded="false" />
             <element signature="n#!!block;n#showConfirm#0;n#Demo#0" expanded="false" />
-            <element signature="e#2803#3027#0" expanded="false" />
-            <element signature="e#3044#3398#0" expanded="false" />
-            <element signature="e#3415#3596#0" expanded="false" />
-            <element signature="e#3613#4020#0" expanded="false" />
-            <element signature="e#4037#4219#0" expanded="false" />
-            <element signature="e#4236#4414#0" expanded="false" />
-            <element signature="e#4431#4581#0" expanded="false" />
-            <element signature="e#4598#5014#0" expanded="false" />
-            <element signature="e#5031#5164#0" expanded="false" />
-            <element signature="e#5181#5378#0" expanded="false" />
-            <element signature="e#5395#6012#0" expanded="false" />
-            <element signature="e#6072#6502#0" expanded="false" />
+            <element signature="e#2884#3108#0" expanded="false" />
+            <element signature="e#3125#3479#0" expanded="false" />
+            <element signature="e#3496#3677#0" expanded="false" />
+            <element signature="e#3694#4101#0" expanded="false" />
+            <element signature="e#4118#4300#0" expanded="false" />
+            <element signature="e#4317#4495#0" expanded="false" />
+            <element signature="e#4512#4662#0" expanded="false" />
+            <element signature="e#4679#5095#0" expanded="false" />
+            <element signature="e#5112#5245#0" expanded="false" />
+            <element signature="e#5262#5459#0" expanded="false" />
+            <element signature="e#5476#6093#0" expanded="false" />
+            <element signature="e#6153#6583#0" expanded="false" />
             <element signature="n#Text#0" expanded="false" />
             <element signature="n#Test#0" expanded="false" />
             <element signature="n#DeptShop#0" expanded="false" />
@@ -762,21 +811,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/libs/grid/Row.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Lib/libs/grid/col.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/libs/grid/row.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -787,7 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -810,16 +844,38 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="-441">
             <caret line="137" column="34" lean-forward="false" selection-start-line="137" selection-start-column="34" selection-end-line="137" selection-end-column="34" />
-            <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Lib/libs/grid/row.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lib/libs/grid/Row.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="41" column="20" lean-forward="false" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Lib/sass/breadcrumb/breadcrumb.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="1" lean-forward="false" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DEMO/Test/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+        <state relative-caret-position="238">
+          <caret line="52" column="62" lean-forward="false" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="62" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#352#629#0" expanded="false" />
@@ -831,18 +887,18 @@
             <element signature="n#!!block;n#cancel#0;n#Demo#0" expanded="false" />
             <element signature="n#!!block;n#sure#0;n#Demo#0" expanded="false" />
             <element signature="n#!!block;n#showConfirm#0;n#Demo#0" expanded="false" />
-            <element signature="e#2803#3027#0" expanded="false" />
-            <element signature="e#3044#3398#0" expanded="false" />
-            <element signature="e#3415#3596#0" expanded="false" />
-            <element signature="e#3613#4020#0" expanded="false" />
-            <element signature="e#4037#4219#0" expanded="false" />
-            <element signature="e#4236#4414#0" expanded="false" />
-            <element signature="e#4431#4581#0" expanded="false" />
-            <element signature="e#4598#5014#0" expanded="false" />
-            <element signature="e#5031#5164#0" expanded="false" />
-            <element signature="e#5181#5378#0" expanded="false" />
-            <element signature="e#5395#6012#0" expanded="false" />
-            <element signature="e#6072#6502#0" expanded="false" />
+            <element signature="e#2884#3108#0" expanded="false" />
+            <element signature="e#3125#3479#0" expanded="false" />
+            <element signature="e#3496#3677#0" expanded="false" />
+            <element signature="e#3694#4101#0" expanded="false" />
+            <element signature="e#4118#4300#0" expanded="false" />
+            <element signature="e#4317#4495#0" expanded="false" />
+            <element signature="e#4512#4662#0" expanded="false" />
+            <element signature="e#4679#5095#0" expanded="false" />
+            <element signature="e#5112#5245#0" expanded="false" />
+            <element signature="e#5262#5459#0" expanded="false" />
+            <element signature="e#5476#6093#0" expanded="false" />
+            <element signature="e#6153#6583#0" expanded="false" />
             <element signature="n#Text#0" expanded="false" />
             <element signature="n#Test#0" expanded="false" />
             <element signature="n#DeptShop#0" expanded="false" />
@@ -854,21 +910,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Lib/sass/breadcrumb/breadcrumb.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="20" lean-forward="false" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Lib/libs/breadcrumb/Breadcrumb.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+        <state relative-caret-position="401">
+          <caret line="28" column="49" lean-forward="true" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
           <folding>
             <element signature="e#39#78#0" expanded="true" />
             <element signature="n#!!block;n#_renderBreadCrumbForDis#0;n#Breadcrumb#0" expanded="false" />
+            <element signature="e#1295#1508#0" expanded="false" />
+            <element signature="n#!!block;n#_isLastItem#0;n#Breadcrumb#0" expanded="false" />
           </folding>
         </state>
       </provider>
