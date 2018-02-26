@@ -1,3 +1,6 @@
+.dc-breadcrumb{
+  padding: 15px 0;
+}
 .dc-breadcrumb__item{
   display: inline-block;
 }
@@ -5,4 +8,8 @@
   text-decoration: none;
   font-size: 13px;
   color: #333;
+}
+.dc-breadcrumb__separator{
+  margin-left: 5px;
+  margin-right: 5px;
 }

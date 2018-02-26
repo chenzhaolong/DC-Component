@@ -9,15 +9,19 @@ export class Breadcrumb extends Component{
         super(props);
         const { routes, separator } = this.props;
         this.state = {
-            routes,
-            separator: separator || "/"
+            separator: separator || "/",
         }
     }
 
     _renderBreadCrumbForCon() {
         const { routes } = this.props;
-        return routes.map((child, index) => {
-            return this._enhanceItemComponent(child);
+        let _index = -1;
+        routes.forEach((child, index) => {
+            if(this._matchCurrentHref(child.href)) _index = index;
+        });
+        const _routes = _index >= 0 ? routes.slice(0, _index + 1) : [];
+        return _routes.map((child, index, array) => {
+            return this._enhanceItemComponent(child, index, array);
         });
     }
 
@@ -25,13 +29,25 @@ export class Breadcrumb extends Component{
 
     }
 
-    _enhanceItemComponent(child) {
+    _matchCurrentHref(href) {
+        const currentHref = window.location.href;
+        return currentHref.indexOf(href) !== -1;
+    }
+
+    _isLastItem(index, array) {
+        return index == array.length - 1;
+    }
+
+    _enhanceItemComponent(child, index, array) {
         return (
-            <div className="dc-breadcrumb__item">
+            <div className="dc-breadcrumb__item" key={index}>
                 <Item {...child}>
                     {child.component ? child.component : child.name}
                 </Item>
-                <span>{this.state.separator}</span>
+                {
+                    this._isLastItem(index, array) ? null
+                        : <span className="dc-breadcrumb__separator">{this.state.separator}</span>
+                }
             </div>
         )
     }
@@ -39,7 +55,7 @@ export class Breadcrumb extends Component{
     render() {
         const { mode = "concentrate" } = this.props;
         return (
-            <div>
+            <div className="dc-breadcrumb">
                 {
                     mode == "concentrate" ? this._renderBreadCrumbForCon() : this._renderBreadCrumbForDis()
                 }
@@ -55,11 +71,11 @@ class Item extends Component{
     render() {
         const { children, href } = this.props;
         return (
-            <div className="dc-breadcrumb__item">
+            <span className="dc-breadcrumb__item">
                 <a href={href} className="dc-breadcrumb__a">
                     {children}
                 </a>
-            </div>
+            </span>
         )
     }
 }
