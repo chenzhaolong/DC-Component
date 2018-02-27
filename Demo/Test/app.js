@@ -47,11 +47,12 @@ const personMap = [
 ];
 
 const BreadRotes = [
-    {name: "一级路由", href: 'http://127.0.0.1:8089/one'},
-    {name: "二级路由", href: 'http://127.0.0.1:8089/one/two'},
-    // {name: "三级路由", href: 'http://127.0.0.1:8089/one/two/three'}
-    {name: "三级路由", path: "/one/two/three", query: {a1:1, a2: 2}, hash: "123"}
-]
+    {name: "一级路由", href: 'http://127.0.0.1:8089/one', className: "one"},
+    {name: "二级路由", path: "/one/two/three", query: {a1:1, a2: 2}, hash: "123", prefix: "data", className: "three"},
+    {name: "三级路由", href: 'http://127.0.0.1:8089/one/two', className: "two"},
+];
+
+const Item = Breadcrumb.createItem();
 
 class Demo extends Component{
     constructor(props) {
@@ -203,6 +204,16 @@ class Demo extends Component{
                     mode="concentrate"
                     routes={BreadRotes}
                 />
+                <div>
+                    <a href="http://127.0.0.1:8089/one/two">跳转三级路由</a>
+                    <br/>
+                    <a href="http://127.0.0.1:8089/data/one/two/three?a1=1&a2=2#123">跳转二级路由</a>
+                </div>
+                <Breadcrumb mode="distribution">
+                    <Item href="http://127.0.0.1:8089/one" className="first">第一级</Item>
+                    <Item href="http://127.0.0.1:8089/one/two" className="second">第二级</Item>
+                    <Item href="http://127.0.0.1:8089/data/one/two/three?a1=1&a2=2#123">第三极</Item>
+                </Breadcrumb>
             </div>
         )
     }
