@@ -22,15 +22,18 @@ export class Breadcrumb extends Component{
         const { children } = this.props;
         let _index = -1;
         children.forEach((child, index) => {
-            if (window.location.href == child.props.href) _index = index;
+            const _href = child.props.href || _createHrefByParams(child.props.route);
+            if (window.location.href == _href) _index = index;
         });
         const _children = _index >= 0 ? children.slice(0, _index + 1) : [];
         return React.Children.map(_children, (child, index) => {
+            const { href, route } = child.props;
+            const _href = href || _createHrefByParams(route);
             return (
                 <div  className="dc-breadcrumb__item" key={index}>
                     { child }
                     {
-                        this._isLastItem(child.props.href)
+                        this._isLastItem(_href)
                     }
                 </div>
             )
@@ -49,32 +52,10 @@ export class Breadcrumb extends Component{
         const currentHref = window.location.href;
         let _index = -1;
         routes.forEach((child, index) => {
-            child["href"] = child.href || this._createHrefByParams(child);
+            child["href"] = child.href || _createHrefByParams(child);
             if(currentHref == child.href) _index = index;
         });
         return _index >= 0 ? routes.slice(0, _index + 1) : [];
-    }
-
-    _createHrefByParams(spec) {
-        const { path, query, hash, prefix } = spec;
-        const { protocol, host, pathname } = window.location;
-        const currentpath = `${prefix && "/"}${prefix && prefix}${path || pathname}`;
-        let _href = `${protocol}//${host}${currentpath}`;
-        const _queryString = function(query) {
-            let queryStr = "";
-            for (let key in query) {
-                queryStr = `${queryStr && queryStr}${queryStr && "&"}${key}=${query[key]}`
-            }
-            return queryStr;
-        };
-        if (query) {
-            if (typeof query !== 'object') throw new Error("query must be Object!");
-            _href = `${_href}?${_queryString(query)}`;
-        }
-        if (hash) {
-            _href = `${_href}#${hash}`;
-        }
-        return _href;
     }
 
     _isLastItem(href) {
@@ -117,22 +98,53 @@ class Item extends Component{
     }
 
     render() {
-        const { children, href, className } = this.props;
+        const { children, href, className, route } = this.props;
         const currentClassName = ['dc-breadcrumb__span', className].join(" ");
         const preClassName = ['dc-breadcrumb__a', className].join(" ");
+        const _href = href || _createHrefByParams(route);
         return (
             <span className="dc-breadcrumb__item">
                 {
-                    this._isCurrentHref(href) ?
+                    this._isCurrentHref(_href) ?
                         <span className={currentClassName}>
                             {children}
                         </span>
                         :
-                        <a href={href} className={preClassName}>
+                        <a href={_href} className={preClassName}>
                             {children}
                         </a>
                 }
             </span>
         )
     }
+}
+
+/**
+ * 根据配置项拼接url
+ * @param: spec是配置对象
+ * @spec-path：相对路径
+ * @spec-query：查询字符串
+ * @spec-hash：希尔值
+ * @spec-prefix：路径前缀
+ * */
+function _createHrefByParams(spec) {
+    const { path, query, hash, prefix } = spec;
+    const { protocol, host, pathname } = window.location;
+    const currentpath = `${prefix && "/"}${prefix && prefix}${path || pathname}`;
+    let _href = `${protocol}//${host}${currentpath}`;
+    const _queryString = function(query) {
+        let queryStr = "";
+        for (let key in query) {
+            queryStr = `${queryStr && queryStr}${queryStr && "&"}${key}=${query[key]}`
+        }
+        return queryStr;
+    };
+    if (query) {
+        if (typeof query !== 'object') throw new Error("query must be Object!");
+        _href = `${_href}?${_queryString(query)}`;
+    }
+    if (hash) {
+        _href = `${_href}#${hash}`;
+    }
+    return _href;
 }

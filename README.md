@@ -230,7 +230,12 @@ BreadCrumb固定属性：
 Item组件固定属性：
                href：             该路由的url
                className：        该路由自定义样式类名
-
+               route:             路由配置对象
+                    href：        完成的url
+                    path：        相对路径
+                    query：       查询字符串（对象）
+                    hash:         希尔值
+                    prefix：      路由前缀
 形式：
 集中式：
                      const BreadRotes = [

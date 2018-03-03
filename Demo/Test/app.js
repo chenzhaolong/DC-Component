@@ -212,7 +212,7 @@ class Demo extends Component{
                 <Breadcrumb mode="distribution">
                     <Item href="http://127.0.0.1:8089/one" className="first">第一级</Item>
                     <Item href="http://127.0.0.1:8089/one/two" className="second">第二级</Item>
-                    <Item href="http://127.0.0.1:8089/data/one/two/three?a1=1&a2=2#123">第三极</Item>
+                    <Item route={{path: "/one/two/three", query: {a1:1, a2: 2}, hash: "123", prefix: "data"}}>第三极</Item>
                 </Breadcrumb>
             </div>
         )
