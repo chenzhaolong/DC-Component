@@ -1,1 +1,0 @@
-{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = absFloor;\nfunction absFloor(number) {\n  if (number < 0) {\n    // -0 -> 0\n    return Math.ceil(number) || 0;\n  } else {\n    return Math.floor(number);\n  }\n}"},"hash":"d0428d1558c9f83e8e7ad8eed2aae3d2"}

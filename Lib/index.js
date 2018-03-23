@@ -10,7 +10,8 @@ import {Icon} from './libs/Icon/index';
 import {Switch} from './libs/switch/Switch';
 import {Tabs} from './libs/tab/Tabs';
 import {Transverter} from "./libs/transverter/Transverter";
-import {Breadcrumb} from './libs/breadcrumb/Breadcrumb'
+import {Breadcrumb} from './libs/breadcrumb/Breadcrumb';
+import {Menu} from './libs/menu/Menu';
 
 export {
     Button,
@@ -23,4 +24,5 @@ export {
     Tabs,
     Transverter,
     Breadcrumb,
+    Menu
 }

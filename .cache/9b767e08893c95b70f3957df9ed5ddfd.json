@@ -1,1 +1,0 @@
-{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = {\n  ZERO: 48,\n  NINE: 57,\n\n  NUMPAD_ZERO: 96,\n  NUMPAD_NINE: 105,\n\n  BACKSPACE: 8,\n  DELETE: 46,\n  ENTER: 13,\n\n  ARROW_UP: 38,\n  ARROW_DOWN: 40\n};"},"hash":"58b8f71adb35fb59f6e0426169146b83"}

@@ -79,6 +79,25 @@ function req_ (id, cache) {
     if (cache[id]) {
       return cache[id].exports
     }
+    if (id === 'internal/bootstrap/loaders') {
+      // Provide just enough to keep `graceful-fs@3` working and tests passing.
+      // For now.
+      return {
+        internalBinding: function(name) {
+          if (name === 'types') {
+            return process.binding('util');
+          } else {
+            return {};
+          }
+        },
+        NativeModule: {
+          _source: process.binding('natives'),
+          nonInternalExists: function(id) {
+            return !id.startsWith('internal/');
+          }
+        }
+      };
+    }
     return req_(id, cache)
   }
 

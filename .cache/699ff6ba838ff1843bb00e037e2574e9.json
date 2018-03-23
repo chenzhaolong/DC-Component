@@ -1,1 +1,0 @@
-{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = absCeil;\nfunction absCeil(number) {\n  if (number < 0) {\n    return Math.floor(number);\n  } else {\n    return Math.ceil(number);\n  }\n}"},"hash":"60d46aedf2db937c5584805dfe8d0f0f"}

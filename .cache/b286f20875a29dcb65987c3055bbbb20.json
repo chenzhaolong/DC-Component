@@ -1,1 +1,0 @@
-{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nvar now = exports.now = function now() {\n  return Date.now ? Date.now() : +new Date();\n};"},"hash":"ae07f9608d7e63deb577bd9c7506a6d7"}

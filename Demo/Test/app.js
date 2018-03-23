@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import {Popover} from 'antd';
-import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter, Breadcrumb} from '../../Lib/index';
+import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter, Breadcrumb, Menu} from '../../Lib/index';
 import './app.css';
-import classNames from 'classnames';
 
 
 const {confirm} = Modal;
@@ -204,16 +202,14 @@ class Demo extends Component{
                     mode="concentrate"
                     routes={BreadRotes}
                 />
-                <div>
-                    <a href="http://127.0.0.1:8089/one/two">跳转三级路由</a>
-                    <br/>
-                    <a href="http://127.0.0.1:8089/data/one/two/three?a1=1&a2=2#123">跳转二级路由</a>
-                </div>
                 <Breadcrumb mode="distribution">
-                    <Item href="http://127.0.0.1:8089/one" className="first">第一级</Item>
+                    <Item href="http://localhost:63343/dc-ant/DC-Ant/index.demo.html" className="first">第一级</Item>
                     <Item href="http://127.0.0.1:8089/one/two" className="second">第二级</Item>
                     <Item route={{path: "/one/two/three", query: {a1:1, a2: 2}, hash: "123", prefix: "data"}}>第三极</Item>
                 </Breadcrumb>
+                <Menu>
+                    
+                </Menu>
             </div>
         )
     }

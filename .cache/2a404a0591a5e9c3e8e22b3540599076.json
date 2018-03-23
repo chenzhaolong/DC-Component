@@ -1,1 +1,0 @@
-{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.invalidDate = invalidDate;\nvar defaultInvalidDate = exports.defaultInvalidDate = 'Invalid date';\n\nfunction invalidDate() {\n  return this._invalidDate;\n}"},"hash":"d1f1f06012f6ac5ca190874908739c88"}

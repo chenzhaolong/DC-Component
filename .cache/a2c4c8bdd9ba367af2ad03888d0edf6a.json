@@ -1,1 +1,0 @@
-{"dependencies":[{"name":"./constructor","loc":{"line":1,"column":23}}],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.clone = clone;\n\nvar _constructor = require(\"./constructor\");\n\nfunction clone() {\n  return new _constructor.Moment(this);\n}"},"hash":"f0e094fc32fc97debcb96bfd4665e97f"}

@@ -1,1 +1,0 @@
-{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.Locale = Locale;\nfunction Locale(config) {\n  if (config != null) {\n    this.set(config);\n  }\n}"},"hash":"73e4f68478c342f58a0e48e62fe6df7b"}

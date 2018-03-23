@@ -1,1 +1,0 @@
-{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = {\n  DATE_ROW_COUNT: 6,\n  DATE_COL_COUNT: 7\n};"},"hash":"5d8316dc918b91d0278efe90cafd35a4"}

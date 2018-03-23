@@ -1,1 +1,0 @@
-{"dependencies":[],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.default = absRound;\nfunction absRound(number) {\n  if (number < 0) {\n    return Math.round(-1 * number) * -1;\n  } else {\n    return Math.round(number);\n  }\n}"},"hash":"a5a602c640feebe2563a2b0d50adc39e"}

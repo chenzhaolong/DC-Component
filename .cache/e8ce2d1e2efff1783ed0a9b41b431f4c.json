@@ -1,1 +1,0 @@
-{"dependencies":[{"name":"./create","loc":{"line":1,"column":31}}],"generated":{"js":"\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.clone = clone;\n\nvar _create = require(\"./create\");\n\nfunction clone() {\n  return (0, _create.createDuration)(this);\n}"},"hash":"7114fce624c832488e364494f5a5c180"}
