@@ -1,0 +1,10 @@
+.dc-menu {
+  width: 275px;
+  display: inline-block;
+  font-size: 14px;
+  background-color: #fff; }
+
+.dc-menu-item {
+  margin: 10px 0;
+  padding: 0 10px;
+  height: 30px; }
