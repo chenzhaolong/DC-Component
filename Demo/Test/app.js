@@ -113,10 +113,15 @@ class Demo extends Component {
             <div>
                 <Menu
                     className="dc-demo"
+                    // bgColor='#5d5d5d'
+                    defaultOrder='2'
+                    activeColor='blue'
+                    activeClass='win'
+                    defaultOrder='1'
                 >
-                    <MenuItem>1</MenuItem>
-                    <MenuItem>2</MenuItem>
-                    <MenuItem>3</MenuItem>
+                    <MenuItem order='1'>1</MenuItem>
+                    <MenuItem order='2'>2</MenuItem>
+                    <MenuItem order='3'>3</MenuItem>
                 </Menu>
                 <div style={{display: 'inline-block', verticalAlign: 'top'}}>
                     <Button

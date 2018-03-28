@@ -836,7 +836,7 @@ module.exports = emptyFunction;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
 var ReactCurrentOwner = __webpack_require__(11);
 
@@ -1245,7 +1245,7 @@ var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
 var CallbackQueue = __webpack_require__(66);
-var PooledClass = __webpack_require__(19);
+var PooledClass = __webpack_require__(20);
 var ReactFeatureFlags = __webpack_require__(67);
 var ReactReconciler = __webpack_require__(22);
 var Transaction = __webpack_require__(31);
@@ -1964,7 +1964,7 @@ function updateLink (link, options, obj) {
 
 var _assign = __webpack_require__(4);
 
-var PooledClass = __webpack_require__(19);
+var PooledClass = __webpack_require__(20);
 
 var emptyFunction = __webpack_require__(8);
 var warning = __webpack_require__(2);
@@ -2440,6 +2440,40 @@ module.exports = DOMProperty;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol.for && Symbol.for('react.element') || 0xeac7;
+
+  var isValidElement = function isValidElement(object) {
+    return (typeof object === 'undefined' ? 'undefined' : _typeof(object)) === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(211)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(213)();
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2480,7 +2514,7 @@ function reactProdInvariant(code) {
 module.exports = reactProdInvariant;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2829,7 +2863,7 @@ module.exports = ReactElement;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2947,40 +2981,6 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = typeof Symbol === 'function' && Symbol.for && Symbol.for('react.element') || 0xeac7;
-
-  var isValidElement = function isValidElement(object) {
-    return (typeof object === 'undefined' ? 'undefined' : _typeof(object)) === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(211)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(213)();
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3004,7 +3004,7 @@ var ReactComponent = __webpack_require__(39);
 var ReactPureComponent = __webpack_require__(93);
 var ReactClass = __webpack_require__(94);
 var ReactDOMFactories = __webpack_require__(95);
-var ReactElement = __webpack_require__(18);
+var ReactElement = __webpack_require__(19);
 var ReactPropTypes = __webpack_require__(97);
 var ReactVersion = __webpack_require__(98);
 
@@ -5261,7 +5261,7 @@ module.exports = getIteratorFn;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
 var ReactNoopUpdateQueue = __webpack_require__(40);
 
@@ -7389,7 +7389,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var ReactCurrentOwner = __webpack_require__(11);
 var ReactComponentTreeHook = __webpack_require__(9);
-var ReactElement = __webpack_require__(18);
+var ReactElement = __webpack_require__(19);
 
 var checkReactTypeSpec = __webpack_require__(96);
 
@@ -7812,7 +7812,7 @@ function _classCallCheck(instance, Constructor) {
   }
 }
 
-var PooledClass = __webpack_require__(19);
+var PooledClass = __webpack_require__(20);
 
 var invariant = __webpack_require__(1);
 
@@ -10167,6 +10167,8 @@ __webpack_require__(241);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -10281,22 +10283,26 @@ var Demo = function (_Component) {
                 null,
                 _react2.default.createElement(
                     _index.Menu,
-                    {
+                    _defineProperty({
                         className: 'dc-demo'
-                    },
+                        // bgColor='#5d5d5d'
+                        , defaultOrder: '2',
+                        activeColor: 'blue',
+                        activeClass: 'win'
+                    }, 'defaultOrder', '1'),
                     _react2.default.createElement(
                         MenuItem,
-                        null,
+                        { order: '1' },
                         '1'
                     ),
                     _react2.default.createElement(
                         MenuItem,
-                        null,
+                        { order: '2' },
                         '2'
                     ),
                     _react2.default.createElement(
                         MenuItem,
-                        null,
+                        { order: '3' },
                         '3'
                     )
                 ),
@@ -10720,7 +10726,7 @@ var DeptShop = function (_Component4) {
 
 
 var PooledClass = __webpack_require__(90);
-var ReactElement = __webpack_require__(18);
+var ReactElement = __webpack_require__(19);
 
 var emptyFunction = __webpack_require__(8);
 var traverseAllChildren = __webpack_require__(91);
@@ -10915,7 +10921,7 @@ module.exports = ReactChildren;
 
 
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
 var invariant = __webpack_require__(1);
 
@@ -11034,7 +11040,7 @@ module.exports = PooledClass;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
 var ReactCurrentOwner = __webpack_require__(11);
 var REACT_ELEMENT_TYPE = __webpack_require__(59);
@@ -11329,11 +11335,11 @@ module.exports = ReactPureComponent;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(17),
+var _prodInvariant = __webpack_require__(18),
     _assign = __webpack_require__(4);
 
 var ReactComponent = __webpack_require__(39);
-var ReactElement = __webpack_require__(18);
+var ReactElement = __webpack_require__(19);
 var ReactPropTypeLocationNames = __webpack_require__(41);
 var ReactNoopUpdateQueue = __webpack_require__(40);
 
@@ -12051,7 +12057,7 @@ module.exports = ReactClass;
 
 
 
-var ReactElement = __webpack_require__(18);
+var ReactElement = __webpack_require__(19);
 
 /**
  * Create a factory that creates HTML tag elements.
@@ -12229,7 +12235,7 @@ module.exports = ReactDOMFactories;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
 var ReactPropTypeLocationNames = __webpack_require__(41);
 var ReactPropTypesSecret = __webpack_require__(61);
@@ -12324,7 +12330,7 @@ module.exports = checkReactTypeSpec;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var ReactElement = __webpack_require__(18);
+var ReactElement = __webpack_require__(19);
 var ReactPropTypeLocationNames = __webpack_require__(41);
 var ReactPropTypesSecret = __webpack_require__(61);
 
@@ -12782,9 +12788,9 @@ module.exports = '15.4.2';
  */
 
 
-var _prodInvariant = __webpack_require__(17);
+var _prodInvariant = __webpack_require__(18);
 
-var ReactElement = __webpack_require__(18);
+var ReactElement = __webpack_require__(19);
 
 var invariant = __webpack_require__(1);
 
@@ -13508,7 +13514,7 @@ module.exports = BeforeInputEventPlugin;
 
 var _assign = __webpack_require__(4);
 
-var PooledClass = __webpack_require__(19);
+var PooledClass = __webpack_require__(20);
 
 var getTextContentAccessor = __webpack_require__(65);
 
@@ -19642,7 +19648,7 @@ module.exports = flattenChildren;
 
 var _assign = __webpack_require__(4);
 
-var PooledClass = __webpack_require__(19);
+var PooledClass = __webpack_require__(20);
 var Transaction = __webpack_require__(31);
 var ReactInstrumentation = __webpack_require__(10);
 var ReactServerUpdateQueue = __webpack_require__(149);
@@ -20334,7 +20340,7 @@ var _assign = __webpack_require__(4);
 
 var EventListener = __webpack_require__(81);
 var ExecutionEnvironment = __webpack_require__(7);
-var PooledClass = __webpack_require__(19);
+var PooledClass = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(12);
 
@@ -20574,7 +20580,7 @@ module.exports = ReactInjection;
 var _assign = __webpack_require__(4);
 
 var CallbackQueue = __webpack_require__(66);
-var PooledClass = __webpack_require__(19);
+var PooledClass = __webpack_require__(20);
 var ReactBrowserEventEmitter = __webpack_require__(35);
 var ReactInputSelection = __webpack_require__(82);
 var ReactInstrumentation = __webpack_require__(10);
@@ -23002,7 +23008,7 @@ __webpack_require__(206);
 
 __webpack_require__(209);
 
-var _propTypes = __webpack_require__(20);
+var _propTypes = __webpack_require__(17);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -24494,7 +24500,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(20);
+var _propTypes = __webpack_require__(17);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -24560,7 +24566,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(20);
+var _propTypes = __webpack_require__(17);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -24872,7 +24878,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(25);
 
-var _propTypes = __webpack_require__(20);
+var _propTypes = __webpack_require__(17);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -25272,7 +25278,7 @@ var _react2 = _interopRequireDefault(_react);
 
 __webpack_require__(227);
 
-var _propTypes = __webpack_require__(20);
+var _propTypes = __webpack_require__(17);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -25906,7 +25912,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(20);
+var _propTypes = __webpack_require__(17);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -26100,7 +26106,7 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _propTypes = __webpack_require__(20);
+var _propTypes = __webpack_require__(17);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
@@ -26411,25 +26417,122 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Menu = exports.Menu = function (_Component) {
     _inherits(Menu, _Component);
 
-    function Menu() {
+    function Menu(props) {
         _classCallCheck(this, Menu);
 
-        return _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
+
+        _this._ItemClickEvent = _this._ItemClickEvent.bind(_this);
+        _this._ItemMouseEnterEvent = _this._ItemMouseEnterEvent.bind(_this);
+        _this._ItemMouseLeaveEvent = _this._ItemMouseLeaveEvent.bind(_this);
+        return _this;
     }
 
     _createClass(Menu, [{
+        key: "_renderMenuItemList",
+
+
+        // 渲染组件
+        value: function _renderMenuItemList() {
+            var _this2 = this;
+
+            return _react2.default.Children.map(this.props.children, function (child) {
+                return _react2.default.createElement(
+                    "div",
+                    {
+                        onClick: _this2._ItemClickEvent,
+                        onMouseEnter: _this2._ItemMouseEnterEvent,
+                        onMouseLeave: _this2._ItemMouseLeaveEvent
+                    },
+                    child
+                );
+            });
+        }
+
+        // Item的点击事件
+
+    }, {
+        key: "_ItemClickEvent",
+        value: function _ItemClickEvent(e) {
+            console.log(e);
+        }
+
+        // Item的鼠标事件
+
+    }, {
+        key: "_ItemMouseEnterEvent",
+        value: function _ItemMouseEnterEvent(e) {
+            var _props = this.props,
+                _props$activeColor = _props.activeColor,
+                activeColor = _props$activeColor === undefined ? '#e7f7ff' : _props$activeColor,
+                activeClass = _props.activeClass;
+
+            var _ele = e.target;
+            if (activeClass) {
+                if (!_ele.classList.contains(activeClass)) {
+                    _ele.classList.add(activeClass);
+                }
+            } else {
+                _ele.style.backgroundColor = activeColor;
+            }
+        }
+    }, {
+        key: "_ItemMouseLeaveEvent",
+        value: function _ItemMouseLeaveEvent(e) {
+            var _props2 = this.props,
+                _props2$bgColor = _props2.bgColor,
+                bgColor = _props2$bgColor === undefined ? '#fff' : _props2$bgColor,
+                activeClass = _props2.activeClass;
+
+            var _ele = e.target;
+            if (activeClass) {
+                _ele.classList.remove(activeClass);
+            } else {
+                _ele.style.backgroundColor = bgColor;
+            }
+        }
+
+        // 匹配order值
+
+    }, {
+        key: "_matchOrder",
+        value: function _matchOrder() {
+            var _props3 = this.props,
+                activeClass = _props3.activeClass,
+                activeColor = _props3.activeColor,
+                defaultOrder = _props3.defaultOrder;
+
+            var ItemCollection = document.getElementsByClassName('dc-menu-item');
+            var key = void 0;
+            for (var i = 0; i < ItemCollection.length; i++) {
+                key = ItemCollection[i].dataset.key;
+                if (key === defaultOrder) {
+                    if (activeClass) {
+                        ItemCollection[i].classList.add(activeClass);
+                    } else {
+                        ItemCollection[i].style.backgroundColor = activeColor;
+                    }
+                }
+            }
+        }
+    }, {
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            this._matchOrder();
+        }
+    }, {
         key: "render",
         value: function render() {
-            var _props = this.props,
-                className = _props.className,
-                bgColor = _props.bgColor;
+            var _props4 = this.props,
+                className = _props4.className,
+                _props4$bgColor = _props4.bgColor,
+                bgColor = _props4$bgColor === undefined ? '#fff' : _props4$bgColor;
 
             var rootClass = ['dc-menu', className];
-            var rootBgColor = bgColor && { backgroundColor: bgColor };
             return _react2.default.createElement(
                 "div",
-                { className: rootClass.join(' '), style: rootBgColor },
-                this.props.children
+                { className: rootClass.join(' '), style: { backgroundColor: bgColor } },
+                this._renderMenuItemList()
             );
         }
     }], [{
@@ -26465,6 +26568,10 @@ var _react = __webpack_require__(6);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(17);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 __webpack_require__(87);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -26485,14 +26592,19 @@ var MenuItem = exports.MenuItem = function (_Component) {
     }
 
     _createClass(MenuItem, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {}
+    }, {
         key: 'render',
         value: function render() {
-            var className = this.props.className;
+            var _props = this.props,
+                className = _props.className,
+                order = _props.order;
 
             var rootItemClass = ['dc-menu-item', className].join(' ');
             return _react2.default.createElement(
                 'div',
-                { className: rootItemClass },
+                { className: rootItemClass, 'data-key': order },
                 this.props.children
             );
         }
@@ -26500,6 +26612,10 @@ var MenuItem = exports.MenuItem = function (_Component) {
 
     return MenuItem;
 }(_react.Component);
+
+MenuItem.propTypes = {
+    order: _propTypes2.default.string.isRequired
+};
 
 /***/ }),
 /* 239 */
@@ -26610,7 +26726,7 @@ exports = module.exports = __webpack_require__(13)(false);
 
 
 // module
-exports.push([module.i, ".btn{\n    width: 200px;\n}\n.col1{\n     background-color: #108ee9;\n }\n.col2{\n    background-color: aquamarine;\n}\n.flex{\n    display: flex;\n    justify-content: space-around;\n}\n.pop{\n    width: 60px;\n    height: 60px;\n    margin-top: 50px;\n    margin-left: 100px;\n    border: 1px solid;\n}\n.size{\n    width:200px;\n    height: 100px;\n}", ""]);
+exports.push([module.i, ".btn{\n    width: 200px;\n}\n.col1{\n     background-color: #108ee9;\n }\n.col2{\n    background-color: aquamarine;\n}\n.flex{\n    display: flex;\n    justify-content: space-around;\n}\n.pop{\n    width: 60px;\n    height: 60px;\n    margin-top: 50px;\n    margin-left: 100px;\n    border: 1px solid;\n}\n.size{\n    width:200px;\n    height: 100px;\n}\n.win{\n    background-color: #108ee9;\n}", ""]);
 
 // exports
 
