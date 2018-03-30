@@ -10167,8 +10167,6 @@ __webpack_require__(241);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -10283,13 +10281,17 @@ var Demo = function (_Component) {
                 null,
                 _react2.default.createElement(
                     _index.Menu,
-                    _defineProperty({
-                        className: 'dc-demo'
-                        // bgColor='#5d5d5d'
-                        , defaultOrder: '2',
-                        activeColor: 'blue',
-                        activeClass: 'win'
-                    }, 'defaultOrder', '1'),
+                    {
+                        className: 'dc-demo',
+                        bgColor: '#5d5d5d',
+                        defaultOrder: '2',
+                        activeColor: 'blue'
+                        // activeClass='win'
+                        , trigger: 'click',
+                        onchange: function onchange(order) {
+                            return console.log(order);
+                        }
+                    },
                     _react2.default.createElement(
                         MenuItem,
                         { order: '1' },
@@ -26422,6 +26424,9 @@ var Menu = exports.Menu = function (_Component) {
 
         var _this = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
 
+        _this.state = {
+            _activeOrder: _this.props.defaultOrder || ''
+        };
         _this._ItemClickEvent = _this._ItemClickEvent.bind(_this);
         _this._ItemMouseEnterEvent = _this._ItemMouseEnterEvent.bind(_this);
         _this._ItemMouseLeaveEvent = _this._ItemMouseLeaveEvent.bind(_this);
@@ -26454,7 +26459,35 @@ var Menu = exports.Menu = function (_Component) {
     }, {
         key: "_ItemClickEvent",
         value: function _ItemClickEvent(e) {
-            console.log(e);
+            var _this3 = this;
+
+            var _props = this.props,
+                _props$bgColor = _props.bgColor,
+                bgColor = _props$bgColor === undefined ? '#fff' : _props$bgColor,
+                _props$activeColor = _props.activeColor,
+                activeColor = _props$activeColor === undefined ? '#fff' : _props$activeColor,
+                activeClass = _props.activeClass;
+
+            var _ele = e.currentTarget;
+            var order = _ele.firstChild.dataset.key;
+            var children = _ele.parentNode.children;
+            if (activeClass) {
+                _ele.classList.add(activeClass);
+            } else {
+                _ele.style.backgroundColor = activeColor;
+            }
+            for (var i = 0; i < children.length; i++) {
+                if (children[i].firstChild.dataset.key !== order) {
+                    if (activeClass) {
+                        children[i].classList.remove(activeClass);
+                    } else {
+                        children[i].style.backgroundColor = bgColor;
+                    }
+                }
+            }
+            this.setState({ _activeOrder: order }, function () {
+                _this3.props.onchange(_this3.state._activeOrder);
+            });
         }
 
         // Item的鼠标事件
@@ -26462,12 +26495,17 @@ var Menu = exports.Menu = function (_Component) {
     }, {
         key: "_ItemMouseEnterEvent",
         value: function _ItemMouseEnterEvent(e) {
-            var _props = this.props,
-                _props$activeColor = _props.activeColor,
-                activeColor = _props$activeColor === undefined ? '#e7f7ff' : _props$activeColor,
-                activeClass = _props.activeClass;
+            var _props2 = this.props,
+                _props2$activeColor = _props2.activeColor,
+                activeColor = _props2$activeColor === undefined ? '#fff' : _props2$activeColor,
+                activeClass = _props2.activeClass,
+                _props2$trigger = _props2.trigger,
+                trigger = _props2$trigger === undefined ? 'hover' : _props2$trigger;
 
-            var _ele = e.target;
+            var _ele = e.currentTarget;
+            if (_ele.firstChild.dataset.key === this.state._activeOrder || trigger === 'click') {
+                return false;
+            }
             if (activeClass) {
                 if (!_ele.classList.contains(activeClass)) {
                     _ele.classList.add(activeClass);
@@ -26479,12 +26517,17 @@ var Menu = exports.Menu = function (_Component) {
     }, {
         key: "_ItemMouseLeaveEvent",
         value: function _ItemMouseLeaveEvent(e) {
-            var _props2 = this.props,
-                _props2$bgColor = _props2.bgColor,
-                bgColor = _props2$bgColor === undefined ? '#fff' : _props2$bgColor,
-                activeClass = _props2.activeClass;
+            var _props3 = this.props,
+                _props3$bgColor = _props3.bgColor,
+                bgColor = _props3$bgColor === undefined ? '#fff' : _props3$bgColor,
+                activeClass = _props3.activeClass,
+                _props3$trigger = _props3.trigger,
+                trigger = _props3$trigger === undefined ? 'hover' : _props3$trigger;
 
-            var _ele = e.target;
+            var _ele = e.currentTarget;
+            if (_ele.firstChild.dataset.key === this.state._activeOrder || trigger === 'click') {
+                return false;
+            }
             if (activeClass) {
                 _ele.classList.remove(activeClass);
             } else {
@@ -26497,20 +26540,19 @@ var Menu = exports.Menu = function (_Component) {
     }, {
         key: "_matchOrder",
         value: function _matchOrder() {
-            var _props3 = this.props,
-                activeClass = _props3.activeClass,
-                activeColor = _props3.activeColor,
-                defaultOrder = _props3.defaultOrder;
+            var _props4 = this.props,
+                activeClass = _props4.activeClass,
+                activeColor = _props4.activeColor;
 
             var ItemCollection = document.getElementsByClassName('dc-menu-item');
             var key = void 0;
             for (var i = 0; i < ItemCollection.length; i++) {
                 key = ItemCollection[i].dataset.key;
-                if (key === defaultOrder) {
+                if (key === this.state._activeOrder) {
                     if (activeClass) {
-                        ItemCollection[i].classList.add(activeClass);
+                        ItemCollection[i].parentNode.classList.add(activeClass);
                     } else {
-                        ItemCollection[i].style.backgroundColor = activeColor;
+                        ItemCollection[i].parentNode.style.backgroundColor = activeColor;
                     }
                 }
             }
@@ -26523,10 +26565,10 @@ var Menu = exports.Menu = function (_Component) {
     }, {
         key: "render",
         value: function render() {
-            var _props4 = this.props,
-                className = _props4.className,
-                _props4$bgColor = _props4.bgColor,
-                bgColor = _props4$bgColor === undefined ? '#fff' : _props4$bgColor;
+            var _props5 = this.props,
+                className = _props5.className,
+                _props5$bgColor = _props5.bgColor,
+                bgColor = _props5$bgColor === undefined ? '#fff' : _props5$bgColor;
 
             var rootClass = ['dc-menu', className];
             return _react2.default.createElement(

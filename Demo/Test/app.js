@@ -113,11 +113,12 @@ class Demo extends Component {
             <div>
                 <Menu
                     className="dc-demo"
-                    // bgColor='#5d5d5d'
+                    bgColor='#5d5d5d'
                     defaultOrder='2'
                     activeColor='blue'
-                    activeClass='win'
-                    defaultOrder='1'
+                    // activeClass='win'
+                    trigger='click'
+                    onchange={order => console.log(order)}
                 >
                     <MenuItem order='1'>1</MenuItem>
                     <MenuItem order='2'>2</MenuItem>

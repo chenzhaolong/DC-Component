@@ -6,6 +6,9 @@ import './menu.css';
 export class Menu extends Component{
     constructor(props) {
         super(props);
+        this.state = {
+            _activeOrder : this.props.defaultOrder || ''
+        };
         this._ItemClickEvent = this._ItemClickEvent.bind(this);
         this._ItemMouseEnterEvent = this._ItemMouseEnterEvent.bind(this);
         this._ItemMouseLeaveEvent = this._ItemMouseLeaveEvent.bind(this);
@@ -36,13 +39,36 @@ export class Menu extends Component{
 
     // Item的点击事件
     _ItemClickEvent(e) {
-        console.log(e);
+        const {bgColor = '#fff', activeColor = '#fff', activeClass} = this.props;
+        const _ele = e.currentTarget;
+        const order = _ele.firstChild.dataset.key;
+        const children = _ele.parentNode.children;
+        if (activeClass) {
+            _ele.classList.add(activeClass);
+        } else {
+            _ele.style.backgroundColor = activeColor;
+        }
+        for (let i = 0; i < children.length; i++) {
+            if (children[i].firstChild.dataset.key !== order) {
+                if (activeClass) {
+                    children[i].classList.remove(activeClass);
+                } else {
+                    children[i].style.backgroundColor = bgColor;
+                }
+            }
+        }
+        this.setState({_activeOrder: order}, () => {
+            this.props.onchange(this.state._activeOrder);
+        });
     }
 
     // Item的鼠标事件
     _ItemMouseEnterEvent(e) {
-       const {activeColor = '#e7f7ff', activeClass} = this.props;
-       const _ele = e.target;
+       const {activeColor = '#fff', activeClass, trigger = 'hover'} = this.props;
+       const _ele = e.currentTarget;
+       if (_ele.firstChild.dataset.key === this.state._activeOrder || trigger === 'click') {
+           return false;
+       }
        if (activeClass) {
            if (!_ele.classList.contains(activeClass)) {
                _ele.classList.add(activeClass);
@@ -53,8 +79,11 @@ export class Menu extends Component{
     }
 
     _ItemMouseLeaveEvent(e) {
-        const {bgColor = '#fff', activeClass} = this.props;
-        const _ele = e.target;
+        const {bgColor = '#fff', activeClass, trigger = 'hover'} = this.props;
+        const _ele = e.currentTarget;
+        if (_ele.firstChild.dataset.key === this.state._activeOrder || trigger === 'click') {
+            return false;
+        }
         if (activeClass) {
             _ele.classList.remove(activeClass);
         } else {
@@ -64,16 +93,16 @@ export class Menu extends Component{
 
     // 匹配order值
     _matchOrder() {
-        const {activeClass, activeColor, defaultOrder} = this.props;
+        const {activeClass, activeColor} = this.props;
         const ItemCollection = document.getElementsByClassName('dc-menu-item');
         let key;
         for (let i = 0; i < ItemCollection.length; i++) {
             key = ItemCollection[i].dataset.key;
-            if (key === defaultOrder) {
+            if (key === this.state._activeOrder) {
                 if (activeClass) {
-                    ItemCollection[i].classList.add(activeClass);
+                    ItemCollection[i].parentNode.classList.add(activeClass);
                 } else {
-                    ItemCollection[i].style.backgroundColor = activeColor;
+                    ItemCollection[i].parentNode.style.backgroundColor = activeColor;
                 }
             }
         }
