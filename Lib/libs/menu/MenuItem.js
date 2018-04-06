@@ -7,12 +7,27 @@ export class MenuItem extends Component{
 
     }
 
+    // 路由地址
+    _itemRoute(route) {
+        const {host, protocol} = window.location;
+        const baseHost = `${protocol}//${host}`;
+        return baseHost + route;
+    }
+
     render() {
-        const {className, order} = this.props;
+        const {className, order, disabled = false, route} = this.props;
         const rootItemClass = ['dc-menu-item', className].join(' ');
+        const _href = route && this._itemRoute(route);
         return (
-            <div className={rootItemClass} data-key={order}>
-                {this.props.children}
+            <div>
+                <div
+                    className={rootItemClass}
+                    data-key={order}
+                    data-disabled={disabled}
+                    data-href={_href}
+                >
+                    {this.props.children}
+                </div>
             </div>
         )
     }

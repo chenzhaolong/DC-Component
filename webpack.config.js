@@ -24,5 +24,13 @@ module.exports = {
                 loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]'
             }
         ]
-    }
+    },
+    devtool: 'inline-source-map',
+    devServer: {
+        hot: true,
+        compress: true,
+        port: 8099,
+        inline: true,
+        publicPath: '/',
+    },
 }

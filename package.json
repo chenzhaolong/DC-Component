@@ -7,11 +7,13 @@
   "license": "MIT",
   "dependencies": {
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "save-dev": "^2.0.0"
   },
   "scripts": {
     "start": "webpack webpack.config.js",
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "server": "webpack-dev-server --inline --config ./webpack.config.js"
   },
   "devDependencies": {
     "babel": "^6.23.0",
@@ -30,6 +32,7 @@
     "stream-combiner2": "^1.1.1",
     "style-loader": "^0.20.3",
     "url-loader": "^1.0.1",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.2"
   }
 }

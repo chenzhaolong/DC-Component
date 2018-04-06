@@ -30,6 +30,7 @@ export class Menu extends Component{
                     onClick={this._ItemClickEvent}
                     onMouseEnter={this._ItemMouseEnterEvent}
                     onMouseLeave={this._ItemMouseLeaveEvent}
+                    data-parent="parent"
                 >
                     {child}
                 </div>
@@ -41,15 +42,26 @@ export class Menu extends Component{
     _ItemClickEvent(e) {
         const {bgColor = '#fff', activeColor = '#fff', activeClass} = this.props;
         const _ele = e.currentTarget;
-        const order = _ele.firstChild.dataset.key;
-        const children = _ele.parentNode.children;
+        // item 或者subGroup组件
+        const _targetEle = this._findChildrenNode(_ele);
+        if (this._judgeCurrentItemDisabled(_targetEle)) {
+            return false;
+        }
+        // 添加样式
         if (activeClass) {
             _ele.classList.add(activeClass);
         } else {
             _ele.style.backgroundColor = activeColor;
         }
+        // 路由跳转;
+        this._changeRoute(_targetEle);
+        // 删除其他元素激活样式
+        const order = _targetEle.dataset.key;
+        const children = _ele.parentNode.children;
+        let itemNode;
         for (let i = 0; i < children.length; i++) {
-            if (children[i].firstChild.dataset.key !== order) {
+            itemNode = this._findChildrenNode(children[i]);
+            if (itemNode.dataset.key !== order) {
                 if (activeClass) {
                     children[i].classList.remove(activeClass);
                 } else {
@@ -64,24 +76,32 @@ export class Menu extends Component{
 
     // Item的鼠标事件
     _ItemMouseEnterEvent(e) {
-       const {activeColor = '#fff', activeClass, trigger = 'hover'} = this.props;
-       const _ele = e.currentTarget;
-       if (_ele.firstChild.dataset.key === this.state._activeOrder || trigger === 'click') {
-           return false;
-       }
-       if (activeClass) {
-           if (!_ele.classList.contains(activeClass)) {
-               _ele.classList.add(activeClass);
-           }
-       } else {
-           _ele.style.backgroundColor = activeColor;
-       }
+        const {activeColor = '#fff', activeClass, trigger = 'hover'} = this.props;
+        const _ele = e.currentTarget;
+        const _targetEle = this._findChildrenNode(_ele);
+        if (this._judgeCurrentItemDisabled(_targetEle)) {
+            return false;
+        }
+        if (_targetEle.dataset.key === this.state._activeOrder || trigger === 'click') {
+            return false;
+        }
+        if (activeClass) {
+            if (!_ele.classList.contains(activeClass)) {
+                _ele.classList.add(activeClass);
+            }
+        } else {
+            _ele.style.backgroundColor = activeColor;
+        }
     }
 
     _ItemMouseLeaveEvent(e) {
         const {bgColor = '#fff', activeClass, trigger = 'hover'} = this.props;
         const _ele = e.currentTarget;
-        if (_ele.firstChild.dataset.key === this.state._activeOrder || trigger === 'click') {
+        const _targetEle = this._findChildrenNode(_ele);
+        if (this._judgeCurrentItemDisabled(_targetEle)) {
+            return false;
+        }
+        if (_targetEle.dataset.key === this.state._activeOrder || trigger === 'click') {
             return false;
         }
         if (activeClass) {
@@ -91,25 +111,73 @@ export class Menu extends Component{
         }
     }
 
+    // 寻找父组件中指定组件
+    _findChildrenNode(parent, className = 'dc-menu-item') {
+       let target = parent.firstChild;
+       while(!target.classList.contains(className)) {
+           target = target.firstChild;
+       }
+       return target;
+    }
+
+    // 寻找子元素的指定父元素
+    _findParentNode(child, key = 'parent') {
+        let target = child.parentNode;
+        let arr = Object.keys(target.dataset);
+        while(arr.indexOf(key) === -1) {
+            target = target.parentNode;
+            arr = Object.keys(target.dataset);
+        }
+        return target;
+    }
+
+    // 路由跳转
+    _changeRoute(ele) {
+        const {href} = ele.dataset;
+        if (href) {
+            window.location.href = href;
+        }
+    }
+
+    // 是否改item是否被禁止
+    _judgeCurrentItemDisabled(ele) {
+        const {disabled} = ele.dataset;
+        return disabled === 'true';
+    }
+
     // 匹配order值
     _matchOrder() {
         const {activeClass, activeColor} = this.props;
         const ItemCollection = document.getElementsByClassName('dc-menu-item');
-        let key;
+        let key, target;
         for (let i = 0; i < ItemCollection.length; i++) {
             key = ItemCollection[i].dataset.key;
             if (key === this.state._activeOrder) {
+                target = this._findParentNode(ItemCollection[i]);
                 if (activeClass) {
-                    ItemCollection[i].parentNode.classList.add(activeClass);
+                    target.classList.add(activeClass);
                 } else {
-                    ItemCollection[i].parentNode.style.backgroundColor = activeColor;
+                    target.style.backgroundColor = activeColor;
                 }
+            }
+        }
+    }
+
+    // 禁止样式
+    _disableStyle() {
+        const ItemCollection = document.getElementsByClassName('dc-menu-item');
+        let target;
+        for (let i = 0; i < ItemCollection.length; i++) {
+            if (this._judgeCurrentItemDisabled(ItemCollection[i])) {
+                target = this._findParentNode(ItemCollection[i]);
+                target.classList.add('dc-menu-item_disabled');
             }
         }
     }
 
     componentDidMount() {
         this._matchOrder();
+        this._disableStyle();
     }
 
     render() {

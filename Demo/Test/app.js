@@ -54,6 +54,8 @@ const Item = Breadcrumb.createItem();
 
 const MenuItem = Menu.createItem();
 
+const MenuSubGroup = Menu.createSubGroup()
+
 class Demo extends Component {
     constructor(props) {
         super(props);
@@ -113,16 +115,24 @@ class Demo extends Component {
             <div>
                 <Menu
                     className="dc-demo"
-                    bgColor='#5d5d5d'
-                    defaultOrder='2'
-                    activeColor='blue'
+                    // bgColor='#5d5d5d'
+                    defaultOrder='1'
+                    activeColor='#e7f7ff'
                     // activeClass='win'
-                    trigger='click'
+                    trigger='hover'
                     onchange={order => console.log(order)}
                 >
-                    <MenuItem order='1'>1</MenuItem>
-                    <MenuItem order='2'>2</MenuItem>
-                    <MenuItem order='3'>3</MenuItem>
+                    <MenuItem order='1'>
+                        <OptionA/>
+                    </MenuItem>
+                    <MenuItem order='2' className='ca'>optionB</MenuItem>
+                    <MenuItem order='3' disabled={true} route='/three'>optionC</MenuItem>
+                    <MenuItem order='4'>optionD</MenuItem>
+                    <MenuItem order='5'>optionE</MenuItem>
+                    <MenuSubGroup label='多选'>
+                        <MenuItem order='6'>optionF</MenuItem>
+                        <MenuItem order='7'>optionG</MenuItem>
+                    </MenuSubGroup>
                 </Menu>
                 <div style={{display: 'inline-block', verticalAlign: 'top'}}>
                     <Button
@@ -328,6 +338,16 @@ class DeptShop extends Component {
                 {
                     show ? this.renderTab(shopData) : null
                 }
+            </div>
+        )
+    }
+}
+
+class OptionA extends Component{
+    render() {
+        return (
+            <div>
+                optionA
             </div>
         )
     }
