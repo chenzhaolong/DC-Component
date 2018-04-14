@@ -1,33 +1,12 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import './menu.css';
+// 载体组件和展示性组件
+import React, {PureComponent} from "react";
+import PropTypes from "prop-types";
 
-export class MenuItem extends Component{
-    componentDidMount() {
-
-    }
-
-    // 路由地址
-    _itemRoute(route) {
-        const {host, protocol} = window.location;
-        const baseHost = `${protocol}//${host}`;
-        return baseHost + route;
-    }
-
+export class MenuItem extends PureComponent{
     render() {
-        const {className, order, disabled = false, route} = this.props;
-        const rootItemClass = ['dc-menu-item', className].join(' ');
-        const _href = route && this._itemRoute(route);
         return (
             <div>
-                <div
-                    className={rootItemClass}
-                    data-key={order}
-                    data-disabled={disabled}
-                    data-href={_href}
-                >
-                    {this.props.children}
-                </div>
+                {this.props.content}
             </div>
         )
     }

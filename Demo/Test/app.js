@@ -54,7 +54,7 @@ const Item = Breadcrumb.createItem();
 
 const MenuItem = Menu.createItem();
 
-const MenuSubGroup = Menu.createSubGroup()
+const SubGroup = Menu.createSubGroup();
 
 class Demo extends Component {
     constructor(props) {
@@ -116,23 +116,26 @@ class Demo extends Component {
                 <Menu
                     className="dc-demo"
                     // bgColor='#5d5d5d'
-                    defaultOrder='1'
+                    defaultOrder='5.1'
                     activeColor='#e7f7ff'
                     // activeClass='win'
                     trigger='hover'
-                    onchange={order => console.log(order)}
+                    onChange={order => console.log(order)}
+                    openRoute={true}
                 >
                     <MenuItem order='1'>
                         <OptionA/>
                     </MenuItem>
-                    <MenuItem order='2' className='ca'>optionB</MenuItem>
+                    <MenuItem order='2' className='ca' disabled={true}>optionB</MenuItem>
                     <MenuItem order='3' disabled={true} route='/three'>optionC</MenuItem>
-                    <MenuItem order='4'>optionD</MenuItem>
-                    <MenuItem order='5'>optionE</MenuItem>
-                    <MenuSubGroup label='多选'>
-                        <MenuItem order='6'>optionF</MenuItem>
-                        <MenuItem order='7'>optionG</MenuItem>
-                    </MenuSubGroup>
+                    <MenuItem order='4' className='ca' route='http://baidu.com'>optionD</MenuItem>
+                    <SubGroup label='选项' order='5'>
+                        <MenuItem order='5.1'>optionE</MenuItem>
+                        <MenuItem order='5.2'>optionF</MenuItem>
+                        <SubGroup label='选项1' order='5.3'>
+                            <MenuItem order='5.3.1'>optionF</MenuItem>
+                        </SubGroup>
+                    </SubGroup>
                 </Menu>
                 <div style={{display: 'inline-block', verticalAlign: 'top'}}>
                     <Button

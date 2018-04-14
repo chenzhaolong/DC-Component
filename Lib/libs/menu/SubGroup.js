@@ -1,17 +1,23 @@
 import React, {Component} from 'react';
+import {Content} from "./Content";
 
 export class SubGroup extends Component{
     render() {
-        const {className, order, disabled = false, route, label} = this.props;
-        const rootItemClass = ['dc-menu-item', className].join(' ');
+        const {label, content} = this.props;
+        const renderList = typeof content === 'object' ? [content]: content;
         return (
             <div>
-                <div>
-                    <div className={rootItemClass}>{label}</div>
-                    <div className='dc-sub-item'>
-                        {this.props.children}
-                    </div>
-                </div>
+                <article>
+                    {label}
+                </article>
+                <article>
+                    {
+                        renderList.map(child => {
+                            const params = Object.assign({}, {content: child.children}, child.props);
+                            return <Content {...params} key='11'/>
+                        })
+                    }
+                </article>
             </div>
         )
     }

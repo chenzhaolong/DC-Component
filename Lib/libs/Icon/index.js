@@ -20,12 +20,16 @@ export const IconLib = {
     "question": require('./images/question.png'),
     "success": require('./images/success.png'),
     "info": require('./images/info.png'),
-}
+    "down": require('./images/down.png'),
+};
 
 export class Icon extends Component {
     defaultClass() {
         let defalutClass = ['dc-icon__img'];
         if (this.props.type == 'circle-loading' && this.props.circle) defalutClass.push('dc-icon_loading');
+        if (this.props.className) {
+            defalutClass.push(this.props.className);
+        }
         return defalutClass.join(" ");
     }
     render() {

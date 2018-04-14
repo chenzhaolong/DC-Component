@@ -18,3 +18,16 @@
 
 .dc-sub-item {
   display: none; }
+
+.dc-menu-group_hide {
+  height: 0;
+  overflow: hidden; }
+
+.dc-menu-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.de-menu-arrow {
+  width: 20px;
+  height: 20px; }
