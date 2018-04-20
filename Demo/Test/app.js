@@ -115,20 +115,25 @@ class Demo extends Component {
             <div>
                 <Menu
                     className="dc-demo"
-                    // bgColor='#5d5d5d'
-                    defaultOrder='5.1'
+                    bgColor='#5d5d5d'
+                    defaultOrder='2'
                     activeColor='#e7f7ff'
+                    activeTxtColor='blue'
                     // activeClass='win'
                     trigger='hover'
                     onChange={order => console.log(order)}
                     openRoute={true}
+                    width='275'
                 >
                     <MenuItem order='1'>
                         <OptionA/>
                     </MenuItem>
-                    <MenuItem order='2' className='ca' disabled={true}>optionB</MenuItem>
+                    <MenuItem order='2' className='ca'>optionB</MenuItem>
                     <MenuItem order='3' disabled={true} route='/three'>optionC</MenuItem>
-                    <MenuItem order='4' className='ca' route='http://baidu.com'>optionD</MenuItem>
+                    <SubGroup label='选项一' order='4'>
+                        <MenuItem order='4.1'>optionD1</MenuItem>
+                        <MenuItem order='4.2'>optionD2</MenuItem>
+                    </SubGroup>
                     <SubGroup label='选项' order='5'>
                         <MenuItem order='5.1'>optionE</MenuItem>
                         <MenuItem order='5.2'>optionF</MenuItem>
@@ -140,7 +145,7 @@ class Demo extends Component {
                 <div style={{display: 'inline-block', verticalAlign: 'top'}}>
                     <Button
                         onClick={this.handle.bind(this)}
-                        type="primary" data-key="1"
+                        type="primary"
                         icon="house"
                         disabled={this.state.disabled}
                     >click</Button>

@@ -61,7 +61,7 @@ export class Menu extends Component{
         if (e.dataset.disabled === 'true') {
             return false;
         }
-        const {activeClass, activeColor = '#fff'} = this.props;
+        const {activeClass, activeColor = '#fff', activeTxtColor = '#fff'} = this.props;
         this.props.onChange(e.dataset.key);
         this._changeRoute(e);
         this.setState({_activeOrder: e.dataset.key}, () => {
@@ -69,6 +69,7 @@ export class Menu extends Component{
                 e.classList.add(activeClass);
             } else {
                 e.style.backgroundColor = activeColor;
+                e.style.color = activeTxtColor;
             }
         });
     }
@@ -88,6 +89,7 @@ export class Menu extends Component{
                 item.classList.remove(activeClass);
             } else {
                 item.style.backgroundColor = bgColor;
+                item.style.color = '#000';
             }
         });
     }
@@ -112,23 +114,32 @@ export class Menu extends Component{
         }
     }
 
+    // 设置Menu宽度
+    _setMenuWidth() {
+        const {width} = this.props;
+        if (width) {
+            this.refs.menu.style.width = width.indexOf('px') !== -1 ? width : width + 'px';
+        }
+    }
+
     componentDidMount() {
         this._focusListenItemClick();
+        this._setMenuWidth();
     }
 
     componentWillUpdate(nextProps, nextState) {
-        _parentProperty.defaultOrder = nextState._activeOrder;
+        _parentProperty = Object.assign({}, _parentProperty, {defaultOrder: nextState._activeOrder});
     }
 
     componentWillReceiveProps(nextProps, oldProps) {
-        _parentProperty = nextProps;
+        _parentProperty = Object.assign({}, nextProps);
     }
 
     render() {
         const {className, bgColor = '#fff'} = this.props;
         const rootClass = ['dc-menu', className];
         return (
-            <div className={rootClass.join(' ')} style={{backgroundColor: bgColor}}>
+            <div className={rootClass.join(' ')} style={{backgroundColor: bgColor}} ref='menu'>
                 {this.props.children}
             </div>
         )
@@ -144,11 +155,12 @@ class MenuItem extends Component{
 
     // 添加Item的样式
     _setItemStyle(ele) {
-        const {activeColor = '#fff', activeClass} = _parentProperty;
+        const {activeColor = '#fff', activeClass, activeTxtColor = '#fff'} = _parentProperty;
         if (activeClass) {
             ele.classList.add(activeClass);
         } else {
             ele.style.backgroundColor = activeColor;
+            ele.style.color = activeTxtColor;
         }
     }
 
@@ -159,6 +171,7 @@ class MenuItem extends Component{
             ele.classList.remove(activeClass);
         } else {
             ele.style.backgroundColor = bgColor;
+            ele.style.color = '#000';
         }
     }
 
@@ -226,7 +239,7 @@ class MenuItem extends Component{
     }
 
     render() {
-        const {children, order, className, disabled, route} = this.props;
+        const {children, order, className, disabled, route, icon} = this.props;
         const rootClass = ['dc-menu-item', className];
         return (
             <div
