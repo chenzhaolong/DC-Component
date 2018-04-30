@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter, Breadcrumb, Menu} from '../../Lib/index';
+import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter, Breadcrumb, Menu,
+        Loading} from '../../Lib/index';
 import './app.css';
 
 
@@ -253,6 +254,7 @@ class Demo extends Component {
                             prefix: "data"
                         }}>第三极</Item>
                     </Breadcrumb>
+                    <Loading type='default'/>
                 </div>
             </div>
         )

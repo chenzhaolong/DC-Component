@@ -1,0 +1,100 @@
+.dc-loading-musk{
+   width: 100%;
+   height: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: rgba(0,0,0,0.7);
+}
+
+.dc-loading-body{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   padding:20px 20px;
+   min-width: 300px;
+   opacity: 1;
+   text-align: center;
+}
+
+.dc-loading-default{
+   width: 50px;
+   height: 50px;
+   animation: rotation 1.5s linear infinite;
+   display: inline-block;
+}
+
+.dc-loading-txt{
+   display: inline-block;
+   color: white;
+   font-size: 15px;
+   margin-left: 20px;
+   height: 50px;
+   line-height: 50px;
+   vertical-align: top;
+}
+
+.dc-loading-item{
+   width: 50px;
+   height: 50px;
+   border-radius: 50%;
+   background-color: #1f90e6;
+   display: inline-block;
+   position: relative;
+}
+
+.dc-loading-jump{
+   height: 200px;
+   overflow: hidden;
+}
+
+.dc-loading-jump_animation{
+   animation: jumpUpAndDown 1s linear infinite;
+}
+
+@keyframes rotation {
+   from {
+      transform: rotate(360deg);
+   }
+   to{
+      transform: rotate(0deg);
+   }
+}
+
+@keyframes jumpUpAndDown {
+   0%{
+      top: 0;
+      height: 50px;
+   }
+   25%{
+      top: 75px;
+      height: 50px;
+   }
+   45%{
+      top: 140px;
+      height: 35px;
+   }
+   50%{
+      top: 165px;
+      height: 35px;
+   }
+   75%{
+      top: 100px;
+      height: 50px;
+   }
+   85%{
+      top: 50px;
+      height: 50px;
+   }
+   95%{
+      top: 10px;
+      height: 35px;
+   }
+   100%{
+      top:-10px;
+      height: 35px;
+   }
+}

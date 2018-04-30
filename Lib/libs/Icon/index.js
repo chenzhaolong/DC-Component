@@ -21,6 +21,11 @@ export const IconLib = {
     "success": require('./images/success.png'),
     "info": require('./images/info.png'),
     "down": require('./images/down.png'),
+    "loading-one": require('./images/loading-one.png'),
+    'loading-two': require('./images/loading-two.png'),
+    'loading-three': require('./images/loading-three.png'),
+    'loading-four': require('./images/loading-four.png'),
+    'loading-five': require('./images/loading-five.png')
 };
 
 export class Icon extends Component {
