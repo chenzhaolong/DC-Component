@@ -16,7 +16,7 @@ export class Button extends Component {
     }
 
     _clickEventHandle(e) {
-        this.props.onClick();
+        this.props.onClick(e);
     }
 
     _defaultClass() {

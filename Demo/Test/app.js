@@ -65,13 +65,15 @@ class Demo extends Component {
             time: 0,
             show: false,
             confirmShow: false,
+            loadingShow: false,
+            loadingDiv: false
         }
     }
 
     handle() {
         let time = this.state.time + 1;
         if (time <= 5) {
-            this.setState({time, show: true})
+            this.setState({time, show: true, loadingShow: !this.state.loadingShow});
         } else {
             this.setState({time: 0, disabled: true, show: true})
         }
@@ -102,6 +104,11 @@ class Demo extends Component {
                 console.log('Cancel');
             },
         });
+    }
+
+    showLoading(e) {
+        this.setState({loadingDiv: !this.state.loadingDiv});
+        e.stopPropagation();
     }
 
     SwitchHandle(value) {
@@ -254,7 +261,28 @@ class Demo extends Component {
                             prefix: "data"
                         }}>第三极</Item>
                     </Breadcrumb>
-                    <Loading type='default'/>
+                    <div>
+                        <Button
+                            onClick={this.showLoading.bind(this)}
+                            type="primary"
+                        >click</Button>
+                        <Loading type='default' show={this.state.loadingDiv}>
+                            <div id='loading'>
+                                <p style={{width:'300px', height: '300px'}}>
+                                    dasffasdf
+                                </p>
+                            </div>
+                        </Loading>
+                    </div>
+                    <Loading
+                        type='flexible'
+                        speed='1'
+                        outerRadius='50'
+                        innerRadius='20'
+                        show={this.state.loadingShow}
+                        beforeLoading={() => {console.log('before')}}
+                        afterLoading={() => {console.log('after')}}
+                    />
                 </div>
             </div>
         )
@@ -263,7 +291,7 @@ class Demo extends Component {
 
 class Text extends Component {
     render() {
-        return <div>
+        return <div style={{color: 'white'}}>
             <p style={{margin: 0}}>hello baidu ！</p>
         </div>
     }

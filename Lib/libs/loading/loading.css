@@ -42,11 +42,36 @@
   position: relative; }
 
 .dc-loading-jump {
-  height: 200px;
+  height: 280px;
   overflow: hidden; }
 
 .dc-loading-jump_animation {
-  animation: jumpUpAndDown 1s linear infinite; }
+  animation: jumpUpAndDown 1.5s linear infinite; }
+
+.dc-loading_outer {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(31, 144, 230, 0.6);
+  position: relative;
+  margin: 0 auto; }
+
+.dc-loading_inner {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #1f90e6;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+.dc-loading_outer_animation {
+  animation: flexibleOuter 1.5s linear infinite; }
+
+.dc-loading_inner_animation {
+  animation: flexibleInner 1.5s linear infinite; }
 
 @keyframes rotation {
   from {
@@ -58,24 +83,43 @@
   0% {
     top: 0;
     height: 50px; }
-  25% {
-    top: 75px;
-    height: 50px; }
   45% {
-    top: 140px;
+    top: 245px;
     height: 35px; }
   50% {
-    top: 165px;
+    top: 255px;
     height: 35px; }
-  75% {
-    top: 100px;
-    height: 50px; }
-  85% {
-    top: 50px;
-    height: 50px; }
   95% {
-    top: 10px;
+    top: 5px;
     height: 35px; }
   100% {
-    top: -10px;
+    top: -5px;
     height: 35px; } }
+
+@keyframes flexibleOuter {
+  0% {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(31, 144, 230, 0.6); }
+  50% {
+    width: 30px;
+    height: 30px;
+    background-color: #1f90e6; }
+  100% {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(31, 144, 230, 0.6); } }
+
+@keyframes flexibleInner {
+  0% {
+    width: 30px;
+    height: 30px;
+    background-color: #1f90e6; }
+  50% {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(31, 144, 230, 0.6); }
+  100% {
+    width: 30px;
+    height: 30px;
+    background-color: #1f90e6; } }

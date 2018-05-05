@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import {findDOMNode} from 'react-dom';
 import './loading.css';
 import {Icon, IconLib} from '../Icon';
 
-export class Loading extends Component{
+export class Loading extends Component {
     _chooseLoadingIcon() {
         switch (this.props.type) {
             case 'flexible':
@@ -14,15 +15,56 @@ export class Loading extends Component{
         }
     }
 
-    render() {
-        const LoadingIcon = this._chooseLoadingIcon();
+    _renderLoadingNativeContent() {
+        let content;
+        if (this.props.component) {
+            content = this.props.component;
+        } else {
+            const LoadingIcon = this._chooseLoadingIcon();
+            content = <LoadingIcon {...this.props}/>
+        }
+        let _style = this._renderLoadingFitStyle();
         return (
-            <div>
-                <div className='dc-loading-musk'>
-                    <div className='dc-loading-body'>
-                        <LoadingIcon icon='loading-five'/>
-                    </div>
+            <div className='dc-loading-musk' style={_style}>
+                <div className='dc-loading-body'>
+                    {content}
                 </div>
+            </div>
+        )
+    }
+
+    _renderLoadingFitStyle() {
+        let style = {};
+        if (this.props.children) {
+            style = {
+                width: `${document.getElementById('loading').offsetWidth}px` ,
+                height: `${document.getElementById('loading').offsetHeight}px`  ,
+                position: 'absolute',
+            }
+        }
+        return style;
+    }
+
+    componentWillUpdate() {
+        this.props.beforeLoading && this.props.beforeLoading();
+    }
+
+    componentDidUpdate() {
+        this.props.afterLoading && this.props.afterLoading();
+    }
+
+    componentDidMount() {
+    }
+
+    render() {
+        return (
+            <div style={{position: 'relative'}}>
+                {
+                    this.props.show && this._renderLoadingNativeContent()
+                }
+                {
+                    this.props.children
+                }
             </div>
         )
     }
@@ -46,17 +88,50 @@ function DefaultLoading(props) {
 }
 
 function JumpLoading(props) {
+    const _bollStyle = (props) => {
+        const {bollColor, speed} = props;
+        let _style = {};
+        if (bollColor) {
+            _style.backgroundColor = bollColor;
+        }
+        if (speed) {
+            _style.animation = `jumpUpAndDown ${speed}s linear infinite`
+        }
+        return _style;
+    };
     return (
         <div className='dc-loading-jump'>
-            <div className='dc-loading-item dc-loading-jump_animation'></div>
+            <div className='dc-loading-item dc-loading-jump_animation' style={_bollStyle(props)}></div>
         </div>
     )
 }
 
 function FlexibleLoading(props) {
+    const _computedWaH = (radius, obj) => {
+        if (!radius) return obj;
+        let size = Math.round(1.414 * radius);
+        obj.width = `${size}px`;
+        obj.height = `${size}px`;
+    };
+
+    const _bollStyle = (props, type) => {
+        const {outerRadius, innerRadisu, speed} = props;
+        let _style = {};
+        if (type === 'outer') {
+            _computedWaH(outerRadius, _style);
+        } else {
+            _computedWaH(innerRadisu, _style);
+        }
+        if (speed) {
+            _style.animation = `${type === 'outer' ? 'flexibleOuter' : 'flexibleInner'} ${speed}s linear infinite`;
+        }
+        return _style;
+    }
     return (
         <div>
-
+            <div className='dc-loading_outer dc-loading_outer_animation' style={_bollStyle(props, 'outer')}>
+                <div className='dc-loading_inner dc-loading_inner_animation' style={_bollStyle(props, 'inner')}></div>
+            </div>
         </div>
     )
 }
