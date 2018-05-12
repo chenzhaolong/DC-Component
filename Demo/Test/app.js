@@ -115,6 +115,10 @@ class Demo extends Component {
         console.log(`this is ${value}`);
     }
 
+    change() {
+        this.setState({time: this.state.time + 1});
+    }
+
     render() {
         // const database = DeptShop.changeData(listData.list, mapper);
         // const a = {id: listData.id, list: database};
@@ -266,16 +270,17 @@ class Demo extends Component {
                             onClick={this.showLoading.bind(this)}
                             type="primary"
                         >click</Button>
-                        <Loading type='default' show={this.state.loadingDiv}>
+                        <Loading type='jump' ballColor='#123' show={this.state.loadingDiv}>
                             <div id='loading'>
-                                <p style={{width:'300px', height: '300px'}}>
+                                <p style={{width:'500px', height: '500px'}}>
                                     dasffasdf
                                 </p>
                             </div>
                         </Loading>
                     </div>
                     <Loading
-                        type='flexible'
+                        type='default'
+                        icon='loading-two'
                         speed='1'
                         outerRadius='50'
                         innerRadius='20'

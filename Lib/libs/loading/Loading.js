@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
 import {findDOMNode} from 'react-dom';
 import './loading.css';
 import {Icon, IconLib} from '../Icon';
 
-export class Loading extends Component {
+export class Loading extends PureComponent {
     _chooseLoadingIcon() {
         switch (this.props.type) {
             case 'flexible':
@@ -36,13 +36,28 @@ export class Loading extends Component {
     _renderLoadingFitStyle() {
         let style = {};
         if (this.props.children) {
-            style = {
-                width: `${document.getElementById('loading').offsetWidth}px` ,
-                height: `${document.getElementById('loading').offsetHeight}px`  ,
-                position: 'absolute',
+            if (this._componentHasLocalId(this.props.children)) {
+                style = {
+                    width: `${document.getElementById('loading').offsetWidth}px` ,
+                    height: `${document.getElementById('loading').offsetHeight}px`  ,
+                    position: 'absolute',
+                }
             }
         }
         return style;
+    }
+
+    _componentHasLocalId(ele) {
+        if (ele.props.id && ele.props.id === 'loading') {
+            return true;
+        } else {
+            throw new Error("the children of Loading component must has property of id called 'loading'");
+            return false;
+        }
+    }
+
+    shouldComponentUpdate(newProps) {
+        return newProps.show !== this.props.show;
     }
 
     componentWillUpdate() {
@@ -53,8 +68,7 @@ export class Loading extends Component {
         this.props.afterLoading && this.props.afterLoading();
     }
 
-    componentDidMount() {
-    }
+    componentDidMount() {}
 
     render() {
         return (
