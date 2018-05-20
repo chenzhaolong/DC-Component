@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter, Breadcrumb, Menu,
-        Loading} from '../../Lib/index';
+        Loading, Steps} from '../../Lib/index';
 import './app.css';
 
 
@@ -56,6 +56,8 @@ const Item = Breadcrumb.createItem();
 const MenuItem = Menu.createItem();
 
 const SubGroup = Menu.createSubGroup();
+
+const Step = Steps.createStep();
 
 class Demo extends Component {
     constructor(props) {
@@ -123,6 +125,11 @@ class Demo extends Component {
         // const database = DeptShop.changeData(listData.list, mapper);
         // const a = {id: listData.id, list: database};
         // console.log('database:',database);
+        const statusMap = {
+          success: 'Finish',
+          progress: ['applying', 'tranfersing', 'onGoing'],
+          error: ['fail', 'tranfserFail']
+        };
         return (
             <div>
                 <Menu
@@ -265,7 +272,7 @@ class Demo extends Component {
                             prefix: "data"
                         }}>第三极</Item>
                     </Breadcrumb>
-                    <div>
+                    <div style={{display: 'none'}}>
                         <Button
                             onClick={this.showLoading.bind(this)}
                             type="primary"
@@ -288,6 +295,13 @@ class Demo extends Component {
                         beforeLoading={() => {console.log('before')}}
                         afterLoading={() => {console.log('after')}}
                     />
+                    <Steps curStatus='fail' curNodeName='a4' statusMap={statusMap}>
+                        <Step title='状态1' nodeName='a1'/>
+                        <Step title='状态2' nodeName='a2'/>
+                        <Step title='状态3' nodeName='a3'/>
+                        <Step title='状态4' nodeName='a4'/>
+                        <Step title='状态5' nodeName='a5'/>
+                    </Steps>
                 </div>
             </div>
         )

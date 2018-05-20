@@ -12,7 +12,8 @@ import {Tabs} from './libs/tab/Tabs';
 import {Transverter} from "./libs/transverter/Transverter";
 import {Breadcrumb} from './libs/breadcrumb/Breadcrumb';
 import {Menu} from './libs/menu/Menu';
-import {Loading} from './libs/loading/Loading'
+import {Loading} from './libs/loading/Loading';
+import {Steps} from './libs/step/Step';
 
 export {
     Button,
@@ -26,5 +27,6 @@ export {
     Transverter,
     Breadcrumb,
     Menu,
-    Loading
+    Loading,
+    Steps
 }

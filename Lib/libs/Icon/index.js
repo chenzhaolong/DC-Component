@@ -25,7 +25,11 @@ export const IconLib = {
     'loading-two': require('./images/loading-two.png'),
     'loading-three': require('./images/loading-three.png'),
     'loading-four': require('./images/loading-four.png'),
-    'loading-five': require('./images/loading-five.png')
+    'loading-five': require('./images/loading-five.png'),
+    'step-success': require('./images/step-success.png'),
+    'step-fail': require('./images/step_failure.png'),
+    'step-progress': require('./images/step-progress.png'),
+    'step-wait': require('./images/step-wait.png')
 };
 
 export class Icon extends Component {

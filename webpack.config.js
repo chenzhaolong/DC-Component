@@ -1,6 +1,7 @@
 module.exports = {
     entry: {
-        page1: './Demo/Test/app.js'
+        page1: './Demo/Test/app.js',
+        dcAnt: './Lib/index.js'
     },
     output: {
         filename: "[name].bound.js",

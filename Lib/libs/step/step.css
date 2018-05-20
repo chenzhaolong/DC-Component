@@ -1,0 +1,22 @@
+.dc-step-item {
+  display: inline-block; }
+
+.dc-step-item_icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; }
+
+.dc-step-item_success {
+  background-color: #28cd6a; }
+
+.dc-step-item_wait {
+  background-color: #bfbdc9; }
+
+.dc-step-item_process {
+  background-color: #2ca2fc; }
+
+.dc-step-item_error {
+  background-color: #fab6bb; }
