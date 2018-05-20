@@ -295,7 +295,7 @@ class Demo extends Component {
                         beforeLoading={() => {console.log('before')}}
                         afterLoading={() => {console.log('after')}}
                     />
-                    <Steps curStatus='fail' curNodeName='a4' statusMap={statusMap}>
+                    <Steps curStatus='fail' curNodeName='a3' statusMap={statusMap}>
                         <Step title='状态1' nodeName='a1'/>
                         <Step title='状态2' nodeName='a2'/>
                         <Step title='状态3' nodeName='a3'/>

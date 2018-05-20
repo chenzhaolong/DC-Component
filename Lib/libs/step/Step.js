@@ -29,11 +29,12 @@ export class Steps extends Component {
     }
 }
 
+
 class Step extends Component {
 
     // 计算step当前状态的颜色
-    _itemDefaultColor() {
-        const _className = new Set(['dc-step-item_icon']);
+    _itemDefaultColor(defaultClass) {
+        const _className = new Set([defaultClass]);
         switch (this._currentStatus()) {
             case 'prev':
                 _className.add('dc-step-item_success');
@@ -89,18 +90,30 @@ class Step extends Component {
         }
     }
 
+    _isTheFirstItem() {
+        const {nodeName, nodeList} = this.props;
+        const lineClass = this._itemDefaultColor('dc-step-item_default').join(' ');
+        if (nodeName !== nodeList[0]) {
+            return (
+                <div className='dc-step-item_line'>
+                    <span className={lineClass}/>
+                </div>
+            )
+        } else {
+            return null;
+        }
+    }
 
     render() {
-        const itemClass = this._itemDefaultColor().join(' ');
+        const itemClass = this._itemDefaultColor('dc-step-item_icon').join(' ');
         const type = this._defaultType(itemClass);
         return (
             <div className='dc-step-item'>
                 <section>
+                    {this._isTheFirstItem()}
                     <div className={itemClass}>
                         <Icon type={type} width='20px' height='20px'/>
                     </div>
-
-                    <div></div>
                 </section>
 
                 <section>

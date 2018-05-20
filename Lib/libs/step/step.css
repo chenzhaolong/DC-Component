@@ -1,5 +1,6 @@
 .dc-step-item {
-  display: inline-block; }
+  display: inline-block;
+  text-align: right; }
 
 .dc-step-item_icon {
   width: 28px;
@@ -20,3 +21,14 @@
 
 .dc-step-item_error {
   background-color: #fab6bb; }
+
+.dc-step-item_line {
+  display: inline-block;
+  height: 28px;
+  vertical-align: bottom;
+  margin: 0 10px 0 10px; }
+
+.dc-step-item_default {
+  display: inline-block;
+  width: 168px;
+  height: 2px; }

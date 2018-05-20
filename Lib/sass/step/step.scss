@@ -1,8 +1,9 @@
-.dc-step-item{
+.dc-step-item {
   display: inline-block;
+  text-align: right;
 }
 
-.dc-step-item_icon{
+.dc-step-item_icon {
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -11,18 +12,31 @@
   justify-content: center;
 }
 
-.dc-step-item_success{
+.dc-step-item_success {
   background-color: #28cd6a;
 }
 
-.dc-step-item_wait{
+.dc-step-item_wait {
   background-color: #bfbdc9;
 }
 
-.dc-step-item_process{
+.dc-step-item_process {
   background-color: #2ca2fc;
 }
 
-.dc-step-item_error{
+.dc-step-item_error {
   background-color: #fab6bb;
+}
+
+.dc-step-item_line {
+  display: inline-block;
+  height: 28px;
+  vertical-align: bottom;
+  margin: 0 10px 0 10px;
+}
+
+.dc-step-item_default {
+  display: inline-block;
+  width: 168px;
+  height: 2px;
 }
