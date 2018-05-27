@@ -68,7 +68,11 @@ class Demo extends Component {
             show: false,
             confirmShow: false,
             loadingShow: false,
-            loadingDiv: false
+            loadingDiv: false,
+            step: {
+                status: 'applying',
+                node: 'a3'
+            }
         }
     }
 
@@ -119,6 +123,12 @@ class Demo extends Component {
 
     change() {
         this.setState({time: this.state.time + 1});
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({step: {node: 'a4', status: 'tranfersing'}})
+        }, 5000)
     }
 
     render() {
@@ -295,12 +305,31 @@ class Demo extends Component {
                         beforeLoading={() => {console.log('before')}}
                         afterLoading={() => {console.log('after')}}
                     />
-                    <Steps curStatus='fail' curNodeName='a3' statusMap={statusMap}>
-                        <Step title='状态1' nodeName='a1'/>
-                        <Step title='状态2' nodeName='a2'/>
-                        <Step title='状态3' nodeName='a3'/>
-                        <Step title='状态4' nodeName='a4'/>
-                        <Step title='状态5' nodeName='a5'/>
+                    <Steps
+                        curStatus={this.state.step.status}
+                        curNodeName={this.state.step.node}
+                        statusMap={statusMap}
+                        direction='vertical'
+                        distance='50'
+                        onComplete={() => {
+                            console.log('complete');
+                        }}
+                        arriveSomeStep={{
+                            nodeName: 'a5',
+                            effect: (status) => {
+                                console.log('status',status);
+                            }
+                        }}
+                        changeStep={(a, b) => {
+                            console.log('a', a);
+                            console.log('b', b);
+                        }}
+                    >
+                        <Step title='状态1状态' nodeName='a1' description='描述描述'/>
+                        <Step title='状态2状态' nodeName='a2' description='描述描述'/>
+                        <Step title='状态3状态' nodeName='a3' description='描述描述'/>
+                        <Step title='状态4状态' nodeName='a4' description='描述描述'/>
+                        <Step title='状态5状态' nodeName='a5' description='描述描述'/>
                     </Steps>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 .dc-step-item {
   display: inline-block;
-  text-align: right;
+  vertical-align: top;
+  //text-align: right;
 }
 
 .dc-step-item_icon {
@@ -39,4 +40,43 @@
   display: inline-block;
   width: 168px;
   height: 2px;
+}
+
+.dc-step-item_title{
+  max-width: 90px;
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.dc-step-item_desc{
+  max-width: 125px;
+  line-height: 30px;
+  font-size: 12px;
+}
+
+.dc-step_vertical{
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.dc-step-item_vertical{
+  display: inline-flex;
+}
+
+.dc-step-icon_vertical{
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.dc-step-line_vertical{
+  display: inline-block;
+  vertical-align: bottom;
+  text-align: center;
+  margin: 5px 0 5px 0;
+}
+
+.dc-step-line_default_vertical{
+  display: inline-block;
+  height: 168px;
+  width: 2px;
 }
