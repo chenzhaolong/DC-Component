@@ -17,16 +17,32 @@
   background-color: #28cd6a;
 }
 
+.dc-step-txt_success {
+  color: #28cd6a;
+}
+
 .dc-step-item_wait {
   background-color: #bfbdc9;
+}
+
+.dc-step-txt_wait {
+  color: #bfbdc9
 }
 
 .dc-step-item_process {
   background-color: #2ca2fc;
 }
 
+.dc-step-txt_progress {
+  color: #2ca2fc
+}
+
 .dc-step-item_error {
   background-color: #fab6bb;
+}
+
+.dc-step-txt_error {
+  color: #fab6bb;
 }
 
 .dc-step-item_line {

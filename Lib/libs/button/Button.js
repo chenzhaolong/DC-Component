@@ -2,7 +2,7 @@
  *  Button Component
  * */
 import React, {Component} from 'react';
-import {IconLib} from '../Icon/index';
+import {IconLib} from '../Icon/IconLib';
 import './button.css';
 import '../Icon/icon.css';
 import PropTypes from 'prop-types';

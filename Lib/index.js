@@ -14,6 +14,7 @@ import {Breadcrumb} from './libs/breadcrumb/Breadcrumb';
 import {Menu} from './libs/menu/Menu';
 import {Loading} from './libs/loading/Loading';
 import {Steps} from './libs/step/Step';
+import {IconLib} from './libs/Icon/IconLib';
 
 export {
     Button,
@@ -28,5 +29,6 @@ export {
     Breadcrumb,
     Menu,
     Loading,
-    Steps
+    Steps,
+    IconLib
 }

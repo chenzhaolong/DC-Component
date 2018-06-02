@@ -60,17 +60,22 @@ export class Steps extends Component {
         this._changeStep();
     }
 
-    // shouldComponentUpdate(newProps) {
-    //     let keys = Object.keys(this.props);
-    //     debugger
-    //     return !keys.every(key => {
-    //         if (typeof this.props[key] === 'function') {
-    //             return true;
-    //         } else {
-    //             return this.props[key] === newProps[key];
-    //         }
-    //     })
-    // }
+    shouldComponentUpdate(newProps) {
+        let _filterList = ['onComplete', 'arriveSomeStep', 'changeStep', 'children'];
+        let keys = Object.keys(this.props).filter(item => {
+            return _filterList.indexOf(item) === -1;
+        });
+        // debugger
+        return keys.some(key => {
+            if (typeof this.props[key] === 'string') {
+                return this.props[key] !== newProps[key];
+            } else {
+                return this.props[key].success !== newProps[key].success
+                    || this.props[key].error !== newProps[key].error
+                    || this.props[key].progress !== newProps[key].progress;
+            }
+        });
+    }
 
     render() {
         const {direction = 'horizon'} = this.props;
@@ -226,6 +231,19 @@ class Step extends Component {
         }
     }
 
+    // 文案颜色
+    _txtColor() {
+        let position = this._currentStatus();
+        switch (position) {
+            case 'next':
+                return 'dc-step-txt_wait';
+            case 'prev':
+                return 'dc-step-txt_success';
+            default:
+                return this._computeCurStatus().replace('item', 'txt');
+        }
+    }
+
     render() {
         const itemClass = this._itemDefaultColor('dc-step-item_icon').join(' ');
         const type = this._defaultType(itemClass);
@@ -237,6 +255,7 @@ class Step extends Component {
         } else {
             _rootClass = 'dc-step-item';
         }
+
         return (
             <div className={_rootClass}>
                 <section className={_itenIconClass}>
@@ -246,7 +265,7 @@ class Step extends Component {
                     {this._isTheLastItem()}
                 </section>
 
-                <section style={_txtStyle}>
+                <section style={_txtStyle} className={this._txtColor()}>
                     <div className='dc-step-item_title'>{this.props.title}</div>
 
                     <div className='dc-step-item_desc'>{this.props.description}</div>

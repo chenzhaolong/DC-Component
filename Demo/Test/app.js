@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import {Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter, Breadcrumb, Menu,
-        Loading, Steps} from '../../Lib/index';
+import {
+    Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter, Breadcrumb, Menu,
+    Loading, Steps, IconLib
+} from '../../Lib/index';
 import './app.css';
 
 
@@ -136,9 +138,9 @@ class Demo extends Component {
         // const a = {id: listData.id, list: database};
         // console.log('database:',database);
         const statusMap = {
-          success: 'Finish',
-          progress: ['applying', 'tranfersing', 'onGoing'],
-          error: ['fail', 'tranfserFail']
+            success: 'Finish',
+            progress: ['applying', 'tranfersing', 'onGoing'],
+            error: ['fail', 'tranfserFail']
         };
         return (
             <div>
@@ -289,7 +291,7 @@ class Demo extends Component {
                         >click</Button>
                         <Loading type='jump' ballColor='#123' show={this.state.loadingDiv}>
                             <div id='loading'>
-                                <p style={{width:'500px', height: '500px'}}>
+                                <p style={{width: '500px', height: '500px'}}>
                                     dasffasdf
                                 </p>
                             </div>
@@ -302,22 +304,26 @@ class Demo extends Component {
                         outerRadius='50'
                         innerRadius='20'
                         show={this.state.loadingShow}
-                        beforeLoading={() => {console.log('before')}}
-                        afterLoading={() => {console.log('after')}}
+                        beforeLoading={() => {
+                            console.log('before')
+                        }}
+                        afterLoading={() => {
+                            console.log('after')
+                        }}
                     />
                     <Steps
                         curStatus={this.state.step.status}
                         curNodeName={this.state.step.node}
                         statusMap={statusMap}
-                        direction='vertical'
-                        distance='50'
+                        // direction='vertical'
+                        distance='70'
                         onComplete={() => {
                             console.log('complete');
                         }}
                         arriveSomeStep={{
                             nodeName: 'a5',
                             effect: (status) => {
-                                console.log('status',status);
+                                console.log('status', status);
                             }
                         }}
                         changeStep={(a, b) => {
@@ -429,7 +435,7 @@ class DeptShop extends Component {
     }
 }
 
-class OptionA extends Component{
+class OptionA extends Component {
     render() {
         return (
             <div>
