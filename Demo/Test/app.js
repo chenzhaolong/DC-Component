@@ -5,6 +5,7 @@ import {
     Loading, Steps, IconLib
 } from '../../Lib/index';
 import './app.css';
+import {Pagination} from "../../Lib";
 
 
 const {confirm} = Modal;
@@ -337,6 +338,7 @@ class Demo extends Component {
                         <Step title='状态4状态' nodeName='a4' description='描述描述'/>
                         <Step title='状态5状态' nodeName='a5' description='描述描述'/>
                     </Steps>
+                    <Pagination total='30' pageSize='10'/>
                 </div>
             </div>
         )
