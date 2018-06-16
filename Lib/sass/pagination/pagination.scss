@@ -1,6 +1,7 @@
 .dc-pagination-ul {
   padding: 0;
-  margin: 0;
+  margin: 0 10px;
+  display: inline-block;
 }
 
 .dc-pagination-li {
@@ -34,4 +35,49 @@
   background: #20a0ff;
   color: #fff;
   cursor: default;
+  border-color: #20a0ff;
+}
+
+.dc-pagination-button{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border: 1px #e5e5e5 solid;
+  vertical-align: top;
+  cursor: pointer;
+}
+
+.dc-pagination-button_prev{
+  @extend .dc-pagination-button;
+  border-radius: 5px 10px 10px 5px;
+  transform: rotate(180deg)
+}
+
+.dc-pagination-button_next{
+  @extend .dc-pagination-button;
+  border-radius:5px 10px 10px 5px;
+}
+
+.dc-pagination-button_disabled{
+  background: #e5e5e5;
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.dc-pagination-total{
+  display: inline-block;
+  font-size: 13px;
+  margin-right: 15px;
+}
+
+.dc-pagination-jumper {
+  @extend .dc-pagination-total;
+  margin-left: 15px;
+}
+
+.dc-pagination-jumper_txt{
+  width: 25px;
+  height: 15px;
+  display: inline-block;
+  margin: 0 5px;
 }

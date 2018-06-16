@@ -27,5 +27,6 @@ export const IconLib = {
     'step-success': require('./images/step-success.png'),
     'step-fail': require('./images/step_failure.png'),
     'step-progress': require('./images/step-progress.png'),
-    'step-wait': require('./images/step-wait.png')
+    'step-wait': require('./images/step-wait.png'),
+    'right': require('./images/right.png')
 };

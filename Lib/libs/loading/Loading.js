@@ -1,7 +1,8 @@
 import React, {Component, PureComponent} from 'react';
 import {findDOMNode} from 'react-dom';
 import './loading.css';
-import {Icon, IconLib} from '../Icon';
+import {Icon} from '../Icon/index';
+import {IconLib} from '../Icon/IconLib'
 
 export class Loading extends PureComponent {
     _chooseLoadingIcon() {
