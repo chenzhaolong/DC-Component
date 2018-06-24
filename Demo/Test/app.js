@@ -340,16 +340,18 @@ class Demo extends Component {
                         <Step title='状态5状态' nodeName='a5' description='描述描述'/>
                     </Steps>
                     <Pagination
-                        total='85'
+                        total='255'
                         pageSize='10'
                         changePage={page => console.log('pageNo', page)}
                         pageNo={this.state.pageNo}
                         layout="total,jumper"
+                        showLongPage='scroll'
+                        cancelRelevance={false}
                     />
-                    <input type='text'
-                           value={this.state.pageNo}
-                           onChange={(e) => this.setState({pageNo: e.target.value})}
-                           />
+                    {/*<input type='text'*/}
+                           {/*value={this.state.pageNo}*/}
+                           {/*onChange={(e) => this.setState({pageNo: e.target.value})}*/}
+                           {/*/>*/}
                 </div>
             </div>
         )

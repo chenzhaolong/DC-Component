@@ -11,7 +11,9 @@ export class Pagination extends Component {
         this.state = {
             _total: total,
             _pageSize: pageSize,
-            pageNo: 1
+            pageNo: 1,
+            pageCount: 1,
+            filterDistance: 5
         }
     }
 
@@ -23,7 +25,10 @@ export class Pagination extends Component {
     // 跳转到指定页数
     jumpToTargetPageNo(e) {
         let pageNo = this._changeStrToNumber(e.target.value);
-        if (pageNo && pageNo <= this._pageNumber()) {
+        let totalPage = this._pageNumber();
+        if (pageNo && pageNo <= totalPage) {
+            // const {pageCount} = this.state;
+            // let count = [1, totalPage].indexOf(pageCount) !== -1 ? pageCount : Math.ceil(pageCount / 5);
             this.setState({pageNo: pageNo}, () => {
                 let curNode = this._finePageByPageNo(this.state.pageNo, false);
                 this._activeBehavior(curNode);
@@ -98,9 +103,15 @@ export class Pagination extends Component {
         if (curNode.tagName.toLowerCase() !== 'li') {
             return;
         }
-        this.setState({pageNo: curNode.dataset.order}, () => {
-            this._activeBehavior(curNode);
-        });
+        const order = curNode.dataset.order;
+        if (order.indexOf('-') !== -1) {
+            let _count = order === '1-2' ? this.state.pageCount + 1 :  this.state.pageCount - 1;
+            this.setState({pageCount: _count});
+        } else {
+            this.setState({pageNo: order}, () => {
+                this._activeBehavior(curNode);
+            });
+        }
     }
 
     // 激活后的具体行为
@@ -126,12 +137,14 @@ export class Pagination extends Component {
 
     // 主要渲染内容
     _mainContent() {
+        const {showLongPage = 'scroll'} = this.props;
         let totalCount = this._pageNumber();
         let _content = [];
         for (let i = 0; i < totalCount; i++) {
             let item = this._renderPageItem(i + 1, totalCount);
             _content.push(item);
         }
+        // _content = this._handleForPageTooMuch(_content);
         let _prev = ['dc-pagination-button_prev'];
         let _next = ['dc-pagination-button_next'];
         if (this.state.pageNo >= this._pageNumber()) {
@@ -140,13 +153,14 @@ export class Pagination extends Component {
         if (this.state.pageNo == 1) {
             _prev.push('dc-pagination-button_disabled');
         }
+        let ulClass = showLongPage === 'scroll' ? ['dc-pagination-ul', 'dc-pagination-scroll'].join(' ') : 'dc-pagination-ul';
         return (
             <div style={{display: 'inline-block'}}>
                 <span className={_prev.join(" ")} onClick={this._jumpToPrev.bind(this)}>
                     <Icon type='right' width='30px' height='30px'/>
                 </span>
                 <ul
-                    className='dc-pagination-ul'
+                    className={ulClass}
                     onClick={this._activeItem.bind(this)}
                     id='dc-pagination-ul'
                 >{_content}</ul>
@@ -155,6 +169,49 @@ export class Pagination extends Component {
                 </span>
             </div>
         );
+    }
+
+    // 页数过多处理(暂时不用)
+    _handleForPageTooMuch(content) {
+        const _pageCount = this._pageNumber();
+        let _content = [].concat(content);
+        if (_pageCount > 7) {
+            _content = this._filterItem(_content, _pageCount);
+        }
+        return _content;
+    }
+
+    // 过滤节点(暂时不用)
+    _filterItem(content, _pageCount) {
+        const priviteContent = (type) => {
+            let _src, _order;
+            if (type === 'right') {
+                _src = '>>';
+                _order = '1-2';
+            } else {
+                _src = '<<';
+                _order = '1-1';
+            }
+            return <li
+                data-order={_order}
+                key={_order}
+                className='dc-pagination-toward'
+            >
+                {_src}
+            </li>
+        };
+        const  l = content.length;
+        const {pageCount, filterDistance, _total} = this.state;
+        const filterStart = 1 + (pageCount - 1) * filterDistance;
+        const filterEnd = 5 + (pageCount - 1) * filterDistance;
+        const filterItemArr = content.slice(filterStart, filterEnd + 1 >= _pageCount ? _pageCount - 1 : filterEnd + 1);
+        let first = content[0];
+        let last = content[l - 1];
+        filterStart > 1 && filterItemArr.unshift(priviteContent('left'));
+        l - filterStart > 5 && filterItemArr.push(priviteContent('right'));
+        filterItemArr.unshift(first);
+        filterItemArr.push(last);
+        return filterItemArr;
     }
 
     // 渲染的节点
@@ -227,7 +284,7 @@ export class Pagination extends Component {
 
     render() {
         let total = this._changeStrToNumber(this.state._total);
-        let {layout} = this.props;
+        let {layout = ''} = this.props;
         return (
             <div>
                 {
