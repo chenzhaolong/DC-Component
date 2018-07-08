@@ -130,18 +130,18 @@ function FlexibleLoading(props) {
     };
 
     const _bollStyle = (props, type) => {
-        const {outerRadius, innerRadisu, speed} = props;
+        const {outerRadius, innerRadius, speed} = props;
         let _style = {};
         if (type === 'outer') {
             _computedWaH(outerRadius, _style);
         } else {
-            _computedWaH(innerRadisu, _style);
+            _computedWaH(innerRadius, _style);
         }
         if (speed) {
             _style.animation = `${type === 'outer' ? 'flexibleOuter' : 'flexibleInner'} ${speed}s linear infinite`;
         }
         return _style;
-    }
+    };
     return (
         <div>
             <div className='dc-loading_outer dc-loading_outer_animation' style={_bollStyle(props, 'outer')}>

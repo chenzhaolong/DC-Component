@@ -15,7 +15,8 @@ import {Menu} from './libs/menu/Menu';
 import {Loading} from './libs/loading/Loading';
 import {Steps} from './libs/step/Step';
 import {IconLib} from './libs/Icon/IconLib';
-import {Pagination} from './libs/pagination/Pagination'
+import {Pagination} from './libs/pagination/Pagination';
+import {Message} from './libs/message/message';
 
 export {
     Button,
@@ -32,5 +33,6 @@ export {
     Loading,
     Steps,
     IconLib,
-    Pagination
+    Pagination,
+    Message
 }

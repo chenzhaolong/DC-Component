@@ -286,12 +286,12 @@ class Demo extends Component {
                             prefix: "data"
                         }}>第三极</Item>
                     </Breadcrumb>
-                    <div style={{display: 'none'}}>
+                    <div style={{display: 'block'}}>
                         <Button
                             onClick={this.showLoading.bind(this)}
                             type="primary"
                         >click</Button>
-                        <Loading type='jump' ballColor='#123' show={this.state.loadingDiv}>
+                        <Loading  type='flexible' outerRadius='200' innerRadius='20' show={this.state.loadingDiv}>
                             <div id='loading'>
                                 <p style={{width: '500px', height: '500px'}}>
                                     dasffasdf
@@ -300,18 +300,11 @@ class Demo extends Component {
                         </Loading>
                     </div>
                     <Loading
-                        type='default'
-                        icon='loading-one'
+                        type='flexible'
                         speed='1'
-                        outerRadius='50'
+                        outerRadius='100'
                         innerRadius='20'
                         show={this.state.loadingShow}
-                        beforeLoading={() => {
-                            console.log('before')
-                        }}
-                        afterLoading={() => {
-                            console.log('after')
-                        }}
                     />
                     <Steps
                         curStatus={this.state.step.status}

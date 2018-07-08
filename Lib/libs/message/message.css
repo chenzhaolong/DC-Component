@@ -1,0 +1,47 @@
+.dc-message_position {
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 999; }
+
+.dc-message_appear {
+  animation: appear 0.2s linear;
+  top: 12px; }
+
+.dc-message_disappear {
+  animation: disappear 0.2s linear;
+  top: -50px; }
+
+.dc-message_size {
+  min-width: 230px;
+  min-height: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  z-index: 999;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04); }
+
+.dc-message-img {
+  width: 20px; }
+
+.dc-message-content {
+  vertical-align: super;
+  display: inline-block;
+  height: 18px;
+  font-size: 14px;
+  margin-left: 10px;
+  font-weight: 600;
+  color: #5e5e5e; }
+
+@keyframes appear {
+  0% {
+    top: -30px; }
+  100% {
+    top: 12px; } }
+
+@keyframes disappear {
+  0% {
+    top: 12px; }
+  100% {
+    top: -50px; } }

@@ -93,6 +93,7 @@ export class Button extends Component {
                     onClick={this._clickEventHandle.bind(this)}
                     disabled={this.props.disabled}
                     ref="btn"
+                    type='button'
                 >
                     {
                         this.props.icon && !this.props.loading ?
@@ -114,4 +115,4 @@ Button.propTypes = {
     type: PropTypes.string,
     className: PropTypes.string,
     onClick: PropTypes.func
-}
+};

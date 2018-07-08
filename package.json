@@ -6,6 +6,7 @@
   "author": "chenzhaolong <chenzhaolong@youzan.com>",
   "license": "MIT",
   "dependencies": {
+    "antd": "^3.6.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "save-dev": "^2.0.0"
