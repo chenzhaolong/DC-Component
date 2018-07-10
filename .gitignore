@@ -1,0 +1,7 @@
+.idea/*
+.DS_Store
+bin/.DS_Store
+node_modules/
+src/.DS_Store
+static/.DS_Store
+bound/*

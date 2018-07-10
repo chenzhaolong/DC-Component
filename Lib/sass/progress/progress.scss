@@ -1,0 +1,17 @@
+.dc-progress-line_outer{
+  width: 300px;
+  height: 6px;
+  border-radius: 100px;
+  background-color: #e4e8f1;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.dc-progress-line_inner{
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: #1f90e6;
+  border-radius: 100px;
+}
