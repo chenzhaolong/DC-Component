@@ -339,12 +339,12 @@ class Demo extends Component {
                         pageNo={this.state.pageNo}
                         layout="total,jumper"
                         showLongPage='scroll'
-                        cancelRelevance={false}
+                        cancelRelevance={true}
                     />
-                    {/*<input type='text'*/}
-                           {/*value={this.state.pageNo}*/}
-                           {/*onChange={(e) => this.setState({pageNo: e.target.value})}*/}
-                           {/*/>*/}
+                    <input type='text'
+                           value={this.state.pageNo}
+                           onChange={(e) => this.setState({pageNo: e.target.value})}
+                           />
                 </div>
             </div>
         )

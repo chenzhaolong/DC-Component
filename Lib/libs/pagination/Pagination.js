@@ -13,7 +13,7 @@ export class Pagination extends Component {
             _pageSize: pageSize,
             pageNo: 1,
             pageCount: 1,
-            filterDistance: 5
+            filterDistance: 5,
         }
     }
 
@@ -104,14 +104,12 @@ export class Pagination extends Component {
             return;
         }
         const order = curNode.dataset.order;
-        if (order.indexOf('-') !== -1) {
-            let _count = order === '1-2' ? this.state.pageCount + 1 :  this.state.pageCount - 1;
-            this.setState({pageCount: _count});
-        } else {
-            this.setState({pageNo: order}, () => {
-                this._activeBehavior(curNode);
-            });
+        if (this.refs.jumper && this.refs.jumper.value) {
+            this.refs.jumper.value = '';
         }
+        this.setState({pageNo: order}, () => {
+            this._activeBehavior(curNode);
+        });
     }
 
     // 激活后的具体行为
@@ -159,11 +157,7 @@ export class Pagination extends Component {
                 <span className={_prev.join(" ")} onClick={this._jumpToPrev.bind(this)}>
                     <Icon type='right' width='30px' height='30px'/>
                 </span>
-                <ul
-                    className={ulClass}
-                    onClick={this._activeItem.bind(this)}
-                    id='dc-pagination-ul'
-                >{_content}</ul>
+                <ul className={ulClass} onClick={this._activeItem.bind(this)} id='dc-pagination-ul'>{_content}</ul>
                 <span className={_next.join(" ")} onClick={this._jumpToNext.bind(this)}>
                     <Icon type='right' width='30px' height='30px'/>
                 </span>
@@ -247,8 +241,12 @@ export class Pagination extends Component {
         return (
             <div className='dc-pagination-jumper'>
                 前往
-                <input type='text' className='dc-pagination-jumper_txt' onChange={this.jumpToTargetPageNo.bind(this)}/>
-                页
+                <input type='text'
+                       defaultValue={this.state.specialPageNo}
+                       className='dc-pagination-jumper_txt'
+                       onChange={this.jumpToTargetPageNo.bind(this)}
+                       ref='jumper'
+                />页
             </div>
         )
     }
@@ -265,7 +263,7 @@ export class Pagination extends Component {
 
     _reTraggleChangepage(prevPage) {
         const {pageNo = 1} = prevPage;
-        const {cancelRelevance = true} = this.props;
+        const {cancelRelevance = false} = this.props;
         if (pageNo !== this.props.pageNo) {
             cancelRelevance && this.props.changePage(this.props.pageNo);
         }
@@ -278,8 +276,8 @@ export class Pagination extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        this._clearUnlessDefaultActived();
-        this._reTraggleChangepage(prevProps);
+        // this._clearUnlessDefaultActived();
+        // this._reTraggleChangepage(prevProps);
     }
 
     render() {
