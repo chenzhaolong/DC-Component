@@ -10,6 +10,7 @@ export class Icon extends Component {
         }
         return defalutClass.join(" ");
     }
+
     render() {
         const {type, width, height} = this.props;
         return (

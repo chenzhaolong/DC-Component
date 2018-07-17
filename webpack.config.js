@@ -22,7 +22,7 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|svg|gif|ttf|woff|woff2)$/,
-                loader: 'url-loader?limit=8192&name=images/[hash:8].[name].[ext]'
+                loader: 'url-loader'
             }
         ]
     },

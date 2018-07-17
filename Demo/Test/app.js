@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {
     Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter, Breadcrumb, Menu,
-    Loading, Steps, IconLib
+    Loading, Steps, IconLib, Progress
 } from '../../Lib/index';
 import './app.css';
 import {Pagination} from "../../Lib";
@@ -286,19 +286,19 @@ class Demo extends Component {
                             prefix: "data"
                         }}>第三极</Item>
                     </Breadcrumb>
-                    <div style={{display: 'block'}}>
-                        <Button
-                            onClick={this.showLoading.bind(this)}
-                            type="primary"
-                        >click</Button>
-                        <Loading  type='flexible' outerRadius='200' innerRadius='20' show={this.state.loadingDiv}>
-                            <div id='loading'>
-                                <p style={{width: '500px', height: '500px'}}>
-                                    dasffasdf
-                                </p>
-                            </div>
-                        </Loading>
-                    </div>
+                    {/*<div style={{display: 'block'}}>*/}
+                        {/*<Button*/}
+                            {/*onClick={this.showLoading.bind(this)}*/}
+                            {/*type="primary"*/}
+                        {/*>click</Button>*/}
+                        {/*<Loading  type='flexible' outerRadius='200' innerRadius='20' show={this.state.loadingDiv}>*/}
+                            {/*<div id='loading'>*/}
+                                {/*<p style={{width: '500px', height: '500px'}}>*/}
+                                    {/*dasffasdf*/}
+                                {/*</p>*/}
+                            {/*</div>*/}
+                        {/*</Loading>*/}
+                    {/*</div>*/}
                     <Loading
                         type='flexible'
                         speed='1'
@@ -345,6 +345,17 @@ class Demo extends Component {
                            value={this.state.pageNo}
                            onChange={(e) => this.setState({pageNo: e.target.value})}
                            />
+                    <div style={{marginTop: '20px'}}>
+                        <Progress precent='70'
+                                  width='300px'
+                                  height='20px'
+                                  // colors={{progress: 'yellow'}}
+                                  // isError={false}
+                                  textInside={true}
+                        />
+
+                        <Progress precent='70' type='circle'/>
+                    </div>
                 </div>
             </div>
         )
