@@ -18,6 +18,7 @@ import {IconLib} from './libs/Icon/IconLib';
 import {Pagination} from './libs/pagination/Pagination';
 import {Message} from './libs/message/message';
 import {Progress} from './libs/progress/Progress';
+import {Notification} from "./libs/notification/Notification";
 
 export {
     Button,
@@ -36,5 +37,6 @@ export {
     IconLib,
     Pagination,
     Message,
-    Progress
+    Progress,
+    Notification
 }

@@ -350,11 +350,12 @@ class Demo extends Component {
                                   width='300px'
                                   height='20px'
                                   // colors={{progress: 'yellow'}}
-                                  // isError={false}
+                                  isError={false}
                                   textInside={true}
                         />
 
-                        <Progress precent='70' type='circle'/>
+                        <Progress precent='48'
+                                  type='circle' width='100' strokeWidth='5' isError={false} iconSize='30px'/>
                     </div>
                 </div>
             </div>

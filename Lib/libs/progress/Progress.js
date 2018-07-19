@@ -68,19 +68,57 @@ export class Progress extends React.Component {
         }
     }
 
+    // 计算circle时进度长度
+    computedCircleLength(radius) {
+        let precent = parseFloat(this.props.precent) / 100;
+        let interval = Math.round(2 * 3.14 * radius);
+        let length = Math.round(interval * precent);
+        return `${length} ${interval - length}`;
+    }
+
+    // 计算circle的属性值
+    computedCoord() {
+        let {width = 100, strokeWidth = 10} = this.props;
+        let c = Math.round(width / 2);
+        let radius = c - strokeWidth;
+        let color = () => {
+            switch (this.curStatus()) {
+                case 'success':
+                    return '#32f83e';
+                case 'progress':
+                    return '#2ca2fc';
+                default:
+                    return '#d62119';
+            }
+        };
+        return {
+            width: width,
+            viewBox: `0 0 ${width} ${width}`,
+            circle: [c, c],
+            strokeWidth: strokeWidth,
+            r: radius,
+            color: color(),
+            rotate: `rotate(-90, ${c} ${c})`,
+            strokeDasharray: this.computedCircleLength(radius, strokeWidth),
+            status: this.curStatus()
+        }
+    }
+
     render() {
         let {type = 'line'} = this.props;
-        let state = {
-            outerStyle: this.computedOuterStyle(),
-            innerStyle: this.computedInnerStyle(),
-            status: this.curStatus()
-        };
-        if (state.status === 'success') {
-            this.props.onSuccess && this.props.onSuccess();
-        }
+        let state;
         if (type === 'line') {
+            state = {
+                outerStyle: this.computedOuterStyle(),
+                innerStyle: this.computedInnerStyle(),
+                status: this.curStatus()
+            };
+            if (state.status === 'success') {
+                this.props.onSuccess && this.props.onSuccess();
+            }
             return LineProgress(this.props, state);
         } else {
+            state = this.computedCoord();
             return CircleProgress(this.props, state);
         }
     }
@@ -125,10 +163,10 @@ function LineProgress(props, state) {
 /**
  * 状态logo
  */
-function StatusLogo(status) {
+function StatusLogo(status, spec) {
     return (
-        <div className='dc-progress-logo'>
-            <Icon type={status} width='20px' height='20px'/>
+        <div className='dc-progress-logo' style={{marginLeft: spec.left}}>
+            <Icon type={status} width={spec.width || '20px'} height={spec.height || '20px'}/>
         </div>
     )
 }
@@ -137,12 +175,25 @@ function StatusLogo(status) {
  * 圆形进度条
  */
 function CircleProgress(props, state) {
+    const {width, viewBox, circle, strokeWidth, r, strokeDasharray, color, rotate, status} = state;
+    const size = props.iconSize || '30px';
     return (
         <div>
-            <section className='dc-progress-circle_outer'>
-                <section className='dc-progress-circle_inner'>
+            <section className='dc-progress-circle'>
+                <svg width={width} height={width} viewBox={viewBox}>
+                    <circle cx={circle[0]} cy={circle[1]} r={r} stroke='#e5e9f2' strokeWidth={strokeWidth} fill='none'/>
+                    <circle cx={circle[0]} cy={circle[1]} r={r} stroke={color} strokeWidth={strokeWidth} fill='none'
+                            strokeDasharray={strokeDasharray} transform={rotate}/>
+                </svg>
 
-                </section>
+                <div className='dc-progress-circle_txt'>
+                    {
+                        ['success', 'error'].indexOf(status) !== -1
+                            ? StatusLogo( status === 'success' ? 'circle-success' : 'circle-error',
+                            {width: size, height: size, left: '0'} )
+                            : `${props.precent}%`
+                    }
+                </div>
             </section>
         </div>
     )

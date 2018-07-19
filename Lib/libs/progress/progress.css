@@ -45,3 +45,20 @@
 .dc-progress-logo {
   display: inline-block;
   margin-left: 10px; }
+
+.dc-progress-circle {
+  position: relative;
+  display: inline-block; }
+
+.dc-progress-circle_txt {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  text-align: center;
+  width: 100%; }
+
+.dc-progress-circle_txt {
+  color: #48576a;
+  font-size: 16px; }

@@ -30,5 +30,7 @@ export const IconLib = {
     'step-wait': require('./images/step-wait.png'),
     'right': require('./images/right.png'),
     'left-sorting': require('./images/left-sorting.png'),
-    'right-sorting': require('./images/right-sorting.png')
+    'right-sorting': require('./images/right-sorting.png'),
+    'circle-success': require('./images/icon_success.png'),
+    'circle-error': require('./images/icon_error.png')
 };
