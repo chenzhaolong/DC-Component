@@ -10,27 +10,6 @@
           
           height：             高度
 ````
-####Row和Col组件
-
-````
-介绍：布局的栅栏化系统
-
-Row组件固定属性：
-           className：         外部类名
-           
-           margin：            外边距（marginTop，marginBottom，marginLeft，marginRight）
-           
-           padding：           内边距（paddingTop，paddingBottom，paddingLeft，paddingRight）
-           
-           mode：              布局模式，已有的是flex弹性布局
-           
-Col组件固定属性：
-           className:          外部类名
-           
-           span：              占几格
-           
-           order：             该行第几个          
-````
 ####BreadCrumb组件
 ````
 1，介绍：面包屑组件，适用于多级子路由跳转
@@ -134,6 +113,42 @@ Loading的属性：
                   <div id='loading'>xxxx
                </Loading>
 `````   
+####Button组件
+````
+1，介绍：主要适用于用户点击行为，随机触发业务功能；
+
+2，固定属性： 
+           type：              组件类型（'default', 'primary', 'dashed', 'danger'）
+
+           icon：              图标
+           
+           disabled：          是否禁用
+           
+           className：         外部类选择器
+           
+           onClick：           点击事件
+````
+####Row和Col组件
+
+````
+介绍：布局的栅栏化系统
+
+Row组件固定属性：
+           className：         外部类名
+           
+           margin：            外边距（marginTop，marginBottom，marginLeft，marginRight）
+           
+           padding：           内边距（paddingTop，paddingBottom，paddingLeft，paddingRight）
+           
+           mode：              布局模式，已有的是flex弹性布局
+           
+Col组件固定属性：
+           className:          外部类名
+           
+           span：              占几格
+           
+           order：             该行第几个          
+````
 ####Menu组件
 ````
 1，介绍：菜单栏组件，使用于侧边栏导航条
@@ -193,21 +208,31 @@ Demo：
                     </SubGroup>
                 </Menu>
 ````
-####Button组件
-````
-1，介绍：主要适用于用户点击行为，随机触发业务功能；
+####Pagination组件
+````    
+1，介绍：只要用来翻页操作。
 
-2，固定属性： 
-           type：              组件类型（'default', 'primary', 'dashed', 'danger'）
-
-           icon：              图标
-           
-           disabled：          是否禁用
-           
-           className：         外部类选择器
-           
-           onClick：           点击事件
-````
+2，固定属性：
+            total：           总页数
+            pageSize：        每页大小
+            changePage：      翻页时触发的事件
+            pageNo：          页数
+            layout：          布局，现在只支持‘total,jumper’
+            showLongPage：    页数过长时展示，现在只支持‘scroll’
+            cancelRelevance： pageNo改变时是否触发changePage事件，默认是true（废弃）
+            
+ demo：
+             <Pagination
+                         total='255'
+                         pageSize='10'
+                         changePage={page => console.log('pageNo', page)}
+                         pageNo={this.state.pageNo}
+                         layout="total,jumper"
+                         showLongPage='scroll'
+                         cancelRelevance={false}
+                     />
+         
+````            
 ####Modal组件
 ````
 1，介绍：在处理事务中如果希望跳转页面以致打断工作流程时，可以使用Modal在当前页面正中打开一个浮层，承载相应的操作。
@@ -236,6 +261,7 @@ Demo：
            spec：
                 musk；content；title；onCancel；onSure；type：  success，error，info，question，warning
 ````
+
 ####Pop组件
 
 ````
@@ -250,32 +276,32 @@ Demo：
            content:    气泡主题内容；
 
            placement:  气泡显示位置；
-````
-####Pagination组件
-````    
-1，介绍：只要用来翻页操作。
 
-2，固定属性：
-            total：           总页数
-            pageSize：        每页大小
-            changePage：      翻页时触发的事件
-            pageNo：          页数
-            layout：          布局，现在只支持‘total,jumper’
-            showLongPage：    页数过长时展示，现在只支持‘scroll’
-            cancelRelevance： pageNo改变时是否触发changePage事件，默认是true（废弃）
-            
+````
+ ####Progress组件
+ ````         
+ 1, 介绍：动态进度条（目前只有线条状）
+ 
+ 2，固定属性：
+           precent：       当前进度数  
+           width：         当前宽度
+           height：        当前高度
+           colors：        各状态的颜色值{success, error, progress, dangerous},只支持16进制
+           isError：       进度是否出错
+           textInside：    是否将文字放在进度条里面
+           type：          line类型（line和circle）
+           onSuccess：     到达100%时的回调
+           iconSize：      icon的面积(只针对circle类型)
+ 
  demo：
-             <Pagination
-                         total='255'
-                         pageSize='10'
-                         changePage={page => console.log('pageNo', page)}
-                         pageNo={this.state.pageNo}
-                         layout="total,jumper"
-                         showLongPage='scroll'
-                         cancelRelevance={false}
-                     />
-                     
- `````   
+             <Progress precent='70'
+                       width='300px'
+                       height='20px'
+                       colors={{progress: 'yellow'}}
+                       isError={false}
+                       textInside={true}
+             />
+````                 
 ####Tab组件
 
 ````
@@ -298,20 +324,6 @@ TabPanel组件固定属性：
                order：                   tab的序号
                
      
-####Switch组件
-
-````
-1，介绍：表示需要开关状态/两种状态之间的切换时采用
-
-2，固定属性：
-
-          defaultChecked（require）：      默认值
-
-          onChange：                      点击切换时触发的事件
-
-          checkTxt：                      自定义打开时文案
-
-          unCheckTxt：                    自定义关闭时文案
 ````
 ####Transverter组件
 ````
@@ -381,30 +393,22 @@ class Test extends Component{
 
 最终渲染的组件为:<Test obj={转换后的数据} className="test-demo">
 ````
- ####Progress组件
- ````         
- 1, 介绍：动态进度条（目前只有线条状）
- 
- 2，固定属性：
-           precent：       当前进度数  
-           width：         当前宽度
-           height：        当前高度
-           colors：        各状态的颜色值{success, error, progress, dangerous},只支持16进制
-           isError：       进度是否出错
-           textInside：    是否将文字放在进度条里面
-           type：          line类型（line和circle）
-           onSuccess：     到达100%时的回调
-           iconSize：      icon的面积(只针对circle类型)
- 
- demo：
-             <Progress precent='70'
-                       width='300px'
-                       height='20px'
-                       colors={{progress: 'yellow'}}
-                       isError={false}
-                       textInside={true}
-             />
-````                 
+####Switch组件
+
+````
+1，介绍：表示需要开关状态/两种状态之间的切换时采用
+
+2，固定属性：
+
+          defaultChecked（require）：      默认值
+
+          onChange：                      点击切换时触发的事件
+
+          checkTxt：                      自定义打开时文案
+
+          unCheckTxt：                    自定义关闭时文案
+
+````
 ####Step组件
 ````  
 

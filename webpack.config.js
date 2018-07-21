@@ -6,14 +6,17 @@ const baseWebpack = require('./build/webpack.base');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
+let file = require('./build/component.json');
+
+let _entry = file.readLocation(__dirname + '/src/components/');
 
 module.exports = merge(baseWebpack, {
     entry: {
-        index: './src/components/index.js'
+        ..._entry
     },
 
     output: {
-        filename: 'index.min.js',
+        filename: '[name].min.js',
     },
 
     module: {

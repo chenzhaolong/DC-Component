@@ -10,7 +10,7 @@ export class Breadcrumb extends Component{
         super(props);
         const { separator } = this.props;
         this.state = {
-            separator: separator || "/",
+            separator: separator || "/"
         }
     }
 
