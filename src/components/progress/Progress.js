@@ -2,9 +2,9 @@
  * @file 进度条
  */
 import React, {Component} from 'react';
-import {Icon} from "../Icon";
-import './progress.css';
+import './progress.scss';
 import {get, omit} from 'lodash';
+import {FaIcon} from '../fa-icon/Fa-Icon';
 
 export class Progress extends React.Component {
     constructor(props) {
@@ -37,9 +37,9 @@ export class Progress extends React.Component {
     // 当前颜色值
     curStyle() {
         let {colors = {}} = this.props;
-        if (Object.keys(colors).length === 0) {
-            return false;
-        }
+        // if (Object.keys(colors).length === 0) {
+        //     return false;
+        // }
         let result = this.curStatus();
         switch (result) {
             case 'success':
@@ -137,7 +137,7 @@ function LineProgress(props, state) {
             <section className='dc-progress-line_outer' style={outerStyle}>
                 <article className={innerClass} style={innerStyle.style}>
                     {
-                        textInside && _progress.indexOf(status) !== -1 ?
+                        textInside ?
                             (<span className='dc-progress_inside_text' style={{lineHeight: outerStyle.height || ''}}>
                                 {props.precent}%
                             </span>)
@@ -146,7 +146,7 @@ function LineProgress(props, state) {
                 </article>
             </section>
             {
-                !textInside && _progress.indexOf(status) !== -1
+                !textInside
                     ?
                     (<span className='dc-progress_outside_text'>
                      {props.precent}%
@@ -163,10 +163,14 @@ function LineProgress(props, state) {
 /**
  * 状态logo
  */
-function StatusLogo(status, spec) {
+function StatusLogo(status, spec = {}) {
+    const mapList = {
+        success: ['check-circle', '#6ac044'],
+        error: ['times-circle', '#f36d6e'],
+    };
     return (
         <div className='dc-progress-logo' style={{marginLeft: spec.left}}>
-            <Icon type={status} width={spec.width || '20px'} height={spec.height || '20px'}/>
+            <FaIcon icon={mapList[status][0]} color={mapList[status][1]} fontSize='16px'/>
         </div>
     )
 }
@@ -189,8 +193,8 @@ function CircleProgress(props, state) {
                 <div className='dc-progress-circle_txt'>
                     {
                         ['success', 'error'].indexOf(status) !== -1
-                            ? StatusLogo( status === 'success' ? 'circle-success' : 'circle-error',
-                            {width: size, height: size, left: '0'} )
+                            ? StatusLogo(status === 'success' ? 'circle-success' : 'circle-error',
+                            {width: size, height: size, left: '0'})
                             : `${props.precent}%`
                     }
                 </div>

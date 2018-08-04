@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import "./breadcrumb.css";
+import "./breadcrumb.scss";
 
 export class Breadcrumb extends Component{
     constructor(props) {

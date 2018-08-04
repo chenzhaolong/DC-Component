@@ -2,10 +2,9 @@
  *  Button Component
  * */
 import React, {Component} from 'react';
-import {IconLib} from '../Icon/IconLib';
-import './button.css';
-import '../Icon/icon.css';
+import './button.scss';
 import PropTypes from 'prop-types';
+import {FaIcon} from '../fa-icon/Fa-Icon';
 
 export class Button extends Component {
     constructor(props) {
@@ -42,9 +41,7 @@ export class Button extends Component {
         if (this.props.children) {
             return this.props.children;
         } else if (this.props.loading) {
-            return <img
-                src={IconLib['loading']}
-                className="dc-btn-loading dc-btn_loading"/>
+            return <div className='dc-btn-loading'> <FaIcon icon='spinner'/> </div>
         } else {
             return ;
         }
@@ -96,10 +93,7 @@ export class Button extends Component {
                     type='button'
                 >
                     {
-                        this.props.icon && !this.props.loading ?
-                            <img
-                            src={IconLib[this.props.icon]}
-                            className={this._defaultIconClass()}/> : ''
+                        this.props.icon && !this.props.loading ? <FaIcon icon={this.props.icon}/> : ''
                     }
                     <span>
                         {

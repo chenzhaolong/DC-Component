@@ -1,7 +1,6 @@
 import React, {Component, PureComponent} from 'react';
-
-import {Icon} from "../Icon";
-import './menu.css';
+import {FaIcon} from '../fa-icon/Fa-Icon';
+import './menu.scss';
 import PropTypes from "prop-types";
 
 let _parentProperty = {};
@@ -309,15 +308,10 @@ class SubGroup extends Component{
         const rootClass = ['dc-menu-item', 'dc-menu-group', className];
         return (
             <div>
-                <div
-                    className={rootClass.join(" ")}
-                    data-key={order}
-                    ref='group'
-                    onClick={this._hideSubItem}
-                >
+                <div className={rootClass.join(" ")} data-key={order} ref='group' onClick={this._hideSubItem}>
                     {label}
                    <div  ref='arrow' className='de-menu-arrow'>
-                       <Icon type='down' width='20px' height='20px'/>
+                       <FaIcon icon='chevron-up' color='#e5e5e5' fontSize='15px' />
                    </div>
                 </div>
                 <div ref='groupItems' className='dc-menu-group_hide'>

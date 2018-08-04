@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './switch.css';
+import './switch.scss';
 import PropTypes from 'prop-types';
 
 export class Switch extends Component{

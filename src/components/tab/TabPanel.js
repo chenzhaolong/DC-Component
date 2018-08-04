@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './tab.css'
+import './tab.scss'
 
 export class TabPanel extends Component{
     render() {

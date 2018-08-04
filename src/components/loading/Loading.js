@@ -1,8 +1,7 @@
 import React, {Component, PureComponent} from 'react';
 import {findDOMNode} from 'react-dom';
-import './loading.css';
-import {Icon} from '../Icon/index';
-import {IconLib} from '../Icon/IconLib'
+import './loading.scss';
+import {FaIcon} from '../fa-icon/Fa-Icon';
 
 export class Loading extends PureComponent {
     _chooseLoadingIcon() {
@@ -87,13 +86,10 @@ export class Loading extends PureComponent {
 
 function DefaultLoading(props) {
     let {icon, txt} = props;
-    if (!IconLib[icon]) {
-        icon = 'loading-one';
-    }
     return (
         <div>
             <article className='dc-loading-default'>
-                <Icon type={icon} width='50px' height='50px'/>
+                <FaIcon icon='spinner' color='#108ee9' fontSize='30px'/>
             </article>
             <article className='dc-loading-txt'>
                 {txt || '加载中，请稍后！'}

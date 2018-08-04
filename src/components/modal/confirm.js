@@ -1,22 +1,33 @@
 import React, {Component, PureComponent} from 'react';
-import {Icon} from '../../components/Icon/index';
-import "./modal.css";
+import {FaIcon} from "../fa-icon/Fa-Icon";
+import "./modal.scss";
+
+const mapList = {
+    success: ['check-circle', '#6ac044'],
+    error: ['times-circle', '#f36d6e'],
+    info: ['info-circle', '#46a0fc'],
+    warn: ['exclamation-circle', '#e5a146']
+};
 
 export class Confirm extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             _show: false,
         }
     }
+
     _renderHead(title, type) {
         return (
             <header>
-                <Icon type={type} width="26px" height="26px"/>
+                <div style={{display: 'inline-block'}}>
+                    <FaIcon icon={mapList[type][0]} color={mapList[type][1]} fontSize='18px'/>
+                </div>
                 <span style={{verticalAlign: 'top', marginLeft: '14px'}}>{title}</span>
             </header>
         )
     }
+
     _clickHandle(e) {
         const target = e.target;
         if (target.title == 'cancel') {
@@ -26,6 +37,7 @@ export class Confirm extends Component {
         }
         this.props.removeRootElement('confirm');
     }
+
     render() {
         const {title, content, type = 'question', musk = true} = this.props;
         return (

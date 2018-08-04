@@ -15,7 +15,7 @@ gulp.task('css', () => {
         gulp.src('./src/style/**/*.scss')
             .pipe(sass())
             .pipe(rename(path => path.extname = '.css'))
-            .pipe(gulp.dest('./src/component/'))
+            .pipe(gulp.dest('./src/components/'))
 });
 
 // 将组件的md文件合并到一个md文件

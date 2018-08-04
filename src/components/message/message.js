@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './message.css';
-import {_renderComponent, removeRootElement} from '../modal/tool';
+import './message.scss';
+import {_renderComponent, removeRootElement} from '../../../libs/tool';
 
 export function Message(spec) {
     const messageId = () => {

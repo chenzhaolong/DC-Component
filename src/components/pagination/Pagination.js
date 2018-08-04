@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import {IconLib} from '../Icon/IconLib';
-import {Icon} from '../Icon/index';
-import './pagination.css';
+import './pagination.scss';
 import {get} from 'lodash';
+import {FaIcon} from "../fa-icon/Fa-Icon";
 
 export class Pagination extends Component {
     constructor(props) {
@@ -155,11 +154,11 @@ export class Pagination extends Component {
         return (
             <div style={{display: 'inline-block'}}>
                 <span className={_prev.join(" ")} onClick={this._jumpToPrev.bind(this)}>
-                    <Icon type='right' width='30px' height='30px'/>
+                    <FaIcon icon='angle-right' color='#5e5e5e' fontSize='18px'/>
                 </span>
                 <ul className={ulClass} onClick={this._activeItem.bind(this)} id='dc-pagination-ul'>{_content}</ul>
                 <span className={_next.join(" ")} onClick={this._jumpToNext.bind(this)}>
-                    <Icon type='right' width='30px' height='30px'/>
+                    <FaIcon icon='angle-right' color='#5e5e5e' fontSize='18px'/>
                 </span>
             </div>
         );
@@ -194,7 +193,7 @@ export class Pagination extends Component {
                 {_src}
             </li>
         };
-        const  l = content.length;
+        const l = content.length;
         const {pageCount, filterDistance, _total} = this.state;
         const filterStart = 1 + (pageCount - 1) * filterDistance;
         const filterEnd = 5 + (pageCount - 1) * filterDistance;

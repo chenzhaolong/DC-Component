@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import './row.css';
+import './row.scss';
 
 export class Row extends Component {
     constructor(props) {

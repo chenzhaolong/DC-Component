@@ -1,9 +1,0 @@
-.dc-row {
-  display: inline-block;
-  min-height: 16px;
-  max-height: 53px; }
-
-.dc-row-flex {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; }

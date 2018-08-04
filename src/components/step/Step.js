@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Icon} from '../Icon';
-import './step.css';
+import {FaIcon} from '../fa-icon/Fa-Icon';
+import './step.scss';
 
 export class Steps extends Component {
     constructor(props) {
@@ -163,13 +163,13 @@ class Step extends Component {
     // 默认类型
     _defaultType(className) {
         if (className.indexOf('dc-step-item_success') !== -1) {
-            return 'step-success';
+            return 'check';
         } else if (className.indexOf('dc-step-item_error') !== -1) {
-            return 'step-fail';
+            return 'times';
         } else if (className.indexOf('dc-step-item_process') !== -1) {
-            return 'step-progress';
+            return 'tasks';
         } else {
-            return 'step-wait'
+            return 'stopwatch'
         }
     }
 
@@ -260,7 +260,7 @@ class Step extends Component {
             <div className={_rootClass}>
                 <section className={_itenIconClass}>
                     <div className={itemClass}>
-                        <Icon type={type} width='20px' height='20px'/>
+                        <FaIcon icon={type} color='#fff' fonSize='16px'/>
                     </div>
                     {this._isTheLastItem()}
                 </section>

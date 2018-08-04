@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {
-    Button, Row, Col, Pop, Modal, Icon, Switch, Tabs, Transverter, Breadcrumb, Menu,
-    Loading, Steps, IconLib, Progress, Pagination
+    Button, Row, Col, Pop, Modal, Switch, Tabs, Transverter, Breadcrumb, Menu,
+    Loading, Steps, Progress, Pagination, FaIcon, Condition
 } from '../../src/components/index';
 import './app.css';
-
 
 const {confirm} = Modal;
 const TabPanel = Tabs.createTabPanel();
@@ -75,7 +74,8 @@ class Demo extends Component {
                 status: 'applying',
                 node: 'a3'
             },
-            pageNo: 1
+            pageNo: 1,
+            ifElse: true
         }
     }
 
@@ -102,7 +102,7 @@ class Demo extends Component {
 
     showConfirm() {
         confirm({
-            type: 'success',
+            type: 'warn',
             title: 'Want to delete these items?',
             content: 'some descriptions',
             musk: false,
@@ -130,7 +130,7 @@ class Demo extends Component {
 
     componentDidMount() {
         setTimeout(() => {
-            this.setState({step: {node: 'a4', status: 'tranfersing'}})
+            this.setState({step: {node: 'a4', status: 'fail',}, ifElse: false})
         }, 5000)
     }
 
@@ -143,6 +143,8 @@ class Demo extends Component {
             progress: ['applying', 'tranfersing', 'onGoing'],
             error: ['fail', 'tranfserFail']
         };
+        const ConditionA = Condition.createCondition({value: this.state.ifElse});
+        const ConditionB = Condition.createCondition({value: !this.state.ifElse});
         return (
             <div>
                 <Menu
@@ -178,9 +180,10 @@ class Demo extends Component {
                     <Button
                         onClick={this.handle.bind(this)}
                         type="primary"
-                        icon="house"
+                        icon="address-book"
                         disabled={this.state.disabled}
-                    >click</Button>
+                        loading={true}
+                    ></Button>
                     <Row marginTop="15" className="dcs">
                         <Col span={3} className="col1" order="4">COL-1</Col>
                         <Col span={2} className="col1" order="3">COL-2</Col>
@@ -219,7 +222,7 @@ class Demo extends Component {
                     <Pop
                         content="hellow"
                     >
-                        <Icon type="phone" width="20px" height="20px"/>
+                        <FaIcon icon="phone" />
                     </Pop>
                     <Modal
                         visible={this.state.show}
@@ -299,10 +302,8 @@ class Demo extends Component {
                         {/*</Loading>*/}
                     {/*</div>*/}
                     <Loading
-                        type='flexible'
-                        speed='1'
-                        outerRadius='100'
-                        innerRadius='20'
+                        type='defalut'
+                        icon='loading-one'
                         show={this.state.loadingShow}
                     />
                     <Steps
@@ -345,17 +346,21 @@ class Demo extends Component {
                            onChange={(e) => this.setState({pageNo: e.target.value})}
                            />
                     <div style={{marginTop: '20px'}}>
-                        <Progress precent='70'
+                        <Progress precent='50'
                                   width='300px'
                                   height='20px'
                                   // colors={{progress: 'yellow'}}
-                                  isError={false}
-                                  textInside={true}
+                                  isError={true}
+                                  textInside={false}
                         />
 
                         <Progress precent='48'
                                   type='circle' width='100' strokeWidth='5' isError={false} iconSize='30px'/>
                     </div>
+                    <ConditionA.If> <Text/> </ConditionA.If>
+                    <ConditionA.Else> <OptionA/> </ConditionA.Else>
+
+                    <ConditionB.Else>shide</ConditionB.Else>
                 </div>
             </div>
         )
@@ -364,7 +369,7 @@ class Demo extends Component {
 
 class Text extends Component {
     render() {
-        return <div style={{color: 'white'}}>
+        return <div style={{color: 'blue'}}>
             <p style={{margin: 0}}>hello baidu ！</p>
         </div>
     }

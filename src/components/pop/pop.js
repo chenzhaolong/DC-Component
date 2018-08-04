@@ -1,6 +1,6 @@
 import React, {Component, PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import './pop.css';
+import './pop.scss';
 
 export class Pop extends Component{
     constructor(props) {

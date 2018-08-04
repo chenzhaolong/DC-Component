@@ -1,12 +1,11 @@
 import React, {Component, PureComponent} from 'react';
-import {render} from 'react-dom';
 import PropTypes from 'prop-types';
-import "./modal.css";
-import {Icon} from '../../components/Icon/index';
+import "./modal.scss";
 import {Confirm} from './confirm';
-import {_renderComponent} from './tool';
+import {_renderComponent} from '../../../libs/tool';
+import {FaIcon} from "../../components/fa-icon/Fa-Icon";
 
-export class Modal extends Component{
+export class Modal extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -21,20 +20,18 @@ export class Modal extends Component{
     _clickHandle(e) {
         const target = e.target;
         if (target.title == 'cancel') {
-             this.props.onCancel();
+            this.props.onCancel();
         } else {
-             this.props.onSure();
+            this.props.onSure();
         }
     }
 
     _renderHeader(title) {
         return (
-            <header
-                className="dc-modal__header"
-            >
+            <header className="dc-modal__header">
                 <div>{title}</div>
                 <div className="dc-modal__icon" onClick={this._closeModal.bind(this)}>
-                    <Icon type="close"/>
+                    <FaIcon icon="times" color='#5e5e5e' fontSize='15px'/>
                 </div>
             </header>
         )
@@ -42,12 +39,12 @@ export class Modal extends Component{
 
     _renderLoading() {
         return (
-           <div>
+            <div>
                 <span className="dc-modal_loading">
-                <Icon type="circle-loading" circle width="14px" height="14px"/>
-            </span>
-               请等待
-           </div>
+                    <FaIcon icon="spinner" color='#fff' fontSize='12px'/>
+                </span>
+                请等待
+            </div>
         )
     }
 
@@ -59,7 +56,7 @@ export class Modal extends Component{
                 {musk ? <div className="dc-modal_musk"></div> : ''}
                 <div className="dc-modal__content">
                     {
-                        title ? this._renderHeader(title): ''
+                        title ? this._renderHeader(title) : ''
                     }
                     <article className="dc-modal__body">
                         {modalContent}
@@ -99,7 +96,7 @@ export class Modal extends Component{
 
 Modal.propTypes = {
     visible: PropTypes.bool.isRequired,
-    content: function(props, propName, componentName) {
+    content: function (props, propName, componentName) {
         if (!props[propName]) {
             throw new Error(
                 `content is require in ${componentName}`
