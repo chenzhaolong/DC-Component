@@ -1,0 +1,36 @@
+.dc-notify {
+  //position: fixed;
+  background-color: #ffffff;
+  z-index: 999;
+  border-radius: 5px;
+  width: 330px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+
+  .dc-notify-body {
+    padding: 10px 20px;
+
+    .dc-notify-head {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+
+      .dc-notify-title {
+        display: inline-block;
+      }
+
+      .dc-notify-close {
+        display: inline-block;
+        color: #5e5e5e;
+        cursor: pointer;
+      }
+    }
+
+    .dc-notify-message {
+      font-size: 14px;
+      line-height: 21px;
+      margin: 10px 0;
+      color: #8391a5;
+      text-align: justify;
+    }
+  }
+}

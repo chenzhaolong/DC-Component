@@ -1,15 +1,3 @@
-####Icon组件
-
-````
-1，介绍：展示图标
-
-2，固定属性：
-          type：               图标类型
-          
-          width：              宽度
-          
-          height：             高度
-````
 ####BreadCrumb组件
 ````
 1，介绍：面包屑组件，适用于多级子路由跳转
@@ -56,63 +44,6 @@ Item组件固定属性：
                    </Breadcrumb>
                       
 ````
-####Loading组件
-````
-1，介绍：加载组件，一般用于加载或者等待异步请求返回的数据内使用，有两种模式，一种是给定的加载样式，一种是自定义加载样式
-
-Loading的属性：
-               type：         给定的加载样式的类型，总共有三种类型提供给使用哲使用：‘default’，‘jump’, 'flexible';
-               
-                   default: {
-                       icon:     加载的图标，现在提供五种类型的图标：loading-one至loading-five,默认是loading-one;
-                       txt：     自定义加载的文案
-                   }
-                  Demo：
-                  <Loading 
-                    type='default' 
-                    icon='loading-two' 
-                    txt='你好'
-                    show={this.state.loadingDiv}
-                  />   
-                                  
-                  jump: {
-                      bollColor:  球的颜色(十六进制)；
-                      speed：     弹跳的速度；
-                  }
-                  
-                  Demo：
-                  <Loading 
-                     type='jump' 
-                     bollColor='#123'
-                     speed='12'
-                      show={this.state.loadingDiv}
-                   /> 
-                  
-                  注意：如果使用局部加载，则该类型必须要在至少大于300pd的高度使用才不会出现弹跳的球超出加载范围；
-                  
-                  Flexible： {
-                      outerRadius： 外圈半径
-                      innerRadius： 内圈半径
-                      speed:        速度
-                  }  
-
-                  Demo：
-                  <Loading 
-                      outerRadius=‘12px’
-                      innerRadius='8px'
-                      speed='3'
-                   /> 
-               
-               conponent:     自定义加载图案
-               show:          是否展示加载组件
-               beforeLoading：生命周期函数，加载前触发
-               afterLoading： 生命周期函数。加载后触发
-               
-               局部加载：      必须在Loading的子元素中的根元素加上‘loading’的id值
-               <Loading>
-                  <div id='loading'>xxxx
-               </Loading>
-`````   
 ####Button组件
 ````
 1，介绍：主要适用于用户点击行为，随机触发业务功能；
@@ -127,6 +58,28 @@ Loading的属性：
            className：         外部类选择器
            
            onClick：           点击事件
+````
+####Condition组件
+````
+1，介绍：主要适用于条件判断；
+
+2，固定属性： 
+          createCondition：        函数，返回If和Else组件，spec={value},value是条件值
+          If                       value为true时展示子组件
+          Else                     value为false时展示子组件
+````
+####Fa-Icon组件
+````
+1，介绍：主要适用于图标；
+
+2，固定属性： 
+           icon：              图标类型
+
+           color：             颜色
+           
+           fontSize：          大小
+           
+           className：         外部类选择器
 ````
 ####Row和Col组件
 
@@ -148,6 +101,34 @@ Col组件固定属性：
            span：              占几格
            
            order：             该行第几个          
+````
+####Modal组件
+````
+1，介绍：在处理事务中如果希望跳转页面以致打断工作流程时，可以使用Modal在当前页面正中打开一个浮层，承载相应的操作。
+        并且通过confirm方法提供了五种不同的消息提示。
+
+2，固定属性：
+
+           visible（require）：         控制Modal是否展示
+
+           musk:                       是否展示背景颜色，默认是true
+
+           content（require）：         对话框正文
+
+           title：                     对话框标题
+
+           onCancel（require）：        取消回调
+
+           onSure（require）：          确认回调
+
+           confirmLoading：            确认后是否显示加载logo
+
+           text：                      自定义取消和确认按钮文案
+
+           confirm（spec）：            返回一个消息对话框
+
+           spec：
+                musk；content；title；onCancel；onSure；type：  success，error，info，question，warning
 ````
 ####Menu组件
 ````
@@ -208,6 +189,97 @@ Demo：
                     </SubGroup>
                 </Menu>
 ````
+####Loading组件
+````
+1，介绍：加载组件，一般用于加载或者等待异步请求返回的数据内使用，有两种模式，一种是给定的加载样式，一种是自定义加载样式
+
+Loading的属性：
+               type：         给定的加载样式的类型，总共有三种类型提供给使用哲使用：‘default’，‘jump’, 'flexible';
+               
+                   default: {
+                       icon:     加载的图标，现在提供五种类型的图标：loading-one至loading-five,默认是loading-one;
+                       txt：     自定义加载的文案
+                   }
+                  Demo：
+                  <Loading 
+                    type='default' 
+                    icon='loading-two' 
+                    txt='你好'
+                    show={this.state.loadingDiv}
+                  />   
+                                  
+                  jump: {
+                      bollColor:  球的颜色(十六进制)；
+                      speed：     弹跳的速度；
+                  }
+                  
+                  Demo：
+                  <Loading 
+                     type='jump' 
+                     bollColor='#123'
+                     speed='12'
+                      show={this.state.loadingDiv}
+                   /> 
+                  
+                  注意：如果使用局部加载，则该类型必须要在至少大于300pd的高度使用才不会出现弹跳的球超出加载范围；
+                  
+                  Flexible： {
+                      outerRadius： 外圈半径
+                      innerRadius： 内圈半径
+                      speed:        速度
+                  }  
+
+                  Demo：
+                  <Loading 
+                      outerRadius=‘12px’
+                      innerRadius='8px'
+                      speed='3'
+                   /> 
+               
+               conponent:     自定义加载图案
+               show:          是否展示加载组件
+               beforeLoading：生命周期函数，加载前触发
+               afterLoading： 生命周期函数。加载后触发
+               
+               局部加载：      必须在Loading的子元素中的根元素加上‘loading’的id值
+               <Loading>
+                  <div id='loading'>xxxx
+               </Loading>
+`````   
+
+####Pop组件
+
+````
+1，介绍：主要适用气泡效果类的弹层
+
+2，固定属性：
+
+           trigger:    触发方式，默认是hover；
+
+           title:      气泡中的标题；
+
+           content:    气泡主题内容；
+
+           placement:  气泡显示位置；
+
+````
+
+####Switch组件
+
+````
+1，介绍：表示需要开关状态/两种状态之间的切换时采用
+
+2，固定属性：
+
+          defaultChecked（require）：      默认值
+
+          onChange：                      点击切换时触发的事件
+
+          checkTxt：                      自定义打开时文案
+
+          unCheckTxt：                    自定义关闭时文案
+
+````
 ####Pagination组件
 ````    
 1，介绍：只要用来翻页操作。
@@ -233,51 +305,77 @@ Demo：
                      />
          
 ````            
-####Modal组件
-````
-1，介绍：在处理事务中如果希望跳转页面以致打断工作流程时，可以使用Modal在当前页面正中打开一个浮层，承载相应的操作。
-        并且通过confirm方法提供了五种不同的消息提示。
-
-2，固定属性：
-
-           visible（require）：         控制Modal是否展示
-
-           musk:                       是否展示背景颜色，默认是true
-
-           content（require）：         对话框正文
-
-           title：                     对话框标题
-
-           onCancel（require）：        取消回调
-
-           onSure（require）：          确认回调
-
-           confirmLoading：            确认后是否显示加载logo
-
-           text：                      自定义取消和确认按钮文案
-
-           confirm（spec）：            返回一个消息对话框
-
-           spec：
-                musk；content；title；onCancel；onSure；type：  success，error，info，question，warning
-````
-
-####Pop组件
+####Tab组件
 
 ````
-1，介绍：主要适用气泡效果类的弹层
+介绍： 适用于根据选项切换不同的内容组件
 
-2，固定属性：
-
-           trigger:    触发方式，默认是hover；
-
-           title:      气泡中的标题；
-
-           content:    气泡主题内容；
-
-           placement:  气泡显示位置；
-
+Tabs组件固定属性：
+               effectType：              tab组件的类型，background和slider两种类型
+               
+               activeId：                默认选中ID
+               
+               onChange：                切换tab时触发事件
+               
+               createTabPanel：          获取TabPanel组件
+               
+               activedColor：            选中tab的文字颜色
+               
+TabPanel组件固定属性：
+               name：                    tab的内容
+               
+               order：                   tab的序号
+               
+     
 ````
+####Step组件
+````  
+
+1，介绍：使用于动态变化的一系列状态节点；
+
+Steps属性：
+          curStatus:          当前节点状态
+          direction:          状态表的展示方向
+          curNodeName:        当前节点名
+          statusMap:          状态映射表，{success: string || array, progress: 同左, error: 同左}
+          distance:           状态线的长度
+          onComplete:         整个状态表完成时的回调函数
+          arriveSomeStep:     指定某个节点被成功激活时的回调，{nodeName: 节点， effect：回调函数，参数是当前节点的状态}
+          changeStep:         每个节点变化时的回调，参数是curStatus, curNodeName
+  
+Step属性：
+          nodeName:           该节点名
+          title：             该节点的标题
+          description:        该节点的描述
+          
+Demo:
+                 <Steps
+                             curStatus={this.state.step.status}
+                             curNodeName={this.state.step.node}
+                             statusMap={statusMap}
+                             // direction='vertical'
+                             distance='70'
+                             onComplete={() => {
+                                 console.log('complete');
+                             }}
+                             arriveSomeStep={{
+                                 nodeName: 'a5',
+                                 effect: (status) => {
+                                     console.log('status', status);
+                                 }
+                             }}
+                             changeStep={(a, b) => {
+                                 console.log('a', a);
+                                 console.log('b', b);
+                             }}
+                         >
+                             <Step title='状态1状态' nodeName='a1' description='描述描述'/>
+                             <Step title='状态2状态' nodeName='a2' description='描述描述'/>
+                             <Step title='状态3状态' nodeName='a3' description='描述描述'/>
+                             <Step title='状态4状态' nodeName='a4' description='描述描述'/>
+                             <Step title='状态5状态' nodeName='a5' description='描述描述'/>
+                         </Steps>
+`````      
  ####Progress组件
  ````         
  1, 介绍：动态进度条（目前只有线条状）
@@ -302,29 +400,6 @@ Demo：
                        textInside={true}
              />
 ````                 
-####Tab组件
-
-````
-介绍： 适用于根据选项切换不同的内容组件
-
-Tabs组件固定属性：
-               effectType：              tab组件的类型，background和slider两种类型
-               
-               activeId：                默认选中ID
-               
-               onChange：                切换tab时触发事件
-               
-               createTabPanel：          获取TabPanel组件
-               
-               activedColor：            选中tab的文字颜色
-               
-TabPanel组件固定属性：
-               name：                    tab的内容
-               
-               order：                   tab的序号
-               
-     
-````
 ####Transverter组件
 ````
 1，介绍：数据转换器，适用于将不同类型的数据结构转换成指定组件内容适用的数据结构
@@ -393,67 +468,3 @@ class Test extends Component{
 
 最终渲染的组件为:<Test obj={转换后的数据} className="test-demo">
 ````
-####Switch组件
-
-````
-1，介绍：表示需要开关状态/两种状态之间的切换时采用
-
-2，固定属性：
-
-          defaultChecked（require）：      默认值
-
-          onChange：                      点击切换时触发的事件
-
-          checkTxt：                      自定义打开时文案
-
-          unCheckTxt：                    自定义关闭时文案
-
-````
-####Step组件
-````  
-
-1，介绍：使用于动态变化的一系列状态节点；
-
-Steps属性：
-          curStatus:          当前节点状态
-          direction:          状态表的展示方向
-          curNodeName:        当前节点名
-          statusMap:          状态映射表，{success: string || array, progress: 同左, error: 同左}
-          distance:           状态线的长度
-          onComplete:         整个状态表完成时的回调函数
-          arriveSomeStep:     指定某个节点被成功激活时的回调，{nodeName: 节点， effect：回调函数，参数是当前节点的状态}
-          changeStep:         每个节点变化时的回调，参数是curStatus, curNodeName
-  
-Step属性：
-          nodeName:           该节点名
-          title：             该节点的标题
-          description:        该节点的描述
-          
-Demo:
-                 <Steps
-                             curStatus={this.state.step.status}
-                             curNodeName={this.state.step.node}
-                             statusMap={statusMap}
-                             // direction='vertical'
-                             distance='70'
-                             onComplete={() => {
-                                 console.log('complete');
-                             }}
-                             arriveSomeStep={{
-                                 nodeName: 'a5',
-                                 effect: (status) => {
-                                     console.log('status', status);
-                                 }
-                             }}
-                             changeStep={(a, b) => {
-                                 console.log('a', a);
-                                 console.log('b', b);
-                             }}
-                         >
-                             <Step title='状态1状态' nodeName='a1' description='描述描述'/>
-                             <Step title='状态2状态' nodeName='a2' description='描述描述'/>
-                             <Step title='状态3状态' nodeName='a3' description='描述描述'/>
-                             <Step title='状态4状态' nodeName='a4' description='描述描述'/>
-                             <Step title='状态5状态' nodeName='a5' description='描述描述'/>
-                         </Steps>
-`````      

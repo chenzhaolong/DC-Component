@@ -38,5 +38,5 @@ export {
     Message,
     Notification,
     FaIcon,
-    Condition
+    Condition,
 }

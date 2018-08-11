@@ -6,9 +6,17 @@ import React, {Component, PureComponent} from 'react';
  *  @param: tag is a tag of a element of html
  *  @param: id is a attribute of this element
  * */
-function createRootElement(tag, id) {
+export function createRootElement(tag, id, className, style) {
     const ele = document.createElement(tag);
-    ele.id = id;
+    if (id) {
+        ele.id = id;
+    }
+    if (className) {
+        ele.className = className;
+    }
+    if (style) {
+        ele.style = style;
+    }
     document.body.appendChild(ele);
 }
 
@@ -24,7 +32,7 @@ export function removeRootElement(id) {
 /**
  *  create HOC
  * */
-function createHoc(Com, spec) {
+export function createHoc(Com, spec) {
     return class extends Component {
         render() {
             let option = Object.assign({}, spec, {removeRootElement});
@@ -42,10 +50,24 @@ function createHoc(Com, spec) {
  *  render the component of Confirm in the body
  *  @param: Com is a component
  * */
-export function _renderComponent(tag, id) {
-    createRootElement(tag, id);
+export function _renderComponent(tag, id, className) {
+    createRootElement(tag, id, className);
     return function (Com, spec) {
         const RenderCom = createHoc(Com, spec);
-        render(<RenderCom/>, document.getElementById(id))
+        let rootEle;
+        if (id) {
+            rootEle = document.getElementById(id);
+        } else {
+            rootEle = document.body.lastElementChild;
+        }
+        render(<RenderCom/>, rootEle)
     }
+}
+
+/**
+ *
+ */
+export function renderChild(id, Com)  {
+    const rootEle = document.getElementById(id);
+    render(<Com/>, rootEle);
 }

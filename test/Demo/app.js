@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {
     Button, Row, Col, Pop, Modal, Switch, Tabs, Transverter, Breadcrumb, Menu,
-    Loading, Steps, Progress, Pagination, FaIcon, Condition
+    Loading, Steps, Progress, Pagination, FaIcon, Condition, Notification
 } from '../../src/components/index';
 import './app.css';
 
@@ -80,12 +80,17 @@ class Demo extends Component {
     }
 
     handle() {
-        let time = this.state.time + 1;
-        if (time <= 5) {
-            this.setState({time, show: true, loadingShow: !this.state.loadingShow});
-        } else {
-            this.setState({time: 0, disabled: true, show: true})
-        }
+        // let time = this.state.time + 1;
+        // if (time <= 5) {
+        //     this.setState({time, show: true, loadingShow: !this.state.loadingShow});
+        // } else {
+        //     this.setState({time: 0, disabled: true, show: true})
+        // }
+        Notification.notify({
+            title: `标题${this.state.time}`,
+            message: '提示信息',
+        });
+        this.setState({time: this.state.time + 1});
     }
 
     cancel() {
